@@ -1,0 +1,1 @@
+Logical under-restriction, caused by the trivial satisfaction of the universal restriction. Novice knowledge engineers could incorrectly assume that the universal restriction implies the existential quantifier. This leads to valid instances with no property values at all when this was not intended.

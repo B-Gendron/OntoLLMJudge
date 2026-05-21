@@ -1,0 +1,44 @@
+Starting pretrained baseline evaluation for task: inference_capability
+`torch_dtype` is deprecated! Use `dtype` instead!
+2026-05-02 20:05:05.682281: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-05-02 20:05:05.786884: I tensorflow/core/util/util.cc:169] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-05-02 20:05:05.825133: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-05-02 20:05:06.393550: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2026-05-02 20:05:06.393631: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2026-05-02 20:05:06.393638: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Model family : qwen
+Model        : Qwen/Qwen3-30B-A3B-Instruct-2507
+Task         : inference_capability
+Val samples  : 40
+Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▋         | 1/16 [00:01<00:25,  1.67s/it]Loading checkpoint shards:  12%|█▎        | 2/16 [00:03<00:25,  1.81s/it]Loading checkpoint shards:  19%|█▉        | 3/16 [00:05<00:24,  1.86s/it]Loading checkpoint shards:  25%|██▌       | 4/16 [00:07<00:22,  1.89s/it]Loading checkpoint shards:  31%|███▏      | 5/16 [00:09<00:20,  1.90s/it]Loading checkpoint shards:  38%|███▊      | 6/16 [00:11<00:19,  1.92s/it]Loading checkpoint shards:  44%|████▍     | 7/16 [00:13<00:17,  1.94s/it]Loading checkpoint shards:  50%|█████     | 8/16 [00:15<00:15,  1.97s/it]Loading checkpoint shards:  56%|█████▋    | 9/16 [00:17<00:13,  1.98s/it]Loading checkpoint shards:  62%|██████▎   | 10/16 [00:19<00:12,  2.01s/it]Loading checkpoint shards:  69%|██████▉   | 11/16 [00:21<00:10,  2.03s/it]Loading checkpoint shards:  75%|███████▌  | 12/16 [00:23<00:08,  2.04s/it]Loading checkpoint shards:  81%|████████▏ | 13/16 [00:25<00:06,  2.04s/it]Loading checkpoint shards:  88%|████████▊ | 14/16 [00:27<00:04,  2.06s/it]Loading checkpoint shards:  94%|█████████▍| 15/16 [00:29<00:02,  2.07s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.56s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.88s/it]
+
+Label token IDs:
+  'correct' → 19928 → 'correct'
+  'partial' → 37420 → 'partial'
+  'void' → 1004 → 'void'
+  'wrong' → 34870 → 'wrong'
+
+============================================================
+PRETRAINED BASELINE RESULTS
+Task: inference_capability  |  Model: Qwen/Qwen3-30B-A3B-Instruct-2507
+============================================================
+              precision    recall  f1-score   support
+
+     correct       0.40      1.00      0.57        16
+     partial       0.00      0.00      0.00         9
+        void       0.00      0.00      0.00         5
+       wrong       0.00      0.00      0.00        10
+
+    accuracy                           0.40        40
+   macro avg       0.10      0.25      0.14        40
+weighted avg       0.16      0.40      0.23        40
+
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  correct                           40.0%   100.0% ← collapsed?
+  partial                           22.5%     0.0%
+  void                              12.5%     0.0%
+  wrong                             25.0%     0.0%
+============================================================
+Evaluation finished.

@@ -1,0 +1,296 @@
+{
+  "type1_domain_range_inconsistency": {
+    "local_name": "OPRMistakeType1_DomainRangeInconsistency",
+    "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType1_DomainRangeInconsistency",
+    "n_tokens": 21,
+    "n_ngrams": 95,
+    "n_exact_matches": 7,
+    "n_fuzzy_matches": 1,
+    "concepts": {
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Domain": {
+        "concept_name": "domain",
+        "triggered_by": [
+          "domain"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Range": {
+        "concept_name": "range",
+        "triggered_by": [
+          "range"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Individual": {
+        "concept_name": "individual",
+        "triggered_by": [
+          "object"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#ObjectProperty": {
+        "concept_name": "object property",
+        "triggered_by": [
+          "object property",
+          "property"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Restriction": {
+        "concept_name": "property restriction",
+        "triggered_by": [
+          "property restriction",
+          "restriction",
+          "restrictions~restriction"
+        ],
+        "implied_by": []
+      }
+    }
+  },
+  "type2_domain_range_misplacement": {
+    "local_name": "OPRMistakeType2_DomainRangeMisplacement",
+    "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType2_DomainRangeMisplacement",
+    "n_tokens": 20,
+    "n_ngrams": 90,
+    "n_exact_matches": 7,
+    "n_fuzzy_matches": 0,
+    "concepts": {
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#ObjectProperty": {
+        "concept_name": "object property",
+        "triggered_by": [
+          "object property",
+          "property"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Restriction": {
+        "concept_name": "property restriction",
+        "triggered_by": [
+          "property restriction",
+          "restriction"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Range": {
+        "concept_name": "range",
+        "triggered_by": [
+          "property range",
+          "range"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Individual": {
+        "concept_name": "individual",
+        "triggered_by": [
+          "object"
+        ],
+        "implied_by": []
+      }
+    }
+  },
+  "type3_equivalence_misuse": {
+    "local_name": "OPRMistakeType3_EquivalenceMisuse",
+    "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType3_EquivalenceMisuse",
+    "n_tokens": 19,
+    "n_ngrams": 85,
+    "n_exact_matches": 1,
+    "n_fuzzy_matches": 1,
+    "concepts": {
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Subclass": {
+        "concept_name": "subclass",
+        "triggered_by": [
+          "subclassof"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#SubClassOfAxiom": {
+        "concept_name": "subclassof axiom",
+        "triggered_by": [
+          "subclassof"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Restriction": {
+        "concept_name": "property restriction",
+        "triggered_by": [
+          "restrictions~restriction"
+        ],
+        "implied_by": []
+      }
+    }
+  },
+  "type4_logical_misunderstanding": {
+    "local_name": "OPRMistakeType4_LogicalMisunderstanding",
+    "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType4_LogicalMisunderstanding",
+    "n_tokens": 35,
+    "n_ngrams": 165,
+    "n_exact_matches": 6,
+    "n_fuzzy_matches": 5,
+    "concepts": {
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#ObjectProperty": {
+        "concept_name": "object property",
+        "triggered_by": [
+          "property"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Restriction": {
+        "concept_name": "property restriction",
+        "triggered_by": [
+          "constraints~constraint",
+          "property restriction",
+          "restriction",
+          "restrictions~restriction",
+          "used property restriction~property restriction"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Axioms": {
+        "concept_name": "axioms",
+        "triggered_by": [
+          "axiom"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#CardinalityRestriction": {
+        "concept_name": "cardinality restriction",
+        "triggered_by": [
+          "cardinality"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#ExactCardinalityRestriction": {
+        "concept_name": "exact cardinality restriction",
+        "triggered_by": [
+          "exact cardinality",
+          "restrictions exact cardinality~exact cardinality restriction"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#ExistentialRestriction": {
+        "concept_name": "existential restriction",
+        "triggered_by": [
+          "existential restrictions~existential restriction"
+        ],
+        "implied_by": []
+      }
+    }
+  },
+  "type5_trivial_satisfaction": {
+    "local_name": "OPRMistakeType5_TrivialSatisfaction",
+    "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType5_TrivialSatisfaction",
+    "n_tokens": 23,
+    "n_ngrams": 105,
+    "n_exact_matches": 4,
+    "n_fuzzy_matches": 2,
+    "concepts": {
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Restriction": {
+        "concept_name": "property restriction",
+        "triggered_by": [
+          "restriction"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#ObjectProperty": {
+        "concept_name": "object property",
+        "triggered_by": [
+          "property"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#UniversalRestriction": {
+        "concept_name": "universal restriction",
+        "triggered_by": [
+          "universal restriction"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#ExistentialRestriction": {
+        "concept_name": "existential restriction",
+        "triggered_by": [
+          "existential quantifier",
+          "existential quantifier leads~existential quantifier"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Individual": {
+        "concept_name": "individual",
+        "triggered_by": [
+          "instances~instance"
+        ],
+        "implied_by": []
+      }
+    }
+  },
+  "type6_wrong_class": {
+    "local_name": "OPRMistakeType6_WrongClass",
+    "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType6_WrongClass",
+    "n_tokens": 22,
+    "n_ngrams": 100,
+    "n_exact_matches": 6,
+    "n_fuzzy_matches": 0,
+    "concepts": {
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#ObjectProperty": {
+        "concept_name": "object property",
+        "triggered_by": [
+          "object property",
+          "property"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Restriction": {
+        "concept_name": "property restriction",
+        "triggered_by": [
+          "property restriction",
+          "restriction"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Class": {
+        "concept_name": "class",
+        "triggered_by": [
+          "class"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Individual": {
+        "concept_name": "individual",
+        "triggered_by": [
+          "object"
+        ],
+        "implied_by": []
+      }
+    }
+  },
+  "type_other": {
+    "local_name": "OPRMistakeTypeOther",
+    "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeTypeOther",
+    "n_tokens": 21,
+    "n_ngrams": 95,
+    "n_exact_matches": 3,
+    "n_fuzzy_matches": 0,
+    "concepts": {
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Axioms": {
+        "concept_name": "axioms",
+        "triggered_by": [
+          "axiom"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Individual": {
+        "concept_name": "individual",
+        "triggered_by": [
+          "instance"
+        ],
+        "implied_by": []
+      },
+      "http://www.semanticweb.org/user/vocabularies/owl2-opr#Subclass": {
+        "concept_name": "subclass",
+        "triggered_by": [
+          "subclass"
+        ],
+        "implied_by": []
+      }
+    }
+  }
+}

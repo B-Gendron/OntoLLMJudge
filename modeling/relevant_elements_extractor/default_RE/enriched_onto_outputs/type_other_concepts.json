@@ -1,0 +1,31 @@
+{
+  "local_name": "OPRMistakeTypeOther",
+  "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeTypeOther",
+  "n_tokens": 21,
+  "n_ngrams": 95,
+  "n_exact_matches": 3,
+  "n_fuzzy_matches": 0,
+  "concepts": {
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Axioms": {
+      "concept_name": "axioms",
+      "triggered_by": [
+        "axiom"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Individual": {
+      "concept_name": "individual",
+      "triggered_by": [
+        "instance"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Subclass": {
+      "concept_name": "subclass",
+      "triggered_by": [
+        "subclass"
+      ],
+      "implied_by": []
+    }
+  }
+}

@@ -1,0 +1,1 @@
+Incorrect property restriction placement in the property range. Often novice knowledge engineers define the restriction in the range of the object property rather than at the class-level, which changes its logical interpretation and often leads to inconsistencies.

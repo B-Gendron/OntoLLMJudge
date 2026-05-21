@@ -1,0 +1,20 @@
+Modeling Comprehension
+The explanation contains a correct interpretation of the modeling of all relevant elements. 1
+The explanation contains a correct interpretation of the modeling for a subset of the relevant elements. 0.5
+The explanation does not contain an interpretation of the modeling. 0
+The explanation contains an incorrect interpretation of the modeling. -1
+
+Inference Capability
+The explanation correctly and completely points out to (potential) unintended outcomes of the mistake. 1
+The explanation correctly but partially points out to (potential) unintended outcomes of the mistake. 0.5
+The explanation does not point out to (potential) unintended outcomes of the mistake. 0
+The explanation incorrectly points out to (potential) unintended outcomes of the mistake. -1
+
+Mistake Correction Competence
+The explanation includes a correct modeling suggestion for fixing the mistake. 1
+The explanation does not include a modeling suggestion for fixing the mistake. 0
+The explanation includes an incorrect modeling suggestion for fixing the mistake -1
+
+Appropriate Vocabulary Usage
+The explanation demonstrates correct usage of domain-specific (ontology) terminology. 1
+The explanation demonstrates incorrect usage of domain-specific (ontology) terminology. -1

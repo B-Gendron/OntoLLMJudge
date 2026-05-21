@@ -1,0 +1,31 @@
+{
+  "local_name": "OPRMistakeType3_EquivalenceMisuse",
+  "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType3_EquivalenceMisuse",
+  "n_tokens": 19,
+  "n_ngrams": 85,
+  "n_exact_matches": 1,
+  "n_fuzzy_matches": 1,
+  "concepts": {
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Subclass": {
+      "concept_name": "subclass",
+      "triggered_by": [
+        "subclassof"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#SubClassOfAxiom": {
+      "concept_name": "subclassof axiom",
+      "triggered_by": [
+        "subclassof"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Restriction": {
+      "concept_name": "property restriction",
+      "triggered_by": [
+        "restrictions~restriction"
+      ],
+      "implied_by": []
+    }
+  }
+}

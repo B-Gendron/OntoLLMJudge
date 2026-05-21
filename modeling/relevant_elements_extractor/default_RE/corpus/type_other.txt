@@ -1,0 +1,1 @@
+In a single occurrence the student intention was superfluous and included broader definitions, which were only partly related to their modeled axiom. In another instance, an incorrect subClass definition was detected, in addition to a typed mistake.

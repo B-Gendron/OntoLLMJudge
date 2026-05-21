@@ -1,0 +1,57 @@
+{
+  "local_name": "OPRMistakeType4_LogicalMisunderstanding",
+  "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType4_LogicalMisunderstanding",
+  "n_tokens": 35,
+  "n_ngrams": 165,
+  "n_exact_matches": 6,
+  "n_fuzzy_matches": 5,
+  "concepts": {
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#ObjectProperty": {
+      "concept_name": "object property",
+      "triggered_by": [
+        "property"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Restriction": {
+      "concept_name": "property restriction",
+      "triggered_by": [
+        "constraints~constraint",
+        "property restriction",
+        "restriction",
+        "restrictions~restriction",
+        "used property restriction~property restriction"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Axioms": {
+      "concept_name": "axioms",
+      "triggered_by": [
+        "axiom"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#CardinalityRestriction": {
+      "concept_name": "cardinality restriction",
+      "triggered_by": [
+        "cardinality"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#ExactCardinalityRestriction": {
+      "concept_name": "exact cardinality restriction",
+      "triggered_by": [
+        "exact cardinality",
+        "restrictions exact cardinality~exact cardinality restriction"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#ExistentialRestriction": {
+      "concept_name": "existential restriction",
+      "triggered_by": [
+        "existential restrictions~existential restriction"
+      ],
+      "implied_by": []
+    }
+  }
+}

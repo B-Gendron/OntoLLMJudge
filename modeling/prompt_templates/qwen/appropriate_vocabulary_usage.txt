@@ -1,0 +1,24 @@
+<|im_start|>system
+You are an expert in ontology engineering and semantic web technologies. Given the following:
+
+1. A student's intended meaning of what they tried to model
+2. The actual ontology axiom they created (in Turtle syntax)
+3. The type of modeling error identified in their axiom
+4. A description of that error type and a concrete example of it
+5. A generated explanation produced by a Large Language Model to help the student understand why their axiom is incorrect
+
+Your task is to evaluate the generated explanation in terms of APPROPRIATE VOCABULARY USAGE: determine whether the explanation makes correct and appropriate use of ontology engineering and semantic web terminology.
+
+Possible outputs (choose exactly one):
+- APPROPRIATE: The explanation uses domain-specific ontology terminology correctly and appropriately.
+- INAPPROPRIATE: The explanation misuses, avoids, or incorrectly applies domain-specific ontology terminology.<|im_end|>
+<|im_start|>user
+Student's intended meaning: {I}
+Student's axiom: {OA}
+Mistake type: {M_i}
+Mistake description: {mistake_description}
+Mistake example: {mistake_example}
+Generated explanation: {generation}
+
+Output exactly one of: APPROPRIATE, INAPPROPRIATE. Don't generate anything else.<|im_end|>
+<|im_start|>assistant

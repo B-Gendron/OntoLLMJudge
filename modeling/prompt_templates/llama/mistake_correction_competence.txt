@@ -1,0 +1,25 @@
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are an expert in ontology engineering and semantic web technologies. Given the following:
+
+1. A student's intended meaning of what they tried to model
+2. The actual ontology axiom they created (in Turtle syntax)
+3. The type of modeling error identified in their axiom
+4. A description of that error type and a concrete example of it
+5. A generated explanation produced by a Large Language Model to help the student understand why their axiom is incorrect
+
+Your task is to evaluate the generated explanation in terms of MISTAKE CORRECTION COMPETENCE: determine whether the explanation provides a correct modeling suggestion to fix the student's mistake.
+
+Possible outputs (choose exactly one):
+- CORRECT_SUGGESTION: The explanation provides a correct and valid suggestion to fix the modeling mistake.
+- INCORRECT_SUGGESTION: The explanation provides a suggestion to fix the mistake, but the suggestion is wrong or would not resolve the error.
+- NO_SUGGESTION: The explanation does not provide any suggestion on how to fix the mistake.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Student's intended meaning: {I}
+Student's axiom: {OA}
+Mistake type: {M_i}
+Mistake description: {mistake_description}
+Mistake example: {mistake_example}
+Generated explanation: {generation}
+
+Output exactly one of: CORRECT_SUGGESTION, INCORRECT_SUGGESTION, NO_SUGGESTION. Don't generate anything else.<|eot_id|><|start_header_id|>assistant<|end_header_id|>

@@ -1,0 +1,38 @@
+Starting pretrained baseline evaluation for task: mistake_correction_competence
+`torch_dtype` is deprecated! Use `dtype` instead!
+2026-05-02 20:02:49.073042: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-05-02 20:02:49.177012: I tensorflow/core/util/util.cc:169] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-05-02 20:02:49.209672: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-05-02 20:02:49.706363: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2026-05-02 20:02:49.706433: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2026-05-02 20:02:49.706441: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Model family : qwen
+Model        : Qwen/Qwen3-30B-A3B-Instruct-2507
+Task         : mistake_correction_competence
+Val samples  : 40
+Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▋         | 1/16 [00:01<00:24,  1.64s/it]Loading checkpoint shards:  12%|█▎        | 2/16 [00:03<00:24,  1.78s/it]Loading checkpoint shards:  19%|█▉        | 3/16 [00:05<00:23,  1.83s/it]Loading checkpoint shards:  25%|██▌       | 4/16 [00:07<00:22,  1.85s/it]Loading checkpoint shards:  31%|███▏      | 5/16 [00:09<00:20,  1.87s/it]Loading checkpoint shards:  38%|███▊      | 6/16 [00:11<00:18,  1.90s/it]Loading checkpoint shards:  44%|████▍     | 7/16 [00:13<00:17,  1.91s/it]Loading checkpoint shards:  50%|█████     | 8/16 [00:15<00:15,  1.93s/it]Loading checkpoint shards:  56%|█████▋    | 9/16 [00:17<00:13,  1.95s/it]Loading checkpoint shards:  62%|██████▎   | 10/16 [00:19<00:11,  1.97s/it]Loading checkpoint shards:  69%|██████▉   | 11/16 [00:21<00:09,  2.00s/it]Loading checkpoint shards:  75%|███████▌  | 12/16 [00:23<00:08,  2.00s/it]Loading checkpoint shards:  81%|████████▏ | 13/16 [00:25<00:06,  2.01s/it]Loading checkpoint shards:  88%|████████▊ | 14/16 [00:27<00:04,  2.02s/it]Loading checkpoint shards:  94%|█████████▍| 15/16 [00:29<00:02,  2.04s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:29<00:00,  1.53s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:29<00:00,  1.85s/it]
+
+Label token IDs:
+  'correct' → 19928 → 'correct'
+  'void' → 1004 → 'void'
+
+============================================================
+PRETRAINED BASELINE RESULTS
+Task: mistake_correction_competence  |  Model: Qwen/Qwen3-30B-A3B-Instruct-2507
+============================================================
+              precision    recall  f1-score   support
+
+     correct       0.05      1.00      0.10         2
+        void       0.00      0.00      0.00        38
+
+    accuracy                           0.05        40
+   macro avg       0.03      0.50      0.05        40
+weighted avg       0.00      0.05      0.00        40
+
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  correct                            5.0%   100.0% ← collapsed?
+  void                              95.0%     0.0%
+============================================================
+Evaluation finished.

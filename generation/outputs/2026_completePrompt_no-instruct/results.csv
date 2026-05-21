@@ -1,0 +1,536 @@
+row_id,experiment,OA,I,M_i,explanation
+0,no_instruct,"@prefix : <http://www.semanticweb.org/matej/ontologies/2026/2/untitled-ontology-45/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Court a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:onClass :Location ;
+  owl:onProperty :takesPlaceIn ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ],
+  [ a owl:Restriction ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Verdict ;
+  owl:onProperty :issuesVerdict ],
+  :Organisation .
+
+:issuesVerdict a owl:FunctionalProperty,
+  owl:ObjectProperty ;
+  rdfs:comment ""The property issuesVerdict is functional because a court should issue only one verdict."" ;
+  rdfs:domain :Judge ;
+  rdfs:range :Verdict ;
+  rdfs:subPropertyOf owl:topObjectProperty .
+
+:Verdict a owl:Class .",Every court can issue at most one verdict.,Inconsistent Domain/Range,"Your axiom implies that a Court issues at most one Verdict through the property :issuesVerdict, but since you've also stated that the domain of :issuesVerdict is Judge, it suggests that a Judge issues a Verdict, not a Court, leading to an inconsistency in your model."
+1,no_instruct,"@prefix : <http://www.semanticweb.org/matej/ontologies/2026/2/untitled-ontology-45/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:LawFirm a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Client ;
+  owl:onProperty :represents ],
+  :Organisation .
+
+:Client a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:onProperty :represents ;
+  owl:someValuesFrom :Case ],
+  :Person .
+
+:represents a owl:ObjectProperty ;
+  rdfs:domain :Lawyer ;
+  rdfs:range :Client ;
+  rdfs:subPropertyOf owl:topObjectProperty .",Every Law firm represents at least 2 Clients,Inconsistent Domain/Range,"The issue lies in the fact that you've restricted the property :represents to have a minimum cardinality of 2 for the class :LawFirm, but its domain is specified as :Lawyer, not :LawFirm, which means the restriction actually applies to individual lawyers rather than law firms, leading to inconsistent inferences about lawyer-client relationships. This can result in incorrect conclusions about the number of clients represented by each lawyer."
+2,no_instruct,"@prefix : <http://www.semanticweb.org/hossnahosseini/ontologies/2026/2/RealEstateOntology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Apartment a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :Amenities ;
+  owl:onProperty :has ],
+  [ a owl:Restriction ;
+  owl:maxQualifiedCardinality ""10""^^xsd:nonNegativeInteger ;
+  owl:onClass :Amenities ;
+  owl:onProperty :has ],
+  :Properties .
+
+:Amenities a owl:Class ;
+  rdfs:comment ""an amenitiy is omething extra included"" ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:onProperty :locatedIn ;
+  owl:someValuesFrom :Properties ] .
+
+:has a owl:ObjectProperty,
+  owl:SymmetricProperty ;
+  rdfs:comment ""A Person has the legal status a mortgage. A person can only have the legal status mortgage"" ;
+  rdfs:domain :Person .",An apartment has max 10 amenities,Inconsistent Domain/Range,"Your axiom implies that an Apartment has at most 10 Amenities, but it also suggests that an Apartment is a subclass of Properties through its subClassOf relationship with :Properties, which could lead to an inconsistent inference where an Apartment is both a subclass of Amenities (due to the allValuesFrom restriction) and a subclass of Properties, potentially causing confusion about the nature of Apartments."
+3,no_instruct,"@prefix : <http://www.semanticweb.org/maxif/ontologies/2026/2/untitled-ontology-7/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Exercise a owl:Class ;
+  rdfs:comment ""Each exercise trains at least one muscle group"" ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:onProperty :achievesGoals ;
+  owl:someValuesFrom :TrainingGoal ],
+  [ a owl:Restriction ;
+  owl:onProperty :causesInjury ;
+  owl:someValuesFrom :MuscleGroup ],
+  [ a owl:Restriction ;
+  owl:allValuesFrom :MuscleGroup ;
+  owl:onProperty :trainsMuscle ] .
+
+:achievesGoals a owl:ObjectProperty ;
+  rdfs:domain :NutritionPlans ;
+  rdfs:range :TrainingGoal .
+
+:TrainingGoal a owl:Class ;
+  rdfs:comment ""Trainer leads to at least one training goal and is not allowed to lead to other types of entities."" ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :TrainingGoal ;
+  owl:onProperty :leadsTo ] .",Exercises achieves at least one Trainingsgoal.,Inconsistent Domain/Range,"Your axiom models the relationship between Exercise and TrainingGoal incorrectly because it implies that an Exercise can achieve any instance of TrainingGoal, but the domain of the achievesGoals property is actually set to NutritionPlan, suggesting that only NutritionPlans can achieve TrainingGoals, leading to inconsistent inferences about the relationships between these classes."
+4,no_instruct,"@prefix : <http://www.semanticweb.org/timhubmann/ontologies/2026/2/Aufgabe-Tim/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Camera a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :Camera_details ;
+  owl:onProperty :consistOf ],
+  [ a owl:Restriction ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Lens ;
+  owl:onProperty :hasLens ],
+  [ a owl:Restriction ;
+  owl:onClass :camera_brand ;
+  owl:onProperty :manufacturedBy ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ],
+  :Equipment .
+
+:Camera_details a owl:Class ;
+  rdfs:subClassOf :Equipment .
+
+:consistOf a owl:AsymmetricProperty,
+  owl:ObjectProperty ;
+  rdfs:comment ""Team consists of min 1 Photographer, but Photographer doesn't consist of Team"" ;
+  rdfs:domain :Team ;
+  rdfs:range :Photographer .","If an instance of Camera consists of something, it can only be a Camera Detail",Inconsistent Domain/Range,"Your axiom models the relationship between Camera and Camera_details incorrectly because it implies that any instance of Camera must have exactly one Lens, manufactured by exactly one camera brand, and also be an instance of Equipment, which may not necessarily be true given the intended meaning. This could lead to incorrect inferences about Cameras having specific lens types or manufacturers."
+5,no_instruct,"@prefix : <http://www.semanticweb.org/user/ontologies/2026/2/Fashion_4Lecture/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Jeans a owl:Class ;
+  rdfs:comment """"""Jeans are only made out of cotton. Jeans must be made out of material to exist.
+Jeans are sold by at least one brand."""""" ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:onProperty :isSoldBy ;
+  owl:someValuesFrom :Brand ],
+  [ a owl:Restriction ;
+  owl:allValuesFrom :Cotton ;
+  owl:onProperty :isMadeOf ],
+  :Bottom .
+
+:Cotton a owl:Class ;
+  rdfs:comment ""Cotton is suitable for at least one kind of weather condition."" ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:onProperty :isSuitableFor ;
+  owl:someValuesFrom :Weather ],
+  :Material .
+
+:isMadeOf a owl:ObjectProperty ;
+  rdfs:comment """"""A ClothingItem is made of a material.
+Inverse: A material is used for a ClothingItem."""""" ;
+  rdfs:domain :ClothingItem ;
+  rdfs:range :Material .",Jeans are only made out of cotton. Jeans must be made out of material to exist.,Universal Trivial Satisfaction,"Your axiom models the statement that Jeans can be made from any material, including those other than Cotton, because the universal restriction (:allValuesFrom) does not imply that Jeans must have a specific material value; it only states that if a Jeans instance exists, then its :isMadeOf property must be restricted to Cotton, but it doesn't prevent the existence of Jeans without a specified material."
+6,no_instruct,"@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Venues a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :Location ;
+  owl:onProperty :locatedIn ] .
+
+:Location a owl:Class .
+
+:locatedIn a owl:AsymmetricProperty, owl:ObjectProperty, owl:TransitiveProperty ;
+  rdfs:comment ""A Venue can only be locatedIn a Location. A EventTypes can only be locatedIn Venues. If a EventTypes is locatedIn a Venue, the Venue is locatedIn a Location.""  .",Venues have to be located in a Location,Universal Trivial Satisfaction,"Your axiom allows for the possibility that a Venue has no location, as it only specifies that any value of the :locatedIn property must be a :Location, but does not require that there be any values for the property at all."
+7,no_instruct,"@prefix : <http://www.semanticweb.org/samuel/ontologies/2026/2/ECommerce/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Products a owl:Class ;
+  owl:equivalentClass [ a owl:Restriction ;
+  owl:onProperty :hasCategorie ;
+  owl:someValuesFrom :Categorie ],
+  [ a owl:Restriction ;
+  owl:allValuesFrom :Brand ;
+  owl:onProperty :hasBrand ],
+  [ a owl:Restriction ;
+  owl:onClass :PricingModels ;
+  owl:onProperty :usesPricingModell ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ] .
+
+:usesPricingModell a owl:ObjectProperty ;
+  rdfs:domain :Products ;
+  rdfs:range :PricingModels .
+
+:PricingModels a owl:Class .",Each product must use exactly one pricing model,Equivalence Instead of Restriction,"Your axiom models the relationship between Products and PricingModels as an equivalence, implying that being a Product is equivalent to having exactly one PricingModel, but also implies that any entity with exactly one PricingModel is a Product, which may not be the case. This can lead to unintended inferences about entities that have exactly one PricingModel but do not fit the definition of a Product."
+8,no_instruct,"@prefix : <http://www.semanticweb.org/samuel/ontologies/2026/2/ECommerce/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Products a owl:Class ;
+  owl:equivalentClass [ a owl:Restriction ;
+  owl:onProperty :hasCategorie ;
+  owl:someValuesFrom :Categorie ],
+  [ a owl:Restriction ;
+  owl:allValuesFrom :Brand ;
+  owl:onProperty :hasBrand ],
+  [ a owl:Restriction ;
+  owl:onClass :PricingModels ;
+  owl:onProperty :usesPricingModell ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ] .
+
+:hasCategorie a owl:ObjectProperty ;
+  rdfs:domain :Products ;
+  rdfs:range :Categorie .
+
+:Categorie a owl:Class .",Every product must belong to at least one product category,Equivalence Instead of Restriction,"Your axiom models the intention as if every Product belongs to exactly one Category, has a Brand, and uses exactly one PricingModel, because it defines equivalences with restrictions that imply these conditions. This results in unintended inferences about the relationships between Products, Categories, Brands, and PricingModels."
+9,no_instruct,"@prefix : <http://www.semanticweb.org/tracy/ontologies/2026/2/recepies/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:MainDish a owl:Class ;
+  rdfs:subClassOf :Meal ;
+  owl:equivalentClass [ a owl:Restriction ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Ingredient ;
+  owl:onProperty :hasIngredient ] .
+
+:hasIngredient a owl:ObjectProperty ;
+  rdfs:domain :Recipes ;
+  rdfs:range :Ingredient .
+
+:Ingredient a owl:Class ;
+  owl:equivalentClass [ a owl:Restriction ;
+  owl:onProperty :isIngredientOf ;
+  owl:someValuesFrom :Recipes ] .",A MainDish contains at least two Ingredients.,Equivalence Instead of Restriction,"Your axiom models the intention as if every MainDish must have exactly two Ingredients, because you used equivalence instead of a restriction, implying that any Ingredient that is part of a Recipe must also be a MainDish with at least two Ingredients, leading to an unintended inference about the relationship between Ingredients and Recipes."
+10,no_instruct,"@prefix : <http://www.semanticweb.org/tracy/ontologies/2026/2/recepies/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:MainDish a owl:Class ;
+  rdfs:subClassOf :Meal ;
+  owl:equivalentClass [ a owl:Restriction ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Ingredient ;
+  owl:onProperty :hasIngredient ] .
+
+:hasIngredient a owl:ObjectProperty ;
+  rdfs:domain :Recipes ;
+  rdfs:range :Ingredient .
+
+:Ingredient a owl:Class ;
+  owl:equivalentClass [ a owl:Restriction ;
+  owl:onProperty :isIngredientOf ;
+  owl:someValuesFrom :Recipes ] .",A MainDish contains at least two Ingredients.,Inconsistent Domain/Range,"The issue with your axiom is that you've restricted the cardinality of :hasIngredient for :MainDish, but its domain is set to :Recipes, not :MainDish, leading to potential inconsistencies when inferring relationships between MainDishes and Ingredients. This could result in incorrect conclusions about the number of ingredients in a recipe."
+11,no_instruct,"@prefix : <http://www.semanticweb.org/tracy/ontologies/2026/2/recepies/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:PlantBasedRecipe a owl:Class ;
+  rdfs:subClassOf :Recipes ;
+  owl:equivalentClass [ a owl:Restriction ;
+  owl:allValuesFrom :PlantIngredient ;
+  owl:onProperty :hasIngredient ] .
+
+:PlantIngredient a owl:Class ;
+  rdfs:subClassOf :Ingredient .
+
+:hasIngredient a owl:ObjectProperty ;
+  rdfs:domain :Recipes ;
+  rdfs:range :Ingredient .",A plant based recipe has to have only plant ingredients.,Equivalence Instead of Restriction,"Your axiom models the relationship as an equivalence, implying that being a PlantBasedRecipe is equivalent to having all values of the hasIngredient property restricted to PlantIngredient. This means that any Recipe with at least one non-plant ingredient would also be considered a PlantBasedRecipe, which contradicts your original intention."
+12,no_instruct,"@prefix : <http://www.semanticweb.org/felix/ontologies/2026/2/untitled-ontology-5/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:BirthdayGuests a owl:Class ;
+  rdfs:comment ""birthday guest go TO only partyRoom"" ;
+  rdfs:subClassOf :Guest ;
+  owl:equivalentClass [ a owl:Restriction ;
+  owl:allValuesFrom :PartyRoom ;
+  owl:onProperty :goTo ] .
+
+:PartyRoom a owl:Class ;
+  rdfs:subClassOf :Venues .
+
+:goTo a owl:ObjectProperty ;
+  rdfs:domain :Guest ;
+  rdfs:range :Venues .",birthday guest can only go TO the party Rooms and not the eventrooms for example,Equivalence Instead of Restriction,"Your axiom models the relationship as an equivalence, implying that being a BirthdayGuest is equivalent to going to a PartyRoom, but it should be modeled as a restriction, suggesting that BirthdayGuests are Guests who always go to PartyRooms, without affecting other possible destinations. This results in the unintended inference that any Guest who goes to a PartyRoom is also a BirthdayGuest."
+13,no_instruct,"@prefix : <http://www.semanticweb.org/timhubmann/ontologies/2026/2/Aufgabe-Tim/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Cameraowner a owl:Class ;
+  owl:equivalentClass [ a owl:Restriction ;
+  owl:onProperty :ownsCamera ;
+  owl:someValuesFrom :Camera ] .
+
+:Camera a owl:Class ;
+  rdfs:subClassOf :Equipment .
+
+:ownsCamera a owl:ObjectProperty .",Every camera owner owns atleast 1 camera.,Equivalence Instead of Restriction,"Your axiom models the statement ""A CameraOwner is equivalent to something that has at least one Camera"" instead of ""A CameraOwner owns at least one Camera."" This means it also implies that anything that owns at least one Camera is a CameraOwner, which is not your intended meaning."
+14,no_instruct,"@prefix : <http://www.semanticweb.org/viktoriakollarczik/ontologies/2026/2/untitled-ontology-4/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Hospital a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:onProperty :has ;
+  owl:someValuesFrom :Patient ] .
+
+:Patient a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Diseases ;
+  owl:onProperty :suffersFrom ],
+  :Person .
+
+:has a owl:ObjectProperty .","Hospital can have some patients, it doesnt have to be",Misunderstood Constraint,"Your axiom implies that every hospital must have at least one patient, which is not your intended meaning. This could lead to unintended inferences such as a hospital being considered a hospital only if it has at least one patient, even if you meant to allow hospitals without any patients."
+15,no_instruct,"@prefix : <http://www.semanticweb.org/maxif/ontologies/2026/2/untitled-ontology-7/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:NutritionPlans a owl:Class ;
+  rdfs:comment ""Each nutrition plan supports at least one training goal and is not allowed to support other types of entities."" ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :TrainingGoal ;
+  owl:onProperty :achievesGoals ],
+  [ a owl:Restriction ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :TrainingGoal ;
+  owl:onProperty :achievesGoals ] .
+
+:achievesGoals a owl:ObjectProperty ;
+  rdfs:domain :NutritionPlans ;
+  rdfs:range :TrainingGoal .
+
+:TrainingGoal a owl:Class ;
+  rdfs:comment ""Trainer leads to at least one training goal and is not allowed to lead to other types of entities."" ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :TrainingGoal ;
+  owl:onProperty :leadsTo ] .",NutritionPlans can achieves only one TrainingGoal.,Misunderstood Constraint,"The student's axiom implies that a NutritionPlan must have at least one TrainingGoal and cannot have more than one TrainingGoal, but it does not necessarily mean that a NutritionPlan can only have exactly one TrainingGoal. This could lead to unintended inferences such as allowing multiple TrainingGoals with different properties."
+16,no_instruct,":Recipe rdf:type owl:Class .
+
+:hasCategory rdf:type owl:ObjectProperty ;
+             rdfs:domain :Recipe ;
+             rdfs:range :RecipeCategory ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasCategory ;
+                          owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+                          owl:onClass :RecipeCategory
+                        ] .
+
+:RecipeCategory rdf:type owl:Class .","A recipe is limited to one primary category by setting a cardinality
+constraint of 1 for hasCategory. This constraint prevents any recipe from
+belonging to more than one main category.",Domain/Range Instead of Class Restriction,"Your axiom implies that the range of the hasCategory property can be either a RecipeCategory or another entity that has a maximum qualified cardinality of 1 with respect to the hasCategory property within the context of a Recipe, leading to unintended inferences about entities that have a complex relationship with Recipe through multiple categories."
+17,no_instruct,":Recipe rdf:type owl:Class .
+
+:hasIngredient rdf:type owl:ObjectProperty ;
+               rdfs:domain :Recipe ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasIngredient ;
+                             owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+                             owl:onClass :Ingredient
+                           ] ;
+               rdfs:range :Ingredient .
+
+:Ingredient rdf:type owl:Class .
+","To ensure no recipes were created without ingredients, I added an
+existential restriction on hasIngredient, requiring each Recipe to have at
+least one linked Ingredient.",Domain/Range Instead of Class Restriction,"Your axiom implies that the range of the hasIngredient property must be an Ingredient that has at least one ingredient itself, leading to an infinite loop where every Ingredient must have another Ingredient, and so on, instead of ensuring that each Recipe simply has at least one Ingredient. This results in an unintended inference that Ingredients cannot exist independently without being part of a Recipe."
+18,no_instruct,":Recipe rdf:type owl:Class .
+
+:hasIngredient rdf:type owl:ObjectProperty ;
+               rdfs:domain :Recipe ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasIngredient ;
+                             owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+                             owl:onClass :Ingredient
+                           ] ;
+               rdfs:range :Ingredient .
+
+:Ingredient rdf:type owl:Class .
+","To ensure no recipes were created without ingredients, I added an
+existential restriction on hasIngredient, requiring each Recipe to have at
+least one linked Ingredient.",Other,"Your axiom implies that every recipe must have at least one ingredient, but it also suggests that there can be multiple instances of the same ingredient in a single recipe, as well as allows for the possibility of a recipe having no other properties besides being connected to an ingredient through hasIngredient. This could lead to unintended inferences about the nature of recipes and ingredients beyond your original intent."
+19,no_instruct,":Caregiver rdf:type owl:Class ;
+           rdfs:subClassOf :Person ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :isEmployed ;
+                             owl:allValuesFrom :GroomingSalon
+                           ] .
+
+:isEmployed rdf:type owl:ObjectProperty .
+
+:GroomingSalon rdf:type owl:Class ;
+               rdfs:subClassOf :PetCareLocation .",Caregiver is only employed at one grooming salon,Misunderstood Constraint,"The issue with your axiom is that it implies that every caregiver must be employed by some grooming salon, but does not necessarily mean they can only be employed at one grooming salon. This allows for the possibility that a caregiver could have multiple employments at different grooming salons."
+20,no_instruct,":Recipe rdf:type owl:Class .
+
+:hasNutritionalInformation rdf:type owl:ObjectProperty ;
+                           rdfs:domain :Recipe ;
+                           rdfs:range :NutritionalInformation ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasNutritionalInformation ;
+                                        owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+                                        owl:onClass :NutritionalInformation
+                                      ] .
+
+:NutritionalInformation rdf:type owl:Class .
+","I applied a maximum cardinality of 1 for hasNutritionalInformation,
+limiting each recipe to one set of nutritional data.",Domain/Range Instead of Class Restriction,"Your axiom implies that the range of the hasNutritionalInformation property is a set containing both NutritionalInformation and another instance of NutritionalInformation with a max cardinality of 1, suggesting that a Recipe can have either no or exactly one set of nutritional information, but also that it can have a single instance of NutritionalInformation that itself has a max cardinality of 1, leading to inconsistent interpretations."
+21,no_instruct,"@prefix : <http://www.semanticweb.org/matej/ontologies/2026/2/untitled-ontology-45/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Case rdfs:subClassOf [ a owl:Restriction ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Client ;
+  owl:onProperty :involvesClient ].
+
+:involvesClient  rdf:type owl:ObjectProperty.",a case inolves only 1 Client,Misunderstood Constraint,"Your axiom implies that every Case instance must involve at least one Client, but it does not prevent a Case from involving more than one Client, which contradicts your intended meaning of a single Client per Case."
+22,no_instruct,"@prefix : <http://www.semanticweb.org/matej/ontologies/2026/2/untitled-ontology-45/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Lawyer rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :Client ;
+  owl:onProperty :represents ] .
+
+:represents  rdf:type owl:ObjectProperty.",lawyer represents only one client,Misunderstood Constraint,"Your axiom implies that any instance of Lawyer can represent any instance of Client, which means a Lawyer can potentially represent multiple clients, contradicting your original intention. This allows for inferences like ""a Lawyer can represent a Client who also happens to be represented by another Lawyer."""
+23,no_instruct,"@prefix : <http://www.semanticweb.org/hossnahosseini/ontologies/2026/2/RealEstateOntology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Pool rdfs:subClassOf [ a owl:Restriction ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Villa ;
+  owl:onProperty :locatedIn ] .
+:locatedIn  rdf:type owl:ObjectProperty.",At least one pool is located in a Villa,Wrong Class Restricted,"Your axiom models the incorrect statement that a Pool must have at least one Villa located in it, rather than the intended meaning that there exists at least one Pool located in a Villa. This could lead to unintended inferences, such as the conclusion that every Pool has a Villa located in it, when in fact you only want to assert that some Villa contains a Pool."
+24,no_instruct,"@prefix : <http://www.semanticweb.org/hossnahosseini/ontologies/2026/2/RealEstateOntology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Properties rdfs:subClassOf [ a owl:Restriction ;
+  owl:onProperty :locatedIn ;
+  owl:someValuesFrom :City ] .
+:locatedIn  rdf:type owl:ObjectProperty.", At least one Property is located in  City.,Wrong Class Restricted,"Your axiom models the incorrect statement that Properties must have at least one instance that is a City, rather than stating that at least one Property is located in a City. This could lead to unintended inferences, such as implying that all Properties are somehow related to Cities, when in fact you likely intend to describe a relationship between specific properties and cities."
+25,no_instruct,"@prefix : <http://www.semanticweb.org/hossnahosseini/ontologies/2026/2/RealEstateOntology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Warehouse rdfs:subClassOf [ a owl:Restriction ;
+  owl:onProperty :locatedIn ;
+  owl:someValuesFrom :City ] .
+:locatedIn  rdf:type owl:ObjectProperty.",Some Warehouses are located in City. At least one Warehouse is located in City,Wrong Class Restricted,"Your axiom models the statement ""Every Warehouse is located in some City"", which implies that every instance of Warehouse has at least one location, but it does not capture the intended meaning that some Warehouses are located in City. This is because you have placed the property restriction on the class Warehouse instead of using a separate axiom to state the existence of at least one Warehouse located in City."
+26,no_instruct,"@prefix : <http://www.semanticweb.org/maxif/ontologies/2026/2/untitled-ontology-7/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:MuscleGroup rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :TrainingGoal ;
+  owl:onProperty :achievesGoals ] .
+:achievesGoals  rdf:type owl:ObjectProperty.",Choosing a muscle group helps achieve at least one training goal.,Misunderstood Constraint,"Your axiom implies that choosing a MuscleGroup automatically achieves every TrainingGoal, which means any instance of MuscleGroup will have achieved all instances of TrainingGoal, leading to an overly broad interpretation of the relationship between MuscleGroup and TrainingGoal."
+27,no_instruct,"@prefix : <http://www.semanticweb.org/maxif/ontologies/2026/2/untitled-ontology-7/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:MuscleGroup rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :TrainingGoal ;
+  owl:onProperty :achievesGoals ] .
+:achievesGoals  rdf:type owl:ObjectProperty.",Choosing a muscle group helps achieve at least one training goal.,Universal Trivial Satisfaction,"Your axiom allows for a MuscleGroup to have no TrainingGoals at all because it only specifies that each value of achievesGoals must be a TrainingGoal, but does not require any values to exist, leading to a situation where a MuscleGroup can be chosen without achieving any goals."
+28,no_instruct,"@prefix : <http://www.semanticweb.org/maxif/ontologies/2026/2/untitled-ontology-7/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:NutritionPlans rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :TrainingGoal ;
+  owl:onProperty :controlsHabits ] .",A nutrition plan controls habits for all training goals.,Misunderstood Constraint,"Your axiom implies that any NutritionPlan instance can control habits for all TrainingGoal instances, which means it suggests that a single NutritionPlan can control habits for multiple unrelated TrainingGoals simultaneously, whereas your intention was to restrict the habits controlled by a NutritionPlan to those related to a specific TrainingGoal."
+29,no_instruct,"@prefix : <http://www.sbwl.wu.ac.at/demo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Camera a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :Location ;
+  owl:onProperty :basedIn ],
+  :Equipment .
+
+:basedIn a owl:FunctionalProperty,
+  owl:ObjectProperty ;
+  rdfs:comment ""Links an agent to a location. Functional: A camera can't be based in more than one locaton."" ;
+  rdfs:domain :Agent ;
+  rdfs:range :Location .
+
+:Location a owl:Class ;
+  rdfs:comment ""A place where an agent can be situated or based."" .",A camera can't be based in more than one locaton.,Inconsistent Domain/Range,"The issue lies in the fact that you've defined the property :basedIn as functional, implying that each instance of Agent can have at most one value for :basedIn, but then restricted its range to Location without considering the potential consequences of this combination, which may lead to incorrect inferences about the relationship between Agent and Location instances. This could result in unexpected implications about the multiplicity of locations associated with an agent."
+30,no_instruct,"@prefix : <http://www.sbwl.wu.ac.at/demo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Camera a owl:Class ;
+  rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :Location ;
+  owl:onProperty :basedIn ],
+  :Equipment .
+
+:basedIn a owl:FunctionalProperty,
+  owl:ObjectProperty ;
+  rdfs:comment ""Links an agent to a location. Functional: A camera can't be based in more than one locaton."" ;
+  rdfs:domain :Agent ;
+  rdfs:range :Location .
+
+:Location a owl:Class ;
+  rdfs:comment ""A place where an agent can be situated or based."" .",A camera can't be based in more than one locaton.,Misunderstood Constraint,"The student's axiom implies that a Camera cannot be based in any Location, because the :basedIn property is declared as functional with a domain of Agent, but the intended meaning was to restrict the number of locations a Camera can be based in, not the agents it can be linked to."
+31,no_instruct,"@prefix : <http://www.semanticweb.org/awisatabeahmadi/ontologies/2026/2/untitled-ontology-3/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Agent rdfs:subClassOf [ a owl:Restriction ;
+  owl:allValuesFrom :Location ;
+  owl:onProperty :basedIn ] .
+
+:basedIn  rdf:type owl:ObjectProperty.",An agent can only be based in one location,Misunderstood Constraint,"Your axiom implies that any instance of Agent can have any number of values for the property :basedIn, but each value must be an instance of Location, which does not enforce the constraint that an Agent can only be based in one location."
+32,no_instruct,"@prefix : <http://www.semanticweb.org/joelp/ontologies/2026/2/untitled-ontology-7/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:BakingRecipes rdfs:subClassOf [ a owl:Restriction ;
+  owl:onProperty :uses ;
+  owl:someValuesFrom :Oven ] .
+
+:uses  rdf:type owl:ObjectProperty.",Baking is only possible by oven,Misunderstood Constraint,"Your axiom suggests that any instance of BakingRecipe can have at least one Oven as its value for the uses property, but it does not imply that baking is only possible with an oven; it also allows for other objects to be used in baking."
+33,no_instruct,"@prefix : <http://www.semanticweb.org/joelp/ontologies/2026/2/untitled-ontology-7/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:BakingRecipes rdfs:subClassOf [ a owl:Restriction ;
+  owl:onProperty :uses ;
+  owl:someValuesFrom :Oven ] .
+
+:uses  rdf:type owl:ObjectProperty.",Baking is only possible by oven,Wrong Class Restricted,"Your axiom models the incorrect statement that all BakingRecipes use some Oven, but it does not capture the intended meaning that baking is only possible with an Oven, implying that no other device can be used for baking. This could lead to unintended inferences, such as suggesting that a recipe for grilling or microwaving is also a BakingRecipe."

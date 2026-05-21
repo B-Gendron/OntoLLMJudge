@@ -1,0 +1,1 @@
+Property restriction placement at the wrong class. Sometimes novice knowledge engineers ignore the direction of an object property and thus place the restriction at the wrong class, which changes its logical interpretation and often leads to inconsistencies.

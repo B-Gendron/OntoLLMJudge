@@ -1,0 +1,338 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl2: <http://www.w3.org/TR/owl2-syntax/> .
+@prefix dc:   <http://purl.org/dc/terms/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix :     <http://www.semanticweb.org/user/vocabularies/owl2-opr#> .
+
+# ---------------------------------------------------------------------------
+# Ontology header
+# ---------------------------------------------------------------------------
+<http://www.semanticweb.org/user/vocabularies/owl2-opr>
+    a skos:ConceptScheme ;
+    dc:title "OWL 2 Object Property Restriction Vocabulary" ;
+    dc:description """Controlled vocabulary for OWL 2 structural concepts
+        relevant to object property restrictions, derived from the
+        OWL 2 Structural Specification (W3C, https://www.w3.org/TR/owl2-syntax/)
+        Sections 5, 8 and 9. Scoped to second-level (x.y) concepts useful
+        for evaluating ontology property restriction explanations.""" ;
+    dc:source "https://www.w3.org/TR/owl2-syntax/" ;
+    skos:hasTopConcept :Entities, :ClassExpressions, :Axioms .
+
+# ===========================================================================
+# TOP CONCEPT 1 — Entities  (OWL 2 spec §5)
+# ===========================================================================
+:Entities
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:topConceptOf <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "entities" ;
+    skos:altLabel "OWL entity" , "named entity" ;
+    skos:definition "The named building blocks of an OWL 2 ontology: classes, properties, and individuals." ;
+    skos:narrower :Class, :ObjectProperty, :Individual .
+
+# 5.1 — Class
+:Class
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "class" ;
+    skos:altLabel "OWL class" , "concept" , "named class" , "atomic class" ;
+    skos:definition "A set of individuals sharing common characteristics. In OWL 2 syntax: owl:Class." ;
+    skos:broader :Entities ;
+    skos:narrower :Subclass, :FillerClass .
+
+:Subclass
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "subclass" ;
+    skos:altLabel "sub-class" , "subClassOf" , "subclass axiom" , "subsumption" , "sub class" , "child class" , "specialisation" , "specialization" ;
+    skos:definition "A class whose extension is a subset of another class. Expressed with rdfs:subClassOf or owl:subClassOf." ;
+    skos:broader :Class .
+
+:FillerClass
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "filler class" ;
+    skos:altLabel "filler" , "restriction filler" , "value class" , "range filler" , "class filler" ;
+    skos:definition "The class C that appears as the second argument of a property restriction expression, e.g. ObjectSomeValuesFrom(p C)." ;
+    skos:broader :Class .
+
+# 5.3 — Object Property
+:ObjectProperty
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "object property" ;
+    skos:altLabel "property" , "OWL property" , "relation" , "binary relation" , "role" ;
+    skos:definition "A named binary relation between individuals. In OWL 2: owl:ObjectProperty." ;
+    skos:broader :Entities ;
+    skos:narrower :Domain, :Range .
+
+:Domain
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "domain" ;
+    skos:altLabel "property domain" , "rdfs:domain" , "owl:domain" , "subject class" , "source class" ;
+    skos:definition "The class that is declared as the domain of an object property; individuals that appear as the subject of the property are inferred to be members of this class." ;
+    skos:broader :ObjectProperty .
+
+:Range
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "range" ;
+    skos:altLabel "property range" , "rdfs:range" , "owl:range" , "object class" , "target class" , "value class" ;
+    skos:definition "The class that is declared as the range of an object property; individuals that appear as the object of the property are inferred to be members of this class." ;
+    skos:broader :ObjectProperty .
+
+# 5.5 — Individual
+:Individual
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "individual" ;
+    skos:altLabel "instance" , "named individual" , "owl:NamedIndividual" , "object" , "member" ;
+    skos:definition "A named member of the domain of discourse. Corresponds to owl:NamedIndividual." ;
+    skos:broader :Entities .
+
+# ===========================================================================
+# TOP CONCEPT 2 — Class Expressions  (OWL 2 spec §8)
+# ===========================================================================
+:ClassExpressions
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:topConceptOf <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "class expressions" ;
+    skos:altLabel "class expression" , "anonymous class" , "complex class" ;
+    skos:definition "Compound class descriptions built from entities and operators. Includes property restrictions and boolean connectives." ;
+    skos:narrower :Restriction, :BooleanConnective .
+
+# 8.1 — Boolean connectives
+:BooleanConnective
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "boolean connective" ;
+    skos:altLabel "logical connective" , "intersection" , "union" , "complement" , "owl:intersectionOf" , "owl:unionOf" , "owl:complementOf" ;
+    skos:definition "Class expressions formed by logical combination: ObjectIntersectionOf, ObjectUnionOf, ObjectComplementOf." ;
+    skos:broader :ClassExpressions .
+
+# 8.2 — Object property restrictions (existential, universal, hasValue)
+:Restriction
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "property restriction" ;
+    skos:altLabel "restriction" , "OWL restriction" , "class restriction" , "axiom restriction" , "constraint" ;
+    skos:definition "A class expression that constrains how individuals of a class may be related to other individuals or values via a given property." ;
+    skos:broader :ClassExpressions ;
+    skos:narrower :ExistentialRestriction, :UniversalRestriction, :HasValueRestriction,
+                  :MinCardinalityRestriction, :MaxCardinalityRestriction, :ExactCardinalityRestriction .
+
+:ExistentialRestriction
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "existential restriction" ;
+    skos:altLabel "someValuesFrom" , "ObjectSomeValuesFrom" , "some restriction" ,
+                  "existential quantifier" , "some values from" , "at least one" ,
+                  "∃" , "some" ;
+    skos:definition "ObjectSomeValuesFrom(p C): an individual x belongs to this class if there exists at least one y such that p(x,y) and y ∈ C." ;
+    skos:broader :Restriction .
+
+:UniversalRestriction
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "universal restriction" ;
+    skos:altLabel "allValuesFrom" , "ObjectAllValuesFrom" , "all restriction" ,
+                  "universal quantifier" , "all values from" , "only" ,
+                  "∀" , "for all" , "only values from" ;
+    skos:definition "ObjectAllValuesFrom(p C): an individual x belongs to this class if every y connected to x via p is a member of C. Trivially satisfied when x has no p-successors." ;
+    skos:broader :Restriction .
+
+:HasValueRestriction
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "hasValue restriction" ;
+    skos:altLabel "ObjectHasValue" , "has value" , "value restriction" , "hasValue" , "specific value" ;
+    skos:definition "ObjectHasValue(p a): an individual x belongs to this class if p(x,a) holds for a specific named individual a." ;
+    skos:broader :Restriction .
+
+# 8.3 — Cardinality restrictions
+:MinCardinalityRestriction
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "minimum cardinality restriction" ;
+    skos:altLabel "ObjectMinCardinality" , "min cardinality" , "minCardinality" ,
+                  "at least n" , "minimum cardinality" , "min" ;
+    skos:definition "ObjectMinCardinality(n p C): x must have at least n distinct p-successors that are members of C." ;
+    skos:broader :Restriction ;
+    skos:broader :CardinalityRestriction .
+
+:MaxCardinalityRestriction
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "maximum cardinality restriction" ;
+    skos:altLabel "ObjectMaxCardinality" , "max cardinality" , "maxCardinality" ,
+                  "at most n" , "maximum cardinality" , "max" ;
+    skos:definition "ObjectMaxCardinality(n p C): x must have at most n distinct p-successors that are members of C." ;
+    skos:broader :Restriction ;
+    skos:broader :CardinalityRestriction .
+
+:ExactCardinalityRestriction
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "exact cardinality restriction" ;
+    skos:altLabel "ObjectExactCardinality" , "exact cardinality" , "exactCardinality" ,
+                  "exactly n" , "exactly" , "cardinality of exactly" ;
+    skos:definition "ObjectExactCardinality(n p C): x must have exactly n distinct p-successors that are members of C." ;
+    skos:broader :Restriction ;
+    skos:broader :CardinalityRestriction .
+
+:CardinalityRestriction
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "cardinality restriction" ;
+    skos:altLabel "cardinality" , "cardinality constraint" , "number restriction" , "count restriction" ;
+    skos:definition "A property restriction that constrains the number of distinct property fillers an individual may have." ;
+    skos:broader :Restriction .
+
+# ===========================================================================
+# TOP CONCEPT 3 — Axioms  (OWL 2 spec §9)
+# ===========================================================================
+:Axioms
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:topConceptOf <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "axioms" ;
+    skos:altLabel "axiom" , "OWL axiom" , "logical axiom" , "statement" ;
+    skos:definition "Statements that assert facts about the entities in an OWL 2 ontology." ;
+    skos:narrower :ClassExpressionAxiom, :ObjectPropertyAxiom, :AssertionAxiom .
+
+# 9.1 — Class expression axioms
+:ClassExpressionAxiom
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "class expression axiom" ;
+    skos:altLabel "class axiom" , "subClassOf axiom" , "equivalentClasses axiom" , "disjointClasses axiom" ;
+    skos:definition "An axiom that relates class expressions. Includes SubClassOf, EquivalentClasses, and DisjointClasses." ;
+    skos:broader :Axioms ;
+    skos:narrower :SubClassOfAxiom, :EquivalentClassesAxiom, :DisjointClassesAxiom .
+
+:SubClassOfAxiom
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "SubClassOf axiom" ;
+    skos:altLabel "subClassOf" , "sub class of" , "subclass of" , "subsumption axiom" ,
+                  "necessary condition" , "necessary restriction" , "is-a" , "generalisation" , "generalization" ;
+    skos:definition "SubClassOf(C D): every member of class C is also a member of class D. Encodes necessary conditions." ;
+    skos:broader :ClassExpressionAxiom .
+
+:EquivalentClassesAxiom
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "EquivalentClasses axiom" ;
+    skos:altLabel "equivalentClass" , "equivalent class" , "equivalentClasses" ,
+                  "necessary and sufficient condition" , "defined class" ,
+                  "biconditional" , "iff" , "if and only if" , "equality" ;
+    skos:definition "EquivalentClasses(C D): C and D have exactly the same members. Encodes necessary AND sufficient conditions; triggers automated classification by reasoners." ;
+    skos:broader :ClassExpressionAxiom .
+
+:DisjointClassesAxiom
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "DisjointClasses axiom" ;
+    skos:altLabel "disjointWith" , "disjoint class" , "disjointClasses" , "disjointness" , "mutually exclusive" ;
+    skos:definition "DisjointClasses(C D): C and D share no members. Used to trigger inconsistencies when unintended classifications occur." ;
+    skos:broader :ClassExpressionAxiom .
+
+# 9.2 — Object property axioms
+:ObjectPropertyAxiom
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "object property axiom" ;
+    skos:altLabel "property axiom" , "property definition" ;
+    skos:definition "An axiom about an object property, such as its domain, range, inverse, or characteristics." ;
+    skos:broader :Axioms ;
+    skos:narrower :DomainAxiom, :RangeAxiom, :InverseAxiom .
+
+:DomainAxiom
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "ObjectPropertyDomain axiom" ;
+    skos:altLabel "property domain axiom" , "domain axiom" , "domain declaration" , "rdfs:domain" ;
+    skos:definition "ObjectPropertyDomain(p C): asserts that every individual appearing as the subject of property p is an instance of class C. Has global scope." ;
+    skos:broader :ObjectPropertyAxiom .
+
+:RangeAxiom
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "ObjectPropertyRange axiom" ;
+    skos:altLabel "property range axiom" , "range axiom" , "range declaration" , "rdfs:range" ;
+    skos:definition "ObjectPropertyRange(p C): asserts that every individual appearing as the object of property p is an instance of class C. Has global scope." ;
+    skos:broader :ObjectPropertyAxiom .
+
+:InverseAxiom
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "InverseObjectProperties axiom" ;
+    skos:altLabel "inverseOf" , "inverse property" , "owl:inverseOf" , "inverse relation" , "inverse direction" ;
+    skos:definition "InverseObjectProperties(p q): p(x,y) holds if and only if q(y,x) holds. Relevant when the direction of a restriction is confused." ;
+    skos:broader :ObjectPropertyAxiom .
+
+# 9.4 — Assertion axioms (ABox)
+:AssertionAxiom
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "assertion axiom" ;
+    skos:altLabel "ABox axiom" , "ABox assertion" , "fact" , "class assertion" , "type assertion" ;
+    skos:definition "An axiom asserting facts about named individuals, e.g. ClassAssertion or ObjectPropertyAssertion." ;
+    skos:broader :Axioms .
+
+# ===========================================================================
+# CROSS-CUTTING CONCEPTS — Reasoner behaviour
+# (not a formal OWL 2 spec section, but essential for OPR mistake evaluation)
+# ===========================================================================
+:ReasonerBehaviour
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "reasoner behaviour" ;
+    skos:altLabel "inference" , "reasoning" , "entailment" , "automated reasoning" , "logical consequence" ;
+    skos:definition "Consequences derived by an OWL 2 reasoner from the axioms in an ontology." ;
+    skos:narrower :Satisfiability, :AutomaticClassification, :Inconsistency .
+
+:Satisfiability
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "satisfiability" ;
+    skos:altLabel "satisfiable" , "unsatisfiable" , "unsatisfiability" , "class satisfiability" ,
+                  "empty class" , "unsatisfiable class" , "nothing" , "owl:Nothing" ;
+    skos:definition "A class is satisfiable if there exists at least one model in which it has a member. An unsatisfiable class is equivalent to owl:Nothing." ;
+    skos:broader :ReasonerBehaviour .
+
+:AutomaticClassification
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "automatic classification" ;
+    skos:altLabel "automated classification" , "auto-classification" , "inferred classification" ,
+                  "unintended classification" , "reasoner classification" , "inferred subclass" ,
+                  "inferred membership" , "classified by reasoner" ;
+    skos:definition "The reasoner's inference of class membership or subsumption relationships not explicitly asserted in the ontology." ;
+    skos:broader :ReasonerBehaviour .
+
+:Inconsistency
+    a skos:Concept ;
+    skos:inScheme <http://www.semanticweb.org/user/vocabularies/owl2-opr> ;
+    skos:prefLabel "inconsistency" ;
+    skos:altLabel "inconsistent" , "inconsistent ontology" , "contradiction" , "logical conflict" ,
+                  "incoherence" , "incoherent" ;
+    skos:definition "An ontology is inconsistent if no interpretation satisfies all its axioms simultaneously, often caused by conflicting restrictions combined with disjointness." ;
+    skos:broader :ReasonerBehaviour .
+
+# ===========================================================================
+# IMPLICATION TABLE
+# Maps concepts that imply co-relevant concepts when matched.
+# Encoded as skos:related with a custom annotation for tooling.
+# ===========================================================================
+:EquivalentClassesAxiom skos:related :SubClassOfAxiom .      # equivalence implies subClassOf is the correct alternative
+:UniversalRestriction   skos:related :ExistentialRestriction . # allValuesFrom confusion implies someValuesFrom is relevant
+:UniversalRestriction   skos:related :CardinalityRestriction . # trivial satisfaction implies cardinality as the fix
+:Domain                 skos:related :Range .                  # domain/range discussed together
+:DomainAxiom            skos:related :RangeAxiom .
+:Satisfiability         skos:related :Inconsistency .          # unsatisfiability and inconsistency are co-occurring outcomes
+:AutomaticClassification skos:related :DisjointClassesAxiom .  # auto-classification + disjointness → inconsistency

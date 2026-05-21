@@ -1,0 +1,1 @@
+Mismatch between the domain and range of an object property and the property restriction definition. Students often overlook the domain and range of object properties and thus define restrictions which do not comply with existing ontology definition.

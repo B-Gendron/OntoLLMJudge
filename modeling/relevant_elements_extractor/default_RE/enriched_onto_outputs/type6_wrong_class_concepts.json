@@ -1,0 +1,40 @@
+{
+  "local_name": "OPRMistakeType6_WrongClass",
+  "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType6_WrongClass",
+  "n_tokens": 22,
+  "n_ngrams": 100,
+  "n_exact_matches": 6,
+  "n_fuzzy_matches": 0,
+  "concepts": {
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#ObjectProperty": {
+      "concept_name": "object property",
+      "triggered_by": [
+        "object property",
+        "property"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Restriction": {
+      "concept_name": "property restriction",
+      "triggered_by": [
+        "property restriction",
+        "restriction"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Class": {
+      "concept_name": "class",
+      "triggered_by": [
+        "class"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Individual": {
+      "concept_name": "individual",
+      "triggered_by": [
+        "object"
+      ],
+      "implied_by": []
+    }
+  }
+}

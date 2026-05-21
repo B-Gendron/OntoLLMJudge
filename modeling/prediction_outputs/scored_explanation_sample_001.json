@@ -1,0 +1,33 @@
+{
+  "input": {
+    "I": "Every Outfit suitable for an Event has to have exactly one bag.",
+    "OA": ":EventOutfit rdf:type owl:Class ;\n  rdfs:subClassOf :Outfit .\n\n:suitableForEvent rdf:type owl:ObjectProperty ;\n  rdfs:domain :EventOutfit ;\n  rdfs:range :ClothingItem ,\n  [ rdf:type owl:Restriction ;\n  owl:onProperty :suitableForEvent ;\n  owl:minQualifiedCardinality 3^^xsd:nonNegativeInteger ;\n  owl:onClass :Jewelry\n  ] ,\n  [ rdf:type owl:Restriction ;\n  owl:onProperty :suitableForEvent ;\n  owl:qualifiedCardinality 1^^xsd:nonNegativeInteger ;\n  owl:onClass :Bag\n  ] ,\n  [ rdf:type owl:Restriction ;\n  owl:onProperty :suitableForEvent ;\n  owl:qualifiedCardinality 1^^xsd:nonNegativeInteger ;\n  owl:onClass :HighHeels\n  ] ;\n  rdfs:comment Clothing items suitable for events. .\n\n:Bag rdf:type owl:Class ;\n  rdfs:subClassOf :Accessory ;\n  rdfs:comment A bag is an accessory. .",
+    "M_i": "opr_mistake_type_2",
+    "generation": "The axiom incorrectly places cardinality restrictions in the range of the object property `suitableForEvent`, which implies that any `ClothingItem` suitable for an event must itself be associated with exactly one `Bag`, rather than ensuring that each `EventOutfit` has exactly one `Bag`, potentially leading to unintended inferences about individual clothing items."
+  },
+  "scores": {
+    "dimensions": {
+      "qd1_modeling_comprehension": {
+        "label": "correct",
+        "points": 1.0,
+        "description": "Modeling Comprehension"
+      },
+      "qd2_inference_capability": {
+        "label": "correct",
+        "points": 1.0,
+        "description": "Inference Capability"
+      },
+      "qd3_mistake_correction_competence": {
+        "label": "correct",
+        "points": 1.0,
+        "description": "Mistake Correction Competence"
+      },
+      "qd4_appropriate_vocabulary_usage": {
+        "label": "correct",
+        "points": 1.0,
+        "description": "Appropriate Vocabulary Usage"
+      }
+    },
+    "total": 4.0
+  }
+}

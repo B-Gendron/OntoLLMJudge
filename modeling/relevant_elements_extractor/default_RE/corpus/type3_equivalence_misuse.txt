@@ -1,0 +1,1 @@
+Logical over-restriction due to incorrect equivalence usage. A common student-made mistake is the confusion between the usage of equivalence and subClassOf restrictions which potentially leads to unintended over-restrictions.

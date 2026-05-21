@@ -1,0 +1,1102 @@
+Starting training for task: appropriate_vocabulary_usage
+2026-04-22 18:05:44.038598: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-04-22 18:05:44.147172: I tensorflow/core/util/util.cc:169] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-04-22 18:05:44.176557: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-04-22 18:05:44.744082: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2026-04-22 18:05:44.744165: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2026-04-22 18:05:44.744174: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Task: appropriate_vocabulary_usage | #Samples (train): 159 | #Samples (val): 40
+
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.43s/it]
+Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.43s/it]
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.42s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.02it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.15s/it]
+The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+  Initialised 'APPROPRIATE' from 'correct' (seed token ids: [20523])
+  Initialised 'INAPPROPRIATE' from 'wrong' (seed token ids: [35970])
+Registered 2 new label tokens.
+Embeddings+lm_head for token ids [128256, 128257] set as trainable (others masked via backward hook).
+['APPROPRIATE', 'INAPPROPRIATE']
+['APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'INAPPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'INAPPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'INAPPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'INAPPROPRIATE', 'INAPPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'INAPPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'INAPPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE', 'APPROPRIATE']
+
+Class weights (inverse frequency):
+  APPROPRIATE: 0.5230  (n=152)
+  INAPPROPRIATE: 11.3571  (n=7)
+
+Epoch 1/10:   0%|          | 0/40 [00:00<?, ?it/s]
+Epoch 1/10:   2%|▎         | 1/40 [00:01<01:14,  1.91s/it]
+Epoch 1/10:   5%|▌         | 2/40 [00:03<01:09,  1.82s/it]
+Epoch 1/10:   8%|▊         | 3/40 [00:05<01:04,  1.75s/it]
+Epoch 1/10:  10%|█         | 4/40 [00:07<01:03,  1.75s/it]
+Epoch 1/10:  12%|█▎        | 5/40 [00:08<01:00,  1.72s/it]
+Epoch 1/10:  15%|█▌        | 6/40 [00:10<00:57,  1.70s/it]
+Epoch 1/10:  18%|█▊        | 7/40 [00:11<00:54,  1.65s/it]
+Epoch 1/10:  20%|██        | 8/40 [00:13<00:52,  1.63s/it]
+Epoch 1/10:  22%|██▎       | 9/40 [00:15<00:50,  1.64s/it]
+Epoch 1/10:  25%|██▌       | 10/40 [00:16<00:50,  1.68s/it]
+Epoch 1/10:  28%|██▊       | 11/40 [00:18<00:47,  1.65s/it]
+Epoch 1/10:  30%|███       | 12/40 [00:20<00:47,  1.69s/it]
+Epoch 1/10:  32%|███▎      | 13/40 [00:21<00:44,  1.65s/it]
+Epoch 1/10:  35%|███▌      | 14/40 [00:23<00:43,  1.66s/it]
+Epoch 1/10:  38%|███▊      | 15/40 [00:25<00:41,  1.64s/it]
+Epoch 1/10:  40%|████      | 16/40 [00:27<00:41,  1.74s/it]
+Epoch 1/10:  42%|████▎     | 17/40 [00:29<00:42,  1.83s/it]
+Epoch 1/10:  45%|████▌     | 18/40 [00:31<00:41,  1.87s/it]
+Epoch 1/10:  48%|████▊     | 19/40 [00:33<00:39,  1.87s/it]
+Epoch 1/10:  50%|█████     | 20/40 [00:34<00:35,  1.77s/it]
+Epoch 1/10:  52%|█████▎    | 21/40 [00:36<00:33,  1.77s/it]
+Epoch 1/10:  55%|█████▌    | 22/40 [00:38<00:31,  1.75s/it]
+Epoch 1/10:  57%|█████▊    | 23/40 [00:39<00:30,  1.79s/it]
+Epoch 1/10:  60%|██████    | 24/40 [00:41<00:28,  1.79s/it]
+Epoch 1/10:  62%|██████▎   | 25/40 [00:43<00:26,  1.74s/it]
+Epoch 1/10:  65%|██████▌   | 26/40 [00:44<00:23,  1.70s/it]
+Epoch 1/10:  68%|██████▊   | 27/40 [00:47<00:23,  1.83s/it]
+Epoch 1/10:  70%|███████   | 28/40 [00:48<00:21,  1.79s/it]
+Epoch 1/10:  72%|███████▎  | 29/40 [00:50<00:20,  1.87s/it]
+Epoch 1/10:  75%|███████▌  | 30/40 [00:52<00:18,  1.85s/it]
+Epoch 1/10:  78%|███████▊  | 31/40 [00:54<00:16,  1.81s/it]
+Epoch 1/10:  80%|████████  | 32/40 [00:55<00:13,  1.72s/it]
+Epoch 1/10:  82%|████████▎ | 33/40 [00:57<00:11,  1.67s/it]
+Epoch 1/10:  85%|████████▌ | 34/40 [00:59<00:10,  1.69s/it]
+Epoch 1/10:  88%|████████▊ | 35/40 [01:01<00:08,  1.74s/it]
+Epoch 1/10:  90%|█████████ | 36/40 [01:02<00:06,  1.66s/it]
+Epoch 1/10:  92%|█████████▎| 37/40 [01:04<00:05,  1.73s/it]
+Epoch 1/10:  95%|█████████▌| 38/40 [01:06<00:03,  1.77s/it]
+Epoch 1/10:  98%|█████████▊| 39/40 [01:07<00:01,  1.76s/it]
+Epoch 1/10: 100%|██████████| 40/40 [01:09<00:00,  1.62s/it]
+Epoch 1/10: 100%|██████████| 40/40 [01:09<00:00,  1.73s/it]
+
+Epoch 1 — avg train loss: 18.9719
+
+[Train classification report — Epoch 1]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       1.00      0.99      1.00       152
+INAPPROPRIATE       0.88      1.00      0.93         7
+
+     accuracy                           0.99       159
+    macro avg       0.94      1.00      0.97       159
+ weighted avg       0.99      0.99      0.99       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 1 | Task: appropriate_vocabulary_usage
+------------------------------------------------------------
+
+[1] Label token ID check
+  'APPROPRIATE' → token_id=128256 → decoded='APPROPRIATE'
+  'INAPPROPRIATE' → token_id=128257 → decoded='INAPPROPRIATE'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+
+Diag-val epoch 1:   0%|          | 0/10 [00:00<?, ?it/s]
+Diag-val epoch 1:  10%|█         | 1/10 [00:00<00:04,  2.17it/s]
+Diag-val epoch 1:  20%|██        | 2/10 [00:00<00:03,  2.32it/s]
+Diag-val epoch 1:  30%|███       | 3/10 [00:01<00:03,  2.14it/s]
+Diag-val epoch 1:  40%|████      | 4/10 [00:01<00:02,  2.05it/s]
+Diag-val epoch 1:  50%|█████     | 5/10 [00:02<00:02,  2.04it/s]
+Diag-val epoch 1:  60%|██████    | 6/10 [00:02<00:01,  2.11it/s]
+Diag-val epoch 1:  70%|███████   | 7/10 [00:03<00:01,  2.07it/s]
+Diag-val epoch 1:  80%|████████  | 8/10 [00:03<00:00,  2.03it/s]
+Diag-val epoch 1:  90%|█████████ | 9/10 [00:04<00:00,  2.09it/s]
+Diag-val epoch 1: 100%|██████████| 10/10 [00:04<00:00,  2.06it/s]
+Diag-val epoch 1: 100%|██████████| 10/10 [00:04<00:00,  2.08it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'APPROPRIATE': mean=0.938  std=0.075  min=0.867  max=1.008
+  'INAPPROPRIATE': mean=-0.133  std=0.155  min=-0.338  max=0.027
+  Max-min spread per sample: mean=1.070  min=0.969  max=1.205
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  APPROPRIATE                       95.0%   100.0% ← collapsed?
+  INAPPROPRIATE                      5.0%     0.0%
+
+[Classification report — Epoch 1]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       0.95      1.00      0.97        38
+INAPPROPRIATE       0.00      0.00      0.00         2
+
+     accuracy                           0.95        40
+    macro avg       0.47      0.50      0.49        40
+ weighted avg       0.90      0.95      0.93        40
+
+------------------------------------------------------------
+
+Epoch 2/10:   0%|          | 0/40 [00:00<?, ?it/s]
+Epoch 2/10:   2%|▎         | 1/40 [00:01<01:13,  1.90s/it]
+Epoch 2/10:   5%|▌         | 2/40 [00:03<01:11,  1.89s/it]
+Epoch 2/10:   8%|▊         | 3/40 [00:05<01:10,  1.89s/it]
+Epoch 2/10:  10%|█         | 4/40 [00:07<01:04,  1.79s/it]
+Epoch 2/10:  12%|█▎        | 5/40 [00:09<01:01,  1.76s/it]
+Epoch 2/10:  15%|█▌        | 6/40 [00:10<00:59,  1.75s/it]
+Epoch 2/10:  18%|█▊        | 7/40 [00:12<00:55,  1.69s/it]
+Epoch 2/10:  20%|██        | 8/40 [00:14<00:54,  1.70s/it]
+Epoch 2/10:  22%|██▎       | 9/40 [00:15<00:53,  1.71s/it]
+Epoch 2/10:  25%|██▌       | 10/40 [00:17<00:52,  1.77s/it]
+Epoch 2/10:  28%|██▊       | 11/40 [00:19<00:51,  1.79s/it]
+Epoch 2/10:  30%|███       | 12/40 [00:21<00:49,  1.77s/it]
+Epoch 2/10:  32%|███▎      | 13/40 [00:22<00:46,  1.72s/it]
+Epoch 2/10:  35%|███▌      | 14/40 [00:24<00:44,  1.72s/it]
+Epoch 2/10:  38%|███▊      | 15/40 [00:26<00:41,  1.67s/it]
+Epoch 2/10:  40%|████      | 16/40 [00:27<00:40,  1.69s/it]
+Epoch 2/10:  42%|████▎     | 17/40 [00:29<00:41,  1.79s/it]
+Epoch 2/10:  45%|████▌     | 18/40 [00:31<00:40,  1.86s/it]
+Epoch 2/10:  48%|████▊     | 19/40 [00:33<00:37,  1.79s/it]
+Epoch 2/10:  50%|█████     | 20/40 [00:35<00:35,  1.78s/it]
+Epoch 2/10:  52%|█████▎    | 21/40 [00:36<00:32,  1.73s/it]
+Epoch 2/10:  55%|█████▌    | 22/40 [00:38<00:31,  1.73s/it]
+Epoch 2/10:  57%|█████▊    | 23/40 [00:40<00:28,  1.70s/it]
+Epoch 2/10:  60%|██████    | 24/40 [00:42<00:27,  1.74s/it]
+Epoch 2/10:  62%|██████▎   | 25/40 [00:43<00:26,  1.78s/it]
+Epoch 2/10:  65%|██████▌   | 26/40 [00:45<00:26,  1.86s/it]
+Epoch 2/10:  68%|██████▊   | 27/40 [00:47<00:24,  1.87s/it]
+Epoch 2/10:  70%|███████   | 28/40 [00:49<00:21,  1.83s/it]
+Epoch 2/10:  72%|███████▎  | 29/40 [00:51<00:19,  1.75s/it]
+Epoch 2/10:  75%|███████▌  | 30/40 [00:52<00:17,  1.71s/it]
+Epoch 2/10:  78%|███████▊  | 31/40 [00:54<00:16,  1.86s/it]
+Epoch 2/10:  80%|████████  | 32/40 [00:56<00:14,  1.79s/it]
+Epoch 2/10:  82%|████████▎ | 33/40 [00:58<00:12,  1.80s/it]
+Epoch 2/10:  85%|████████▌ | 34/40 [01:00<00:10,  1.75s/it]
+Epoch 2/10:  88%|████████▊ | 35/40 [01:02<00:09,  1.85s/it]
+Epoch 2/10:  90%|█████████ | 36/40 [01:04<00:07,  1.87s/it]
+Epoch 2/10:  92%|█████████▎| 37/40 [01:05<00:05,  1.77s/it]
+Epoch 2/10:  95%|█████████▌| 38/40 [01:07<00:03,  1.79s/it]
+Epoch 2/10:  98%|█████████▊| 39/40 [01:09<00:01,  1.88s/it]
+Epoch 2/10: 100%|██████████| 40/40 [01:10<00:00,  1.73s/it]
+Epoch 2/10: 100%|██████████| 40/40 [01:10<00:00,  1.77s/it]
+
+Epoch 2 — avg train loss: 18.9156
+
+[Train classification report — Epoch 2]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       1.00      0.99      1.00       152
+INAPPROPRIATE       0.88      1.00      0.93         7
+
+     accuracy                           0.99       159
+    macro avg       0.94      1.00      0.97       159
+ weighted avg       0.99      0.99      0.99       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 2 | Task: appropriate_vocabulary_usage
+------------------------------------------------------------
+
+[1] Label token ID check
+  'APPROPRIATE' → token_id=128256 → decoded='APPROPRIATE'
+  'INAPPROPRIATE' → token_id=128257 → decoded='INAPPROPRIATE'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+
+Diag-val epoch 2:   0%|          | 0/10 [00:00<?, ?it/s]
+Diag-val epoch 2:  10%|█         | 1/10 [00:00<00:03,  2.26it/s]
+Diag-val epoch 2:  20%|██        | 2/10 [00:00<00:03,  2.31it/s]
+Diag-val epoch 2:  30%|███       | 3/10 [00:01<00:03,  2.12it/s]
+Diag-val epoch 2:  40%|████      | 4/10 [00:01<00:02,  2.03it/s]
+Diag-val epoch 2:  50%|█████     | 5/10 [00:02<00:02,  2.01it/s]
+Diag-val epoch 2:  60%|██████    | 6/10 [00:02<00:01,  2.08it/s]
+Diag-val epoch 2:  70%|███████   | 7/10 [00:03<00:01,  2.05it/s]
+Diag-val epoch 2:  80%|████████  | 8/10 [00:03<00:00,  2.01it/s]
+Diag-val epoch 2:  90%|█████████ | 9/10 [00:04<00:00,  2.07it/s]
+Diag-val epoch 2: 100%|██████████| 10/10 [00:04<00:00,  2.04it/s]
+Diag-val epoch 2: 100%|██████████| 10/10 [00:04<00:00,  2.07it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'APPROPRIATE': mean=0.938  std=0.075  min=0.867  max=1.008
+  'INAPPROPRIATE': mean=-0.133  std=0.155  min=-0.338  max=0.027
+  Max-min spread per sample: mean=1.070  min=0.969  max=1.205
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  APPROPRIATE                       95.0%   100.0% ← collapsed?
+  INAPPROPRIATE                      5.0%     0.0%
+
+[Classification report — Epoch 2]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       0.95      1.00      0.97        38
+INAPPROPRIATE       0.00      0.00      0.00         2
+
+     accuracy                           0.95        40
+    macro avg       0.47      0.50      0.49        40
+ weighted avg       0.90      0.95      0.93        40
+
+------------------------------------------------------------
+
+Epoch 3/10:   0%|          | 0/40 [00:00<?, ?it/s]
+Epoch 3/10:   2%|▎         | 1/40 [00:01<01:15,  1.93s/it]
+Epoch 3/10:   5%|▌         | 2/40 [00:03<01:15,  1.99s/it]
+Epoch 3/10:   8%|▊         | 3/40 [00:05<01:09,  1.87s/it]
+Epoch 3/10:  10%|█         | 4/40 [00:07<01:07,  1.87s/it]
+Epoch 3/10:  12%|█▎        | 5/40 [00:09<01:05,  1.88s/it]
+Epoch 3/10:  15%|█▌        | 6/40 [00:11<01:05,  1.93s/it]
+Epoch 3/10:  18%|█▊        | 7/40 [00:13<01:03,  1.92s/it]
+Epoch 3/10:  20%|██        | 8/40 [00:15<00:59,  1.87s/it]
+Epoch 3/10:  22%|██▎       | 9/40 [00:16<00:56,  1.83s/it]
+Epoch 3/10:  25%|██▌       | 10/40 [00:18<00:54,  1.80s/it]
+Epoch 3/10:  28%|██▊       | 11/40 [00:20<00:51,  1.78s/it]
+Epoch 3/10:  30%|███       | 12/40 [00:22<00:49,  1.77s/it]
+Epoch 3/10:  32%|███▎      | 13/40 [00:23<00:48,  1.81s/it]
+Epoch 3/10:  35%|███▌      | 14/40 [00:25<00:47,  1.82s/it]
+Epoch 3/10:  38%|███▊      | 15/40 [00:27<00:45,  1.82s/it]
+Epoch 3/10:  40%|████      | 16/40 [00:29<00:41,  1.73s/it]
+Epoch 3/10:  42%|████▎     | 17/40 [00:31<00:40,  1.76s/it]
+Epoch 3/10:  45%|████▌     | 18/40 [00:32<00:39,  1.79s/it]
+Epoch 3/10:  48%|████▊     | 19/40 [00:34<00:37,  1.80s/it]
+Epoch 3/10:  50%|█████     | 20/40 [00:36<00:36,  1.83s/it]
+Epoch 3/10:  52%|█████▎    | 21/40 [00:38<00:36,  1.91s/it]
+Epoch 3/10:  55%|█████▌    | 22/40 [00:40<00:32,  1.83s/it]
+Epoch 3/10:  57%|█████▊    | 23/40 [00:41<00:30,  1.77s/it]
+Epoch 3/10:  60%|██████    | 24/40 [00:43<00:28,  1.76s/it]
+Epoch 3/10:  62%|██████▎   | 25/40 [00:45<00:24,  1.64s/it]
+Epoch 3/10:  65%|██████▌   | 26/40 [00:47<00:24,  1.76s/it]
+Epoch 3/10:  68%|██████▊   | 27/40 [00:48<00:22,  1.70s/it]
+Epoch 3/10:  70%|███████   | 28/40 [00:50<00:20,  1.75s/it]
+Epoch 3/10:  72%|███████▎  | 29/40 [00:52<00:20,  1.84s/it]
+Epoch 3/10:  75%|███████▌  | 30/40 [00:54<00:18,  1.84s/it]
+Epoch 3/10:  78%|███████▊  | 31/40 [00:56<00:16,  1.82s/it]
+Epoch 3/10:  80%|████████  | 32/40 [00:57<00:14,  1.80s/it]
+Epoch 3/10:  82%|████████▎ | 33/40 [00:59<00:12,  1.83s/it]
+Epoch 3/10:  85%|████████▌ | 34/40 [01:01<00:10,  1.80s/it]
+Epoch 3/10:  88%|████████▊ | 35/40 [01:03<00:08,  1.75s/it]
+Epoch 3/10:  90%|█████████ | 36/40 [01:04<00:06,  1.72s/it]
+Epoch 3/10:  92%|█████████▎| 37/40 [01:06<00:05,  1.72s/it]
+Epoch 3/10:  95%|█████████▌| 38/40 [01:08<00:03,  1.86s/it]
+Epoch 3/10:  98%|█████████▊| 39/40 [01:10<00:01,  1.86s/it]
+Epoch 3/10: 100%|██████████| 40/40 [01:11<00:00,  1.69s/it]
+Epoch 3/10: 100%|██████████| 40/40 [01:11<00:00,  1.80s/it]
+
+Epoch 3 — avg train loss: 18.9438
+
+[Train classification report — Epoch 3]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       1.00      0.99      1.00       152
+INAPPROPRIATE       0.88      1.00      0.93         7
+
+     accuracy                           0.99       159
+    macro avg       0.94      1.00      0.97       159
+ weighted avg       0.99      0.99      0.99       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 3 | Task: appropriate_vocabulary_usage
+------------------------------------------------------------
+
+[1] Label token ID check
+  'APPROPRIATE' → token_id=128256 → decoded='APPROPRIATE'
+  'INAPPROPRIATE' → token_id=128257 → decoded='INAPPROPRIATE'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+
+Diag-val epoch 3:   0%|          | 0/10 [00:00<?, ?it/s]
+Diag-val epoch 3:  10%|█         | 1/10 [00:00<00:04,  2.24it/s]
+Diag-val epoch 3:  20%|██        | 2/10 [00:00<00:03,  2.32it/s]
+Diag-val epoch 3:  30%|███       | 3/10 [00:01<00:03,  2.12it/s]
+Diag-val epoch 3:  40%|████      | 4/10 [00:01<00:02,  2.04it/s]
+Diag-val epoch 3:  50%|█████     | 5/10 [00:02<00:02,  2.02it/s]
+Diag-val epoch 3:  60%|██████    | 6/10 [00:02<00:01,  2.08it/s]
+Diag-val epoch 3:  70%|███████   | 7/10 [00:03<00:01,  2.05it/s]
+Diag-val epoch 3:  80%|████████  | 8/10 [00:03<00:00,  2.01it/s]
+Diag-val epoch 3:  90%|█████████ | 9/10 [00:04<00:00,  2.07it/s]
+Diag-val epoch 3: 100%|██████████| 10/10 [00:04<00:00,  2.04it/s]
+Diag-val epoch 3: 100%|██████████| 10/10 [00:04<00:00,  2.07it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'APPROPRIATE': mean=0.938  std=0.075  min=0.867  max=1.008
+  'INAPPROPRIATE': mean=-0.133  std=0.155  min=-0.338  max=0.027
+  Max-min spread per sample: mean=1.070  min=0.969  max=1.205
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  APPROPRIATE                       95.0%   100.0% ← collapsed?
+  INAPPROPRIATE                      5.0%     0.0%
+
+[Classification report — Epoch 3]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       0.95      1.00      0.97        38
+INAPPROPRIATE       0.00      0.00      0.00         2
+
+     accuracy                           0.95        40
+    macro avg       0.47      0.50      0.49        40
+ weighted avg       0.90      0.95      0.93        40
+
+------------------------------------------------------------
+
+Epoch 4/10:   0%|          | 0/40 [00:00<?, ?it/s]
+Epoch 4/10:   2%|▎         | 1/40 [00:01<01:01,  1.57s/it]
+Epoch 4/10:   5%|▌         | 2/40 [00:03<01:03,  1.67s/it]
+Epoch 4/10:   8%|▊         | 3/40 [00:05<01:03,  1.71s/it]
+Epoch 4/10:  10%|█         | 4/40 [00:06<01:00,  1.67s/it]
+Epoch 4/10:  12%|█▎        | 5/40 [00:08<01:01,  1.76s/it]
+Epoch 4/10:  15%|█▌        | 6/40 [00:10<01:01,  1.81s/it]
+Epoch 4/10:  18%|█▊        | 7/40 [00:12<01:02,  1.91s/it]
+Epoch 4/10:  20%|██        | 8/40 [00:14<00:59,  1.85s/it]
+Epoch 4/10:  22%|██▎       | 9/40 [00:16<00:56,  1.82s/it]
+Epoch 4/10:  25%|██▌       | 10/40 [00:17<00:54,  1.83s/it]
+Epoch 4/10:  28%|██▊       | 11/40 [00:19<00:51,  1.77s/it]
+Epoch 4/10:  30%|███       | 12/40 [00:21<00:50,  1.79s/it]
+Epoch 4/10:  32%|███▎      | 13/40 [00:22<00:44,  1.66s/it]
+Epoch 4/10:  35%|███▌      | 14/40 [00:24<00:42,  1.65s/it]
+Epoch 4/10:  38%|███▊      | 15/40 [00:26<00:43,  1.73s/it]
+Epoch 4/10:  40%|████      | 16/40 [00:28<00:42,  1.76s/it]
+Epoch 4/10:  42%|████▎     | 17/40 [00:29<00:39,  1.73s/it]
+Epoch 4/10:  45%|████▌     | 18/40 [00:31<00:40,  1.82s/it]
+Epoch 4/10:  48%|████▊     | 19/40 [00:33<00:35,  1.68s/it]
+Epoch 4/10:  50%|█████     | 20/40 [00:35<00:34,  1.73s/it]
+Epoch 4/10:  52%|█████▎    | 21/40 [00:36<00:33,  1.77s/it]
+Epoch 4/10:  55%|█████▌    | 22/40 [00:38<00:31,  1.72s/it]
+Epoch 4/10:  57%|█████▊    | 23/40 [00:40<00:30,  1.82s/it]
+Epoch 4/10:  60%|██████    | 24/40 [00:42<00:28,  1.80s/it]
+Epoch 4/10:  62%|██████▎   | 25/40 [00:43<00:25,  1.71s/it]
+Epoch 4/10:  65%|██████▌   | 26/40 [00:45<00:24,  1.76s/it]
+Epoch 4/10:  68%|██████▊   | 27/40 [00:47<00:24,  1.86s/it]
+Epoch 4/10:  70%|███████   | 28/40 [00:49<00:21,  1.83s/it]
+Epoch 4/10:  72%|███████▎  | 29/40 [00:51<00:20,  1.83s/it]
+Epoch 4/10:  75%|███████▌  | 30/40 [00:53<00:17,  1.77s/it]
+Epoch 4/10:  78%|███████▊  | 31/40 [00:54<00:15,  1.71s/it]
+Epoch 4/10:  80%|████████  | 32/40 [00:56<00:13,  1.75s/it]
+Epoch 4/10:  82%|████████▎ | 33/40 [00:58<00:12,  1.77s/it]
+Epoch 4/10:  85%|████████▌ | 34/40 [00:59<00:10,  1.73s/it]
+Epoch 4/10:  88%|████████▊ | 35/40 [01:01<00:08,  1.68s/it]
+Epoch 4/10:  90%|█████████ | 36/40 [01:03<00:06,  1.70s/it]
+Epoch 4/10:  92%|█████████▎| 37/40 [01:04<00:05,  1.68s/it]
+Epoch 4/10:  95%|█████████▌| 38/40 [01:06<00:03,  1.75s/it]
+Epoch 4/10:  98%|█████████▊| 39/40 [01:08<00:01,  1.75s/it]
+Epoch 4/10: 100%|██████████| 40/40 [01:10<00:00,  1.73s/it]
+Epoch 4/10: 100%|██████████| 40/40 [01:10<00:00,  1.75s/it]
+
+Epoch 4 — avg train loss: 18.9625
+
+[Train classification report — Epoch 4]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       1.00      0.99      1.00       152
+INAPPROPRIATE       0.88      1.00      0.93         7
+
+     accuracy                           0.99       159
+    macro avg       0.94      1.00      0.97       159
+ weighted avg       0.99      0.99      0.99       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 4 | Task: appropriate_vocabulary_usage
+------------------------------------------------------------
+
+[1] Label token ID check
+  'APPROPRIATE' → token_id=128256 → decoded='APPROPRIATE'
+  'INAPPROPRIATE' → token_id=128257 → decoded='INAPPROPRIATE'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+
+Diag-val epoch 4:   0%|          | 0/10 [00:00<?, ?it/s]
+Diag-val epoch 4:  10%|█         | 1/10 [00:00<00:03,  2.25it/s]
+Diag-val epoch 4:  20%|██        | 2/10 [00:00<00:03,  2.32it/s]
+Diag-val epoch 4:  30%|███       | 3/10 [00:01<00:03,  2.12it/s]
+Diag-val epoch 4:  40%|████      | 4/10 [00:01<00:02,  2.03it/s]
+Diag-val epoch 4:  50%|█████     | 5/10 [00:02<00:02,  2.02it/s]
+Diag-val epoch 4:  60%|██████    | 6/10 [00:02<00:01,  2.08it/s]
+Diag-val epoch 4:  70%|███████   | 7/10 [00:03<00:01,  2.05it/s]
+Diag-val epoch 4:  80%|████████  | 8/10 [00:03<00:00,  2.00it/s]
+Diag-val epoch 4:  90%|█████████ | 9/10 [00:04<00:00,  2.07it/s]
+Diag-val epoch 4: 100%|██████████| 10/10 [00:04<00:00,  2.04it/s]
+Diag-val epoch 4: 100%|██████████| 10/10 [00:04<00:00,  2.06it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'APPROPRIATE': mean=0.938  std=0.075  min=0.867  max=1.008
+  'INAPPROPRIATE': mean=-0.133  std=0.155  min=-0.338  max=0.027
+  Max-min spread per sample: mean=1.070  min=0.969  max=1.205
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  APPROPRIATE                       95.0%   100.0% ← collapsed?
+  INAPPROPRIATE                      5.0%     0.0%
+
+[Classification report — Epoch 4]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       0.95      1.00      0.97        38
+INAPPROPRIATE       0.00      0.00      0.00         2
+
+     accuracy                           0.95        40
+    macro avg       0.47      0.50      0.49        40
+ weighted avg       0.90      0.95      0.93        40
+
+------------------------------------------------------------
+
+Epoch 5/10:   0%|          | 0/40 [00:00<?, ?it/s]
+Epoch 5/10:   2%|▎         | 1/40 [00:01<01:04,  1.65s/it]
+Epoch 5/10:   5%|▌         | 2/40 [00:03<01:07,  1.77s/it]
+Epoch 5/10:   8%|▊         | 3/40 [00:05<01:03,  1.71s/it]
+Epoch 5/10:  10%|█         | 4/40 [00:06<01:03,  1.76s/it]
+Epoch 5/10:  12%|█▎        | 5/40 [00:08<01:03,  1.81s/it]
+Epoch 5/10:  15%|█▌        | 6/40 [00:10<01:00,  1.79s/it]
+Epoch 5/10:  18%|█▊        | 7/40 [00:12<00:59,  1.80s/it]
+Epoch 5/10:  20%|██        | 8/40 [00:14<01:00,  1.88s/it]
+Epoch 5/10:  22%|██▎       | 9/40 [00:16<00:55,  1.78s/it]
+Epoch 5/10:  25%|██▌       | 10/40 [00:17<00:52,  1.76s/it]
+Epoch 5/10:  28%|██▊       | 11/40 [00:19<00:51,  1.79s/it]
+Epoch 5/10:  30%|███       | 12/40 [00:21<00:52,  1.86s/it]
+Epoch 5/10:  32%|███▎      | 13/40 [00:23<00:46,  1.71s/it]
+Epoch 5/10:  35%|███▌      | 14/40 [00:24<00:45,  1.75s/it]
+Epoch 5/10:  38%|███▊      | 15/40 [00:26<00:44,  1.80s/it]
+Epoch 5/10:  40%|████      | 16/40 [00:28<00:45,  1.89s/it]
+Epoch 5/10:  42%|████▎     | 17/40 [00:30<00:41,  1.79s/it]
+Epoch 5/10:  45%|████▌     | 18/40 [00:32<00:38,  1.74s/it]
+Epoch 5/10:  48%|████▊     | 19/40 [00:33<00:36,  1.74s/it]
+Epoch 5/10:  50%|█████     | 20/40 [00:35<00:34,  1.71s/it]
+Epoch 5/10:  52%|█████▎    | 21/40 [00:37<00:33,  1.75s/it]
+Epoch 5/10:  55%|█████▌    | 22/40 [00:39<00:31,  1.77s/it]
+Epoch 5/10:  57%|█████▊    | 23/40 [00:41<00:32,  1.90s/it]
+Epoch 5/10:  60%|██████    | 24/40 [00:43<00:29,  1.85s/it]
+Epoch 5/10:  62%|██████▎   | 25/40 [00:44<00:27,  1.85s/it]
+Epoch 5/10:  65%|██████▌   | 26/40 [00:46<00:25,  1.82s/it]
+Epoch 5/10:  68%|██████▊   | 27/40 [00:48<00:23,  1.84s/it]
+Epoch 5/10:  70%|███████   | 28/40 [00:50<00:22,  1.87s/it]
+Epoch 5/10:  72%|███████▎  | 29/40 [00:51<00:18,  1.72s/it]
+Epoch 5/10:  75%|███████▌  | 30/40 [00:53<00:16,  1.70s/it]
+Epoch 5/10:  78%|███████▊  | 31/40 [00:55<00:15,  1.71s/it]
+Epoch 5/10:  80%|████████  | 32/40 [00:57<00:14,  1.82s/it]
+Epoch 5/10:  82%|████████▎ | 33/40 [00:59<00:12,  1.80s/it]
+Epoch 5/10:  85%|████████▌ | 34/40 [01:00<00:10,  1.83s/it]
+Epoch 5/10:  88%|████████▊ | 35/40 [01:02<00:09,  1.84s/it]
+Epoch 5/10:  90%|█████████ | 36/40 [01:04<00:07,  1.86s/it]
+Epoch 5/10:  92%|█████████▎| 37/40 [01:06<00:05,  1.83s/it]
+Epoch 5/10:  95%|█████████▌| 38/40 [01:08<00:03,  1.80s/it]
+Epoch 5/10:  98%|█████████▊| 39/40 [01:10<00:01,  1.84s/it]
+Epoch 5/10: 100%|██████████| 40/40 [01:11<00:00,  1.67s/it]
+Epoch 5/10: 100%|██████████| 40/40 [01:11<00:00,  1.79s/it]
+
+Epoch 5 — avg train loss: 18.9563
+
+[Train classification report — Epoch 5]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       1.00      0.99      1.00       152
+INAPPROPRIATE       0.88      1.00      0.93         7
+
+     accuracy                           0.99       159
+    macro avg       0.94      1.00      0.97       159
+ weighted avg       0.99      0.99      0.99       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 5 | Task: appropriate_vocabulary_usage
+------------------------------------------------------------
+
+[1] Label token ID check
+  'APPROPRIATE' → token_id=128256 → decoded='APPROPRIATE'
+  'INAPPROPRIATE' → token_id=128257 → decoded='INAPPROPRIATE'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+
+Diag-val epoch 5:   0%|          | 0/10 [00:00<?, ?it/s]
+Diag-val epoch 5:  10%|█         | 1/10 [00:00<00:04,  2.24it/s]
+Diag-val epoch 5:  20%|██        | 2/10 [00:00<00:03,  2.32it/s]
+Diag-val epoch 5:  30%|███       | 3/10 [00:01<00:03,  2.11it/s]
+Diag-val epoch 5:  40%|████      | 4/10 [00:01<00:02,  2.03it/s]
+Diag-val epoch 5:  50%|█████     | 5/10 [00:02<00:02,  2.01it/s]
+Diag-val epoch 5:  60%|██████    | 6/10 [00:02<00:01,  2.07it/s]
+Diag-val epoch 5:  70%|███████   | 7/10 [00:03<00:01,  2.04it/s]
+Diag-val epoch 5:  80%|████████  | 8/10 [00:03<00:01,  2.00it/s]
+Diag-val epoch 5:  90%|█████████ | 9/10 [00:04<00:00,  2.06it/s]
+Diag-val epoch 5: 100%|██████████| 10/10 [00:04<00:00,  2.03it/s]
+Diag-val epoch 5: 100%|██████████| 10/10 [00:04<00:00,  2.06it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'APPROPRIATE': mean=0.938  std=0.075  min=0.867  max=1.008
+  'INAPPROPRIATE': mean=-0.133  std=0.155  min=-0.338  max=0.027
+  Max-min spread per sample: mean=1.070  min=0.969  max=1.205
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  APPROPRIATE                       95.0%   100.0% ← collapsed?
+  INAPPROPRIATE                      5.0%     0.0%
+
+[Classification report — Epoch 5]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       0.95      1.00      0.97        38
+INAPPROPRIATE       0.00      0.00      0.00         2
+
+     accuracy                           0.95        40
+    macro avg       0.47      0.50      0.49        40
+ weighted avg       0.90      0.95      0.93        40
+
+------------------------------------------------------------
+
+Epoch 6/10:   0%|          | 0/40 [00:00<?, ?it/s]
+Epoch 6/10:   2%|▎         | 1/40 [00:01<01:12,  1.86s/it]
+Epoch 6/10:   5%|▌         | 2/40 [00:03<01:04,  1.69s/it]
+Epoch 6/10:   8%|▊         | 3/40 [00:05<01:08,  1.85s/it]
+Epoch 6/10:  10%|█         | 4/40 [00:07<01:04,  1.80s/it]
+Epoch 6/10:  12%|█▎        | 5/40 [00:09<01:08,  1.95s/it]
+Epoch 6/10:  15%|█▌        | 6/40 [00:11<01:04,  1.91s/it]
+Epoch 6/10:  18%|█▊        | 7/40 [00:13<01:02,  1.89s/it]
+Epoch 6/10:  20%|██        | 8/40 [00:14<00:59,  1.87s/it]
+Epoch 6/10:  22%|██▎       | 9/40 [00:16<00:55,  1.80s/it]
+Epoch 6/10:  25%|██▌       | 10/40 [00:18<00:52,  1.75s/it]
+Epoch 6/10:  28%|██▊       | 11/40 [00:20<00:52,  1.80s/it]
+Epoch 6/10:  30%|███       | 12/40 [00:21<00:50,  1.81s/it]
+Epoch 6/10:  32%|███▎      | 13/40 [00:23<00:50,  1.88s/it]
+Epoch 6/10:  35%|███▌      | 14/40 [00:25<00:44,  1.72s/it]
+Epoch 6/10:  38%|███▊      | 15/40 [00:26<00:42,  1.69s/it]
+Epoch 6/10:  40%|████      | 16/40 [00:28<00:42,  1.76s/it]
+Epoch 6/10:  42%|████▎     | 17/40 [00:30<00:39,  1.72s/it]
+Epoch 6/10:  45%|████▌     | 18/40 [00:32<00:38,  1.73s/it]
+Epoch 6/10:  48%|████▊     | 19/40 [00:34<00:38,  1.83s/it]
+Epoch 6/10:  50%|█████     | 20/40 [00:36<00:36,  1.81s/it]
+Epoch 6/10:  52%|█████▎    | 21/40 [00:37<00:32,  1.73s/it]
+Epoch 6/10:  55%|█████▌    | 22/40 [00:39<00:31,  1.73s/it]
+Epoch 6/10:  57%|█████▊    | 23/40 [00:41<00:31,  1.84s/it]
+Epoch 6/10:  60%|██████    | 24/40 [00:43<00:29,  1.86s/it]
+Epoch 6/10:  62%|██████▎   | 25/40 [00:45<00:27,  1.82s/it]
+Epoch 6/10:  65%|██████▌   | 26/40 [00:46<00:24,  1.77s/it]
+Epoch 6/10:  68%|██████▊   | 27/40 [00:48<00:23,  1.81s/it]
+Epoch 6/10:  70%|███████   | 28/40 [00:50<00:21,  1.76s/it]
+Epoch 6/10:  72%|███████▎  | 29/40 [00:51<00:18,  1.72s/it]
+Epoch 6/10:  75%|███████▌  | 30/40 [00:53<00:18,  1.81s/it]
+Epoch 6/10:  78%|███████▊  | 31/40 [00:55<00:15,  1.75s/it]
+Epoch 6/10:  80%|████████  | 32/40 [00:57<00:14,  1.78s/it]
+Epoch 6/10:  82%|████████▎ | 33/40 [00:59<00:12,  1.74s/it]
+Epoch 6/10:  85%|████████▌ | 34/40 [01:00<00:10,  1.79s/it]
+Epoch 6/10:  88%|████████▊ | 35/40 [01:02<00:09,  1.83s/it]
+Epoch 6/10:  90%|█████████ | 36/40 [01:04<00:07,  1.83s/it]
+Epoch 6/10:  92%|█████████▎| 37/40 [01:06<00:05,  1.83s/it]
+Epoch 6/10:  95%|█████████▌| 38/40 [01:08<00:03,  1.86s/it]
+Epoch 6/10:  98%|█████████▊| 39/40 [01:10<00:01,  1.82s/it]
+Epoch 6/10: 100%|██████████| 40/40 [01:11<00:00,  1.66s/it]
+Epoch 6/10: 100%|██████████| 40/40 [01:11<00:00,  1.79s/it]
+
+Epoch 6 — avg train loss: 18.9469
+
+[Train classification report — Epoch 6]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       1.00      0.99      1.00       152
+INAPPROPRIATE       0.88      1.00      0.93         7
+
+     accuracy                           0.99       159
+    macro avg       0.94      1.00      0.97       159
+ weighted avg       0.99      0.99      0.99       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 6 | Task: appropriate_vocabulary_usage
+------------------------------------------------------------
+
+[1] Label token ID check
+  'APPROPRIATE' → token_id=128256 → decoded='APPROPRIATE'
+  'INAPPROPRIATE' → token_id=128257 → decoded='INAPPROPRIATE'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+
+Diag-val epoch 6:   0%|          | 0/10 [00:00<?, ?it/s]
+Diag-val epoch 6:  10%|█         | 1/10 [00:00<00:04,  2.23it/s]
+Diag-val epoch 6:  20%|██        | 2/10 [00:00<00:03,  2.31it/s]
+Diag-val epoch 6:  30%|███       | 3/10 [00:01<00:03,  2.11it/s]
+Diag-val epoch 6:  40%|████      | 4/10 [00:01<00:02,  2.03it/s]
+Diag-val epoch 6:  50%|█████     | 5/10 [00:02<00:02,  2.01it/s]
+Diag-val epoch 6:  60%|██████    | 6/10 [00:02<00:01,  2.08it/s]
+Diag-val epoch 6:  70%|███████   | 7/10 [00:03<00:01,  2.05it/s]
+Diag-val epoch 6:  80%|████████  | 8/10 [00:03<00:00,  2.00it/s]
+Diag-val epoch 6:  90%|█████████ | 9/10 [00:04<00:00,  2.06it/s]
+Diag-val epoch 6: 100%|██████████| 10/10 [00:04<00:00,  2.03it/s]
+Diag-val epoch 6: 100%|██████████| 10/10 [00:04<00:00,  2.06it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'APPROPRIATE': mean=0.938  std=0.075  min=0.867  max=1.008
+  'INAPPROPRIATE': mean=-0.133  std=0.155  min=-0.338  max=0.027
+  Max-min spread per sample: mean=1.070  min=0.969  max=1.205
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  APPROPRIATE                       95.0%   100.0% ← collapsed?
+  INAPPROPRIATE                      5.0%     0.0%
+
+[Classification report — Epoch 6]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       0.95      1.00      0.97        38
+INAPPROPRIATE       0.00      0.00      0.00         2
+
+     accuracy                           0.95        40
+    macro avg       0.47      0.50      0.49        40
+ weighted avg       0.90      0.95      0.93        40
+
+------------------------------------------------------------
+
+Epoch 7/10:   0%|          | 0/40 [00:00<?, ?it/s]
+Epoch 7/10:   2%|▎         | 1/40 [00:01<01:08,  1.75s/it]
+Epoch 7/10:   5%|▌         | 2/40 [00:03<01:04,  1.68s/it]
+Epoch 7/10:   8%|▊         | 3/40 [00:05<01:01,  1.66s/it]
+Epoch 7/10:  10%|█         | 4/40 [00:06<00:59,  1.64s/it]
+Epoch 7/10:  12%|█▎        | 5/40 [00:08<01:00,  1.74s/it]
+Epoch 7/10:  15%|█▌        | 6/40 [00:10<00:59,  1.74s/it]
+Epoch 7/10:  18%|█▊        | 7/40 [00:12<01:01,  1.85s/it]
+Epoch 7/10:  20%|██        | 8/40 [00:14<00:59,  1.85s/it]
+Epoch 7/10:  22%|██▎       | 9/40 [00:16<00:57,  1.87s/it]
+Epoch 7/10:  25%|██▌       | 10/40 [00:17<00:53,  1.79s/it]
+Epoch 7/10:  28%|██▊       | 11/40 [00:19<00:52,  1.83s/it]
+Epoch 7/10:  30%|███       | 12/40 [00:21<00:48,  1.72s/it]
+Epoch 7/10:  32%|███▎      | 13/40 [00:22<00:47,  1.76s/it]
+Epoch 7/10:  35%|███▌      | 14/40 [00:24<00:45,  1.75s/it]
+Epoch 7/10:  38%|███▊      | 15/40 [00:26<00:42,  1.72s/it]
+Epoch 7/10:  40%|████      | 16/40 [00:28<00:42,  1.75s/it]
+Epoch 7/10:  42%|████▎     | 17/40 [00:29<00:40,  1.75s/it]
+Epoch 7/10:  45%|████▌     | 18/40 [00:31<00:35,  1.63s/it]
+Epoch 7/10:  48%|████▊     | 19/40 [00:33<00:35,  1.69s/it]
+Epoch 7/10:  50%|█████     | 20/40 [00:34<00:32,  1.63s/it]
+Epoch 7/10:  52%|█████▎    | 21/40 [00:36<00:33,  1.77s/it]
+Epoch 7/10:  55%|█████▌    | 22/40 [00:38<00:33,  1.84s/it]
+Epoch 7/10:  57%|█████▊    | 23/40 [00:40<00:31,  1.86s/it]
+Epoch 7/10:  60%|██████    | 24/40 [00:42<00:30,  1.91s/it]
+Epoch 7/10:  62%|██████▎   | 25/40 [00:44<00:27,  1.82s/it]
+Epoch 7/10:  65%|██████▌   | 26/40 [00:45<00:23,  1.68s/it]
+Epoch 7/10:  68%|██████▊   | 27/40 [00:47<00:22,  1.69s/it]
+Epoch 7/10:  70%|███████   | 28/40 [00:49<00:21,  1.76s/it]
+Epoch 7/10:  72%|███████▎  | 29/40 [00:51<00:20,  1.84s/it]
+Epoch 7/10:  75%|███████▌  | 30/40 [00:52<00:16,  1.70s/it]
+Epoch 7/10:  78%|███████▊  | 31/40 [00:54<00:15,  1.68s/it]
+Epoch 7/10:  80%|████████  | 32/40 [00:56<00:13,  1.74s/it]
+Epoch 7/10:  82%|████████▎ | 33/40 [00:57<00:12,  1.77s/it]
+Epoch 7/10:  85%|████████▌ | 34/40 [00:59<00:10,  1.72s/it]
+Epoch 7/10:  88%|████████▊ | 35/40 [01:01<00:09,  1.86s/it]
+Epoch 7/10:  90%|█████████ | 36/40 [01:03<00:07,  1.79s/it]
+Epoch 7/10:  92%|█████████▎| 37/40 [01:04<00:05,  1.72s/it]
+Epoch 7/10:  95%|█████████▌| 38/40 [01:06<00:03,  1.72s/it]
+Epoch 7/10:  98%|█████████▊| 39/40 [01:08<00:01,  1.75s/it]
+Epoch 7/10: 100%|██████████| 40/40 [01:09<00:00,  1.64s/it]
+Epoch 7/10: 100%|██████████| 40/40 [01:09<00:00,  1.75s/it]
+
+Epoch 7 — avg train loss: 18.8938
+
+[Train classification report — Epoch 7]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       1.00      0.99      1.00       152
+INAPPROPRIATE       0.88      1.00      0.93         7
+
+     accuracy                           0.99       159
+    macro avg       0.94      1.00      0.97       159
+ weighted avg       0.99      0.99      0.99       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 7 | Task: appropriate_vocabulary_usage
+------------------------------------------------------------
+
+[1] Label token ID check
+  'APPROPRIATE' → token_id=128256 → decoded='APPROPRIATE'
+  'INAPPROPRIATE' → token_id=128257 → decoded='INAPPROPRIATE'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+
+Diag-val epoch 7:   0%|          | 0/10 [00:00<?, ?it/s]
+Diag-val epoch 7:  10%|█         | 1/10 [00:00<00:03,  2.26it/s]
+Diag-val epoch 7:  20%|██        | 2/10 [00:00<00:03,  2.32it/s]
+Diag-val epoch 7:  30%|███       | 3/10 [00:01<00:03,  2.12it/s]
+Diag-val epoch 7:  40%|████      | 4/10 [00:01<00:02,  2.04it/s]
+Diag-val epoch 7:  50%|█████     | 5/10 [00:02<00:02,  2.02it/s]
+Diag-val epoch 7:  60%|██████    | 6/10 [00:02<00:01,  2.08it/s]
+Diag-val epoch 7:  70%|███████   | 7/10 [00:03<00:01,  2.06it/s]
+Diag-val epoch 7:  80%|████████  | 8/10 [00:03<00:00,  2.01it/s]
+Diag-val epoch 7:  90%|█████████ | 9/10 [00:04<00:00,  2.08it/s]
+Diag-val epoch 7: 100%|██████████| 10/10 [00:04<00:00,  2.05it/s]
+Diag-val epoch 7: 100%|██████████| 10/10 [00:04<00:00,  2.07it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'APPROPRIATE': mean=0.938  std=0.075  min=0.867  max=1.008
+  'INAPPROPRIATE': mean=-0.133  std=0.155  min=-0.338  max=0.027
+  Max-min spread per sample: mean=1.070  min=0.969  max=1.205
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  APPROPRIATE                       95.0%   100.0% ← collapsed?
+  INAPPROPRIATE                      5.0%     0.0%
+
+[Classification report — Epoch 7]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       0.95      1.00      0.97        38
+INAPPROPRIATE       0.00      0.00      0.00         2
+
+     accuracy                           0.95        40
+    macro avg       0.47      0.50      0.49        40
+ weighted avg       0.90      0.95      0.93        40
+
+------------------------------------------------------------
+
+Epoch 8/10:   0%|          | 0/40 [00:00<?, ?it/s]
+Epoch 8/10:   2%|▎         | 1/40 [00:01<01:14,  1.91s/it]
+Epoch 8/10:   5%|▌         | 2/40 [00:03<01:08,  1.80s/it]
+Epoch 8/10:   8%|▊         | 3/40 [00:05<01:05,  1.77s/it]
+Epoch 8/10:  10%|█         | 4/40 [00:07<01:05,  1.82s/it]
+Epoch 8/10:  12%|█▎        | 5/40 [00:09<01:08,  1.95s/it]
+Epoch 8/10:  15%|█▌        | 6/40 [00:10<01:01,  1.81s/it]
+Epoch 8/10:  18%|█▊        | 7/40 [00:12<00:57,  1.75s/it]
+Epoch 8/10:  20%|██        | 8/40 [00:14<00:53,  1.68s/it]
+Epoch 8/10:  22%|██▎       | 9/40 [00:15<00:51,  1.66s/it]
+Epoch 8/10:  25%|██▌       | 10/40 [00:17<00:52,  1.74s/it]
+Epoch 8/10:  28%|██▊       | 11/40 [00:19<00:51,  1.79s/it]
+Epoch 8/10:  30%|███       | 12/40 [00:21<00:50,  1.82s/it]
+Epoch 8/10:  32%|███▎      | 13/40 [00:23<00:49,  1.82s/it]
+Epoch 8/10:  35%|███▌      | 14/40 [00:25<00:49,  1.90s/it]
+Epoch 8/10:  38%|███▊      | 15/40 [00:27<00:46,  1.85s/it]
+Epoch 8/10:  40%|████      | 16/40 [00:28<00:44,  1.84s/it]
+Epoch 8/10:  42%|████▎     | 17/40 [00:30<00:41,  1.80s/it]
+Epoch 8/10:  45%|████▌     | 18/40 [00:32<00:38,  1.75s/it]
+Epoch 8/10:  48%|████▊     | 19/40 [00:34<00:36,  1.75s/it]
+Epoch 8/10:  50%|█████     | 20/40 [00:35<00:35,  1.77s/it]
+Epoch 8/10:  52%|█████▎    | 21/40 [00:37<00:32,  1.69s/it]
+Epoch 8/10:  55%|█████▌    | 22/40 [00:39<00:30,  1.70s/it]
+Epoch 8/10:  57%|█████▊    | 23/40 [00:41<00:30,  1.80s/it]
+Epoch 8/10:  60%|██████    | 24/40 [00:42<00:29,  1.83s/it]
+Epoch 8/10:  62%|██████▎   | 25/40 [00:45<00:28,  1.90s/it]
+Epoch 8/10:  65%|██████▌   | 26/40 [00:46<00:25,  1.82s/it]
+Epoch 8/10:  68%|██████▊   | 27/40 [00:48<00:24,  1.88s/it]
+Epoch 8/10:  70%|███████   | 28/40 [00:50<00:23,  1.92s/it]
+Epoch 8/10:  72%|███████▎  | 29/40 [00:52<00:20,  1.90s/it]
+Epoch 8/10:  75%|███████▌  | 30/40 [00:54<00:18,  1.81s/it]
+Epoch 8/10:  78%|███████▊  | 31/40 [00:55<00:15,  1.73s/it]
+Epoch 8/10:  80%|████████  | 32/40 [00:57<00:13,  1.73s/it]
+Epoch 8/10:  82%|████████▎ | 33/40 [00:59<00:12,  1.76s/it]
+Epoch 8/10:  85%|████████▌ | 34/40 [01:00<00:10,  1.72s/it]
+Epoch 8/10:  88%|████████▊ | 35/40 [01:02<00:08,  1.75s/it]
+Epoch 8/10:  90%|█████████ | 36/40 [01:04<00:06,  1.75s/it]
+Epoch 8/10:  92%|█████████▎| 37/40 [01:06<00:05,  1.69s/it]
+Epoch 8/10:  95%|█████████▌| 38/40 [01:07<00:03,  1.70s/it]
+Epoch 8/10:  98%|█████████▊| 39/40 [01:09<00:01,  1.74s/it]
+Epoch 8/10: 100%|██████████| 40/40 [01:10<00:00,  1.61s/it]
+Epoch 8/10: 100%|██████████| 40/40 [01:10<00:00,  1.77s/it]
+
+Epoch 8 — avg train loss: 18.9563
+
+[Train classification report — Epoch 8]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       1.00      0.99      1.00       152
+INAPPROPRIATE       0.88      1.00      0.93         7
+
+     accuracy                           0.99       159
+    macro avg       0.94      1.00      0.97       159
+ weighted avg       0.99      0.99      0.99       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 8 | Task: appropriate_vocabulary_usage
+------------------------------------------------------------
+
+[1] Label token ID check
+  'APPROPRIATE' → token_id=128256 → decoded='APPROPRIATE'
+  'INAPPROPRIATE' → token_id=128257 → decoded='INAPPROPRIATE'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+
+Diag-val epoch 8:   0%|          | 0/10 [00:00<?, ?it/s]
+Diag-val epoch 8:  10%|█         | 1/10 [00:00<00:03,  2.26it/s]
+Diag-val epoch 8:  20%|██        | 2/10 [00:00<00:03,  2.32it/s]
+Diag-val epoch 8:  30%|███       | 3/10 [00:01<00:03,  2.13it/s]
+Diag-val epoch 8:  40%|████      | 4/10 [00:01<00:02,  2.05it/s]
+Diag-val epoch 8:  50%|█████     | 5/10 [00:02<00:02,  2.03it/s]
+Diag-val epoch 8:  60%|██████    | 6/10 [00:02<00:01,  2.09it/s]
+Diag-val epoch 8:  70%|███████   | 7/10 [00:03<00:01,  2.07it/s]
+Diag-val epoch 8:  80%|████████  | 8/10 [00:03<00:00,  2.02it/s]
+Diag-val epoch 8:  90%|█████████ | 9/10 [00:04<00:00,  2.08it/s]
+Diag-val epoch 8: 100%|██████████| 10/10 [00:04<00:00,  2.06it/s]
+Diag-val epoch 8: 100%|██████████| 10/10 [00:04<00:00,  2.08it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'APPROPRIATE': mean=0.938  std=0.075  min=0.867  max=1.008
+  'INAPPROPRIATE': mean=-0.133  std=0.155  min=-0.338  max=0.027
+  Max-min spread per sample: mean=1.070  min=0.969  max=1.205
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  APPROPRIATE                       95.0%   100.0% ← collapsed?
+  INAPPROPRIATE                      5.0%     0.0%
+
+[Classification report — Epoch 8]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       0.95      1.00      0.97        38
+INAPPROPRIATE       0.00      0.00      0.00         2
+
+     accuracy                           0.95        40
+    macro avg       0.47      0.50      0.49        40
+ weighted avg       0.90      0.95      0.93        40
+
+------------------------------------------------------------
+
+Epoch 9/10:   0%|          | 0/40 [00:00<?, ?it/s]
+Epoch 9/10:   2%|▎         | 1/40 [00:01<01:00,  1.55s/it]
+Epoch 9/10:   5%|▌         | 2/40 [00:03<01:04,  1.71s/it]
+Epoch 9/10:   8%|▊         | 3/40 [00:05<01:05,  1.76s/it]
+Epoch 9/10:  10%|█         | 4/40 [00:06<01:01,  1.71s/it]
+Epoch 9/10:  12%|█▎        | 5/40 [00:08<00:58,  1.68s/it]
+Epoch 9/10:  15%|█▌        | 6/40 [00:10<01:01,  1.81s/it]
+Epoch 9/10:  18%|█▊        | 7/40 [00:12<00:57,  1.75s/it]
+Epoch 9/10:  20%|██        | 8/40 [00:13<00:55,  1.74s/it]
+Epoch 9/10:  22%|██▎       | 9/40 [00:15<00:55,  1.79s/it]
+Epoch 9/10:  25%|██▌       | 10/40 [00:17<00:53,  1.77s/it]
+Epoch 9/10:  28%|██▊       | 11/40 [00:19<00:49,  1.72s/it]
+Epoch 9/10:  30%|███       | 12/40 [00:20<00:46,  1.67s/it]
+Epoch 9/10:  32%|███▎      | 13/40 [00:22<00:45,  1.69s/it]
+Epoch 9/10:  35%|███▌      | 14/40 [00:24<00:43,  1.67s/it]
+Epoch 9/10:  38%|███▊      | 15/40 [00:25<00:42,  1.71s/it]
+Epoch 9/10:  40%|████      | 16/40 [00:27<00:40,  1.69s/it]
+Epoch 9/10:  42%|████▎     | 17/40 [00:29<00:40,  1.75s/it]
+Epoch 9/10:  45%|████▌     | 18/40 [00:31<00:40,  1.83s/it]
+Epoch 9/10:  48%|████▊     | 19/40 [00:33<00:40,  1.91s/it]
+Epoch 9/10:  50%|█████     | 20/40 [00:35<00:36,  1.82s/it]
+Epoch 9/10:  52%|█████▎    | 21/40 [00:36<00:33,  1.76s/it]
+Epoch 9/10:  55%|█████▌    | 22/40 [00:38<00:31,  1.75s/it]
+Epoch 9/10:  57%|█████▊    | 23/40 [00:40<00:29,  1.75s/it]
+Epoch 9/10:  60%|██████    | 24/40 [00:41<00:27,  1.74s/it]
+Epoch 9/10:  62%|██████▎   | 25/40 [00:43<00:26,  1.76s/it]
+Epoch 9/10:  65%|██████▌   | 26/40 [00:45<00:25,  1.80s/it]
+Epoch 9/10:  68%|██████▊   | 27/40 [00:47<00:23,  1.81s/it]
+Epoch 9/10:  70%|███████   | 28/40 [00:49<00:21,  1.81s/it]
+Epoch 9/10:  72%|███████▎  | 29/40 [00:50<00:19,  1.79s/it]
+Epoch 9/10:  75%|███████▌  | 30/40 [00:52<00:17,  1.77s/it]
+Epoch 9/10:  78%|███████▊  | 31/40 [00:54<00:17,  1.89s/it]
+Epoch 9/10:  80%|████████  | 32/40 [00:56<00:15,  1.93s/it]
+Epoch 9/10:  82%|████████▎ | 33/40 [00:58<00:12,  1.84s/it]
+Epoch 9/10:  85%|████████▌ | 34/40 [01:00<00:10,  1.81s/it]
+Epoch 9/10:  88%|████████▊ | 35/40 [01:02<00:09,  1.81s/it]
+Epoch 9/10:  90%|█████████ | 36/40 [01:03<00:07,  1.75s/it]
+Epoch 9/10:  92%|█████████▎| 37/40 [01:05<00:05,  1.78s/it]
+Epoch 9/10:  95%|█████████▌| 38/40 [01:07<00:03,  1.84s/it]
+Epoch 9/10:  98%|█████████▊| 39/40 [01:09<00:01,  1.81s/it]
+Epoch 9/10: 100%|██████████| 40/40 [01:10<00:00,  1.69s/it]
+Epoch 9/10: 100%|██████████| 40/40 [01:10<00:00,  1.77s/it]
+
+Epoch 9 — avg train loss: 18.9156
+
+[Train classification report — Epoch 9]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       1.00      0.99      1.00       152
+INAPPROPRIATE       0.88      1.00      0.93         7
+
+     accuracy                           0.99       159
+    macro avg       0.94      1.00      0.97       159
+ weighted avg       0.99      0.99      0.99       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 9 | Task: appropriate_vocabulary_usage
+------------------------------------------------------------
+
+[1] Label token ID check
+  'APPROPRIATE' → token_id=128256 → decoded='APPROPRIATE'
+  'INAPPROPRIATE' → token_id=128257 → decoded='INAPPROPRIATE'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+
+Diag-val epoch 9:   0%|          | 0/10 [00:00<?, ?it/s]
+Diag-val epoch 9:  10%|█         | 1/10 [00:00<00:03,  2.26it/s]
+Diag-val epoch 9:  20%|██        | 2/10 [00:00<00:03,  2.33it/s]
+Diag-val epoch 9:  30%|███       | 3/10 [00:01<00:03,  2.13it/s]
+Diag-val epoch 9:  40%|████      | 4/10 [00:01<00:02,  2.04it/s]
+Diag-val epoch 9:  50%|█████     | 5/10 [00:02<00:02,  2.03it/s]
+Diag-val epoch 9:  60%|██████    | 6/10 [00:02<00:01,  2.09it/s]
+Diag-val epoch 9:  70%|███████   | 7/10 [00:03<00:01,  2.07it/s]
+Diag-val epoch 9:  80%|████████  | 8/10 [00:03<00:00,  2.02it/s]
+Diag-val epoch 9:  90%|█████████ | 9/10 [00:04<00:00,  2.08it/s]
+Diag-val epoch 9: 100%|██████████| 10/10 [00:04<00:00,  2.06it/s]
+Diag-val epoch 9: 100%|██████████| 10/10 [00:04<00:00,  2.08it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'APPROPRIATE': mean=0.938  std=0.075  min=0.867  max=1.008
+  'INAPPROPRIATE': mean=-0.133  std=0.155  min=-0.338  max=0.027
+  Max-min spread per sample: mean=1.070  min=0.969  max=1.205
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  APPROPRIATE                       95.0%   100.0% ← collapsed?
+  INAPPROPRIATE                      5.0%     0.0%
+
+[Classification report — Epoch 9]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       0.95      1.00      0.97        38
+INAPPROPRIATE       0.00      0.00      0.00         2
+
+     accuracy                           0.95        40
+    macro avg       0.47      0.50      0.49        40
+ weighted avg       0.90      0.95      0.93        40
+
+------------------------------------------------------------
+
+Epoch 10/10:   0%|          | 0/40 [00:00<?, ?it/s]
+Epoch 10/10:   2%|▎         | 1/40 [00:01<01:00,  1.55s/it]
+Epoch 10/10:   5%|▌         | 2/40 [00:03<01:02,  1.66s/it]
+Epoch 10/10:   8%|▊         | 3/40 [00:04<01:00,  1.64s/it]
+Epoch 10/10:  10%|█         | 4/40 [00:06<01:05,  1.81s/it]
+Epoch 10/10:  12%|█▎        | 5/40 [00:08<01:00,  1.72s/it]
+Epoch 10/10:  15%|█▌        | 6/40 [00:10<01:01,  1.82s/it]
+Epoch 10/10:  18%|█▊        | 7/40 [00:12<00:59,  1.79s/it]
+Epoch 10/10:  20%|██        | 8/40 [00:14<00:57,  1.80s/it]
+Epoch 10/10:  22%|██▎       | 9/40 [00:15<00:55,  1.81s/it]
+Epoch 10/10:  25%|██▌       | 10/40 [00:17<00:56,  1.89s/it]
+Epoch 10/10:  28%|██▊       | 11/40 [00:19<00:54,  1.89s/it]
+Epoch 10/10:  30%|███       | 12/40 [00:21<00:50,  1.81s/it]
+Epoch 10/10:  32%|███▎      | 13/40 [00:23<00:48,  1.81s/it]
+Epoch 10/10:  35%|███▌      | 14/40 [00:25<00:47,  1.84s/it]
+Epoch 10/10:  38%|███▊      | 15/40 [00:27<00:47,  1.89s/it]
+Epoch 10/10:  40%|████      | 16/40 [00:28<00:43,  1.81s/it]
+Epoch 10/10:  42%|████▎     | 17/40 [00:30<00:39,  1.73s/it]
+Epoch 10/10:  45%|████▌     | 18/40 [00:32<00:39,  1.81s/it]
+Epoch 10/10:  48%|████▊     | 19/40 [00:34<00:37,  1.79s/it]
+Epoch 10/10:  50%|█████     | 20/40 [00:35<00:34,  1.74s/it]
+Epoch 10/10:  52%|█████▎    | 21/40 [00:37<00:33,  1.79s/it]
+Epoch 10/10:  55%|█████▌    | 22/40 [00:39<00:32,  1.82s/it]
+Epoch 10/10:  57%|█████▊    | 23/40 [00:41<00:29,  1.71s/it]
+Epoch 10/10:  60%|██████    | 24/40 [00:42<00:27,  1.75s/it]
+Epoch 10/10:  62%|██████▎   | 25/40 [00:44<00:25,  1.71s/it]
+Epoch 10/10:  65%|██████▌   | 26/40 [00:46<00:23,  1.71s/it]
+Epoch 10/10:  68%|██████▊   | 27/40 [00:48<00:24,  1.86s/it]
+Epoch 10/10:  70%|███████   | 28/40 [00:50<00:22,  1.87s/it]
+Epoch 10/10:  72%|███████▎  | 29/40 [00:51<00:20,  1.82s/it]
+Epoch 10/10:  75%|███████▌  | 30/40 [00:53<00:17,  1.80s/it]
+Epoch 10/10:  78%|███████▊  | 31/40 [00:55<00:16,  1.81s/it]
+Epoch 10/10:  80%|████████  | 32/40 [00:57<00:14,  1.81s/it]
+Epoch 10/10:  82%|████████▎ | 33/40 [00:59<00:12,  1.79s/it]
+Epoch 10/10:  85%|████████▌ | 34/40 [01:00<00:10,  1.77s/it]
+Epoch 10/10:  88%|████████▊ | 35/40 [01:02<00:08,  1.75s/it]
+Epoch 10/10:  90%|█████████ | 36/40 [01:04<00:06,  1.71s/it]
+Epoch 10/10:  92%|█████████▎| 37/40 [01:05<00:05,  1.68s/it]
+Epoch 10/10:  95%|█████████▌| 38/40 [01:07<00:03,  1.62s/it]
+Epoch 10/10:  98%|█████████▊| 39/40 [01:09<00:01,  1.71s/it]
+Epoch 10/10: 100%|██████████| 40/40 [01:10<00:00,  1.58s/it]
+Epoch 10/10: 100%|██████████| 40/40 [01:10<00:00,  1.76s/it]
+
+Epoch 10 — avg train loss: 18.9719
+
+[Train classification report — Epoch 10]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       1.00      0.99      1.00       152
+INAPPROPRIATE       0.88      1.00      0.93         7
+
+     accuracy                           0.99       159
+    macro avg       0.94      1.00      0.97       159
+ weighted avg       0.99      0.99      0.99       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 10 | Task: appropriate_vocabulary_usage
+------------------------------------------------------------
+
+[1] Label token ID check
+  'APPROPRIATE' → token_id=128256 → decoded='APPROPRIATE'
+  'INAPPROPRIATE' → token_id=128257 → decoded='INAPPROPRIATE'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+
+Diag-val epoch 10:   0%|          | 0/10 [00:00<?, ?it/s]
+Diag-val epoch 10:  10%|█         | 1/10 [00:00<00:03,  2.27it/s]
+Diag-val epoch 10:  20%|██        | 2/10 [00:00<00:03,  2.35it/s]
+Diag-val epoch 10:  30%|███       | 3/10 [00:01<00:03,  2.15it/s]
+Diag-val epoch 10:  40%|████      | 4/10 [00:01<00:02,  2.06it/s]
+Diag-val epoch 10:  50%|█████     | 5/10 [00:02<00:02,  2.04it/s]
+Diag-val epoch 10:  60%|██████    | 6/10 [00:02<00:01,  2.09it/s]
+Diag-val epoch 10:  70%|███████   | 7/10 [00:03<00:01,  2.07it/s]
+Diag-val epoch 10:  80%|████████  | 8/10 [00:03<00:00,  2.02it/s]
+Diag-val epoch 10:  90%|█████████ | 9/10 [00:04<00:00,  2.08it/s]
+Diag-val epoch 10: 100%|██████████| 10/10 [00:04<00:00,  2.06it/s]
+Diag-val epoch 10: 100%|██████████| 10/10 [00:04<00:00,  2.09it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'APPROPRIATE': mean=0.938  std=0.075  min=0.867  max=1.008
+  'INAPPROPRIATE': mean=-0.133  std=0.155  min=-0.338  max=0.027
+  Max-min spread per sample: mean=1.070  min=0.969  max=1.205
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  APPROPRIATE                       95.0%   100.0% ← collapsed?
+  INAPPROPRIATE                      5.0%     0.0%
+
+[Classification report — Epoch 10]
+               precision    recall  f1-score   support
+
+  APPROPRIATE       0.95      1.00      0.97        38
+INAPPROPRIATE       0.00      0.00      0.00         2
+
+     accuracy                           0.95        40
+    macro avg       0.47      0.50      0.49        40
+ weighted avg       0.90      0.95      0.93        40
+
+------------------------------------------------------------
+
+LoRA adapters saved to: trained_adapters/appropriate_vocabulary_usage
+Training finished.

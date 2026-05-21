@@ -1,0 +1,58 @@
+{
+  "Inconsistent Domain/Range": {
+    "type_number": 1,
+    "mistake_id": "DOMAIN_RANGE_INCONSISTENCY",
+    "name": "Mismatch between the domain and range of an object property and the property restriction definition.",
+    "description": "Students often overlook the domain and range of object properties and thus define restrictions which do not comply with existing ontology definition.",
+    "example": "Assuming the object property takesPictureOf is defined with a domain Photographer and range Wedding. To model the intention 'A Photographer takes pictures of at least 10 Guests' one might add a restriction 'Photographer takesPictureOf min 10 Guest'. However, such a restriction could lead to an inconsistency or wrong inferences such as Guest being a subClassOf Wedding.",
+    "ontology_concept": "OPRMistakeType1_DomainRangeInconsistency"
+  },
+  "Domain/Range Instead of Class Restriction": {
+    "type_number": 2,
+    "mistake_id": "DOMAIN_RANGE_REPLACEMENT",
+    "name": "Incorrect property restriction placement in the property range.",
+    "description": "Often novice knowledge engineers define the restriction in the range of the object property rather than at the class-level, which changes its logical interpretation and often leads to inconsistencies.",
+    "example": "To model the intention 'A Student attends at least 3 Courses' one might add a property restriction as the range of the object property attends such as 'attends min 3 Course'. However, this placement would result in the definition that the range of attends must be a Thing that attends 3 Courses rather than the intended meaning.",
+    "ontology_concept": "OPRMistakeType2_DomainRangeMisplacement"
+  },
+  "Equivalence Instead of Restriction": {
+    "type_number": 3,
+    "mistake_id": "EQUIVALENCE_MISUSE",
+    "name": "Logical over-restriction due to incorrect equivalence usage.",
+    "description": "A common student-made mistake is the confusion between the usage of equivalence and subClassOf restrictions which potentially leads to unintended over-restrictions.",
+    "example": "To model the intention 'Every FamousActor plays a MainCharacter' one might define equivalence between the class FamousActor and an Actor who plays a MainCharacter. However, such a model additionally introduces a restriction that every Actor who plays a MainCharacter is a FamousActor, which is typically not intended.",
+    "ontology_concept": "OPRMistakeType3_EquivalenceMisuse"
+  },
+  "Misunderstood Constraint": {
+    "type_number": 4,
+    "mistake_id": "LOGICAL_MISUNDERSTANDING",
+    "name": "Logical misunderstanding of the used property restriction.",
+    "description": "Novice knowledge engineers might choose a restriction type not fitted for modeling their intention. This often leads to a mismatch between their ontology axiom and their intention. Examples of this mistake type are the incorrect usage of cardinality to express value constraints and interpreting the universal or existential restrictions as exact cardinality of 1.",
+    "example": "To model the intention 'A Professor may only work at one University' one might use a universal restriction rather than an exact cardinality of 1. However, modeling the requirement using the universal restriction would not restrict that a Professor only has one employment or that they must be employed at all.",
+    "ontology_concept": "OPRMistakeType4_LogicalMisunderstanding"
+  },
+  "Universal Trivial Satisfaction": {
+    "type_number": 5,
+    "mistake_id": "TRIVIAL_SATISFACTION",
+    "name": "Logical under-restriction, caused by the trivial satisfaction of the universal restriction.",
+    "description": "Novice knowledge engineers could incorrectly assume that the universal restriction implies the existential quantifier. This leads to valid instances with no property values at all when this was not intended.",
+    "example": "To model the intention 'A Professor should work at a University' one might use a universal restriction. However, the model would not restrict that a Professor must be employed at all. Combining the universal restriction with an existential quantifier or minimum cardinality prevents such cases.",
+    "ontology_concept": "OPRMistakeType5_TrivialSatisfaction"
+  },
+  "Wrong Class Restricted": {
+    "type_number": 6,
+    "mistake_id": "WRONG_CLASS",
+    "name": "Property restriction placement at the wrong class.",
+    "description": "Sometimes novice knowledge engineers ignore the direction of an object property and thus place the restriction at the wrong class, which changes its logical interpretation and often leads to inconsistencies.",
+    "example": "To model the intention 'At least 3 Students attend a Course' one might add a property restriction to the class Student such as 'Student attends min 3 Course'. However, this modeling would correspond to the definition that a Student must attend at least 3 Courses rather than the intended meaning.",
+    "ontology_concept": "OPRMistakeType6_WrongClass"
+  },
+  "Other": {
+    "type_number": 7,
+    "mistake_id": "OTHER",
+    "name": "Other",
+    "description": "Other",
+    "example": "In a single occurrence the student intention was superfluous and included broader definitions, which were only partly related to their modeled axiom. In another instance, an incorrect subClass definition was detected, in addition to a typed mistake.",
+    "ontology_concept": "OPRMistakeTypeOther"
+  }
+}

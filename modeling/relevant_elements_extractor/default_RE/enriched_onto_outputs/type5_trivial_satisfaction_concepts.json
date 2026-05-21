@@ -1,0 +1,46 @@
+{
+  "local_name": "OPRMistakeType5_TrivialSatisfaction",
+  "uri": "http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType5_TrivialSatisfaction",
+  "n_tokens": 23,
+  "n_ngrams": 105,
+  "n_exact_matches": 4,
+  "n_fuzzy_matches": 2,
+  "concepts": {
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Restriction": {
+      "concept_name": "property restriction",
+      "triggered_by": [
+        "restriction"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#ObjectProperty": {
+      "concept_name": "object property",
+      "triggered_by": [
+        "property"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#UniversalRestriction": {
+      "concept_name": "universal restriction",
+      "triggered_by": [
+        "universal restriction"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#ExistentialRestriction": {
+      "concept_name": "existential restriction",
+      "triggered_by": [
+        "existential quantifier",
+        "existential quantifier leads~existential quantifier"
+      ],
+      "implied_by": []
+    },
+    "http://www.semanticweb.org/user/vocabularies/owl2-opr#Individual": {
+      "concept_name": "individual",
+      "triggered_by": [
+        "instances~instance"
+      ],
+      "implied_by": []
+    }
+  }
+}

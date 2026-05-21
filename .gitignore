@@ -1,0 +1,6 @@
+.DS_Store
+generation/utils/__init__.py
+generation/utils/__pycache__
+modeling/__pycache__
+modeling/trained_adapters
+modeling/web

@@ -1,0 +1,40 @@
+# Model
+model:
+  name: "meta-llama/Llama-3.1-8B-Instruct"
+
+# Generation hyperparameters
+generation:
+  max_new_tokens: 256
+  temperature: 0.1
+  top_p: 0.9
+  do_sample: true
+  repetition_penalty: 1.1
+
+# Data
+data:
+  path: "data_2026_one_row_per_mistake.csv"        # change with the correct dataset name
+
+# Prompts templates
+prompts:
+  no_instruct: "../prompts/no-instruct-llama-system-prompt.txt"
+  eas_instruct: "../prompts/eas-instruct-llama-system-prompt.txt"
+  eas_sheet:    "../prompts/expert-assessment-sheet.txt"
+
+# Output names and locations
+output:
+  root: "outputs"
+  no_instruct_dir:  "no-instruct"
+  eas_instruct_dir: "eas-instruct"
+  # One JSON-lines file per experiment + one combined CSV
+  jsonl_filename: "results.jsonl"
+  csv_filename:   "results.csv"
+
+# Experiments to run  (set to false to skip one)
+experiments:
+  no_instruct:  true
+  eas_instruct: true
+
+# Training details
+batch_size: 1
+device: "auto"
+seed: 42

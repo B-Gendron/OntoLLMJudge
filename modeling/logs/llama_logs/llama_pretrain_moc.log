@@ -1,0 +1,660 @@
+Starting training for task: modeling_comprehension
+2026-04-22 18:06:05.211366: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-04-22 18:06:05.344402: I tensorflow/core/util/util.cc:169] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-04-22 18:06:05.376539: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-04-22 18:06:06.024471: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2026-04-22 18:06:06.024542: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2026-04-22 18:06:06.024550: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Task: modeling_comprehension | #Samples (train): 159 | #Samples (val): 40
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.74s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.75s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.93s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.34s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.52s/it]
+The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+  Initialised 'CORRECT_ALL' from 'correct' (seed token ids: [20523])
+  Initialised 'CORRECT_SUBSET' from 'partial' (seed token ids: [38520])
+  Initialised 'NO_INTERPRETATION' from 'void' (seed token ids: [1019])
+  Initialised 'INCORRECT_INTERPRETATION' from 'wrong' (seed token ids: [35970])
+Registered 4 new label tokens.
+Embeddings+lm_head for token ids [128256, 128257, 128258, 128259] set as trainable (others masked via backward hook).
+['CORRECT_ALL', 'CORRECT_SUBSET', 'NO_INTERPRETATION', 'INCORRECT_INTERPRETATION']
+['CORRECT_SUBSET', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_SUBSET', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_SUBSET', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_SUBSET', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_SUBSET', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_SUBSET', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_SUBSET', 'CORRECT_ALL', 'CORRECT_SUBSET', 'INCORRECT_INTERPRETATION', 'CORRECT_SUBSET', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_SUBSET', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_SUBSET', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_SUBSET', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_SUBSET', 'CORRECT_ALL', 'CORRECT_SUBSET', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'NO_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_SUBSET', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_SUBSET', 'CORRECT_ALL', 'INCORRECT_INTERPRETATION', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'CORRECT_ALL', 'NO_INTERPRETATION', 'INCORRECT_INTERPRETATION', 'CORRECT_SUBSET']
+
+Class weights (inverse frequency):
+  CORRECT_ALL: 0.3897  (n=102)
+  CORRECT_SUBSET: 2.3382  (n=17)
+  NO_INTERPRETATION: 19.8750  (n=2)
+  INCORRECT_INTERPRETATION: 1.0461  (n=38)
+Epoch 1/10:   0%|          | 0/40 [00:00<?, ?it/s]Epoch 1/10:   2%|▎         | 1/40 [00:02<01:50,  2.83s/it]Epoch 1/10:   5%|▌         | 2/40 [00:05<01:41,  2.68s/it]Epoch 1/10:   8%|▊         | 3/40 [00:07<01:28,  2.40s/it]Epoch 1/10:  10%|█         | 4/40 [00:10<01:28,  2.47s/it]Epoch 1/10:  12%|█▎        | 5/40 [00:12<01:27,  2.51s/it]Epoch 1/10:  15%|█▌        | 6/40 [00:14<01:20,  2.37s/it]Epoch 1/10:  18%|█▊        | 7/40 [00:17<01:20,  2.44s/it]Epoch 1/10:  20%|██        | 8/40 [00:19<01:14,  2.33s/it]Epoch 1/10:  22%|██▎       | 9/40 [00:21<01:14,  2.41s/it]Epoch 1/10:  25%|██▌       | 10/40 [00:24<01:13,  2.47s/it]Epoch 1/10:  28%|██▊       | 11/40 [00:26<01:08,  2.35s/it]Epoch 1/10:  30%|███       | 12/40 [00:29<01:07,  2.43s/it]Epoch 1/10:  32%|███▎      | 13/40 [00:31<01:06,  2.48s/it]Epoch 1/10:  35%|███▌      | 14/40 [00:34<01:05,  2.52s/it]Epoch 1/10:  38%|███▊      | 15/40 [00:36<00:59,  2.39s/it]Epoch 1/10:  40%|████      | 16/40 [00:39<00:58,  2.46s/it]Epoch 1/10:  42%|████▎     | 17/40 [00:41<00:54,  2.35s/it]Epoch 1/10:  45%|████▌     | 18/40 [00:43<00:53,  2.43s/it]Epoch 1/10:  48%|████▊     | 19/40 [00:46<00:49,  2.34s/it]Epoch 1/10:  50%|█████     | 20/40 [00:48<00:48,  2.42s/it]Epoch 1/10:  52%|█████▎    | 21/40 [00:50<00:44,  2.33s/it]Epoch 1/10:  55%|█████▌    | 22/40 [00:52<00:40,  2.27s/it]Epoch 1/10:  57%|█████▊    | 23/40 [00:55<00:40,  2.38s/it]Epoch 1/10:  60%|██████    | 24/40 [00:58<00:39,  2.45s/it]Epoch 1/10:  62%|██████▎   | 25/40 [01:00<00:35,  2.35s/it]Epoch 1/10:  65%|██████▌   | 26/40 [01:02<00:32,  2.29s/it]Epoch 1/10:  68%|██████▊   | 27/40 [01:05<00:31,  2.39s/it]Epoch 1/10:  70%|███████   | 28/40 [01:07<00:29,  2.47s/it]Epoch 1/10:  72%|███████▎  | 29/40 [01:10<00:27,  2.52s/it]Epoch 1/10:  75%|███████▌  | 30/40 [01:12<00:24,  2.41s/it]Epoch 1/10:  78%|███████▊  | 31/40 [01:15<00:22,  2.48s/it]Epoch 1/10:  80%|████████  | 32/40 [01:17<00:20,  2.53s/it]Epoch 1/10:  82%|████████▎ | 33/40 [01:20<00:17,  2.56s/it]Epoch 1/10:  85%|████████▌ | 34/40 [01:23<00:15,  2.59s/it]Epoch 1/10:  88%|████████▊ | 35/40 [01:25<00:13,  2.61s/it]Epoch 1/10:  90%|█████████ | 36/40 [01:27<00:09,  2.47s/it]Epoch 1/10:  92%|█████████▎| 37/40 [01:29<00:07,  2.37s/it]Epoch 1/10:  95%|█████████▌| 38/40 [01:32<00:04,  2.46s/it]Epoch 1/10:  98%|█████████▊| 39/40 [01:34<00:02,  2.37s/it]Epoch 1/10: 100%|██████████| 40/40 [01:36<00:00,  2.26s/it]Epoch 1/10: 100%|██████████| 40/40 [01:36<00:00,  2.42s/it]
+
+Epoch 1 — avg train loss: 17.6453
+
+[Train classification report — Epoch 1]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.92      0.67      0.77       102
+          CORRECT_SUBSET       0.75      0.18      0.29        17
+       NO_INTERPRETATION       0.03      1.00      0.06         2
+INCORRECT_INTERPRETATION       1.00      0.29      0.45        38
+
+                accuracy                           0.53       159
+               macro avg       0.67      0.53      0.39       159
+            weighted avg       0.91      0.53      0.63       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 1 | Task: modeling_comprehension
+------------------------------------------------------------
+
+[1] Label token ID check
+  'CORRECT_ALL' → token_id=128256 → decoded='CORRECT_ALL'
+  'CORRECT_SUBSET' → token_id=128257 → decoded='CORRECT_SUBSET'
+  'NO_INTERPRETATION' → token_id=128258 → decoded='NO_INTERPRETATION'
+  'INCORRECT_INTERPRETATION' → token_id=128259 → decoded='INCORRECT_INTERPRETATION'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+Diag-val epoch 1:   0%|          | 0/10 [00:00<?, ?it/s]Diag-val epoch 1:  10%|█         | 1/10 [00:00<00:06,  1.32it/s]Diag-val epoch 1:  20%|██        | 2/10 [00:01<00:05,  1.37it/s]Diag-val epoch 1:  30%|███       | 3/10 [00:02<00:05,  1.37it/s]Diag-val epoch 1:  40%|████      | 4/10 [00:02<00:04,  1.37it/s]Diag-val epoch 1:  50%|█████     | 5/10 [00:03<00:03,  1.41it/s]Diag-val epoch 1:  60%|██████    | 6/10 [00:04<00:02,  1.40it/s]Diag-val epoch 1:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s]Diag-val epoch 1:  80%|████████  | 8/10 [00:05<00:01,  1.41it/s]Diag-val epoch 1:  90%|█████████ | 9/10 [00:06<00:00,  1.40it/s]Diag-val epoch 1: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]Diag-val epoch 1: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'CORRECT_ALL': mean=1.598  std=0.187  min=1.336  max=1.773
+  'CORRECT_SUBSET': mean=-2.574  std=0.254  min=-2.922  max=-2.312
+  'NO_INTERPRETATION': mean=-0.990  std=0.471  min=-1.578  max=-0.547
+  'INCORRECT_INTERPRETATION': mean=-1.738  std=0.427  min=-2.016  max=-1.102
+  Max-min spread per sample: mean=4.172  min=3.922  max=4.320
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  CORRECT_ALL                       62.5%   100.0% ← collapsed?
+  CORRECT_SUBSET                    10.0%     0.0%
+  NO_INTERPRETATION                  2.5%     0.0%
+  INCORRECT_INTERPRETATION          25.0%     0.0%
+
+[Classification report — Epoch 1]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.62      1.00      0.77        25
+          CORRECT_SUBSET       0.00      0.00      0.00         4
+       NO_INTERPRETATION       0.00      0.00      0.00         1
+INCORRECT_INTERPRETATION       0.00      0.00      0.00        10
+
+                accuracy                           0.62        40
+               macro avg       0.16      0.25      0.19        40
+            weighted avg       0.39      0.62      0.48        40
+
+------------------------------------------------------------
+Epoch 2/10:   0%|          | 0/40 [00:00<?, ?it/s]Epoch 2/10:   2%|▎         | 1/40 [00:02<01:44,  2.67s/it]Epoch 2/10:   5%|▌         | 2/40 [00:04<01:30,  2.37s/it]Epoch 2/10:   8%|▊         | 3/40 [00:07<01:32,  2.51s/it]Epoch 2/10:  10%|█         | 4/40 [00:10<01:32,  2.57s/it]Epoch 2/10:  12%|█▎        | 5/40 [00:12<01:31,  2.61s/it]Epoch 2/10:  15%|█▌        | 6/40 [00:15<01:23,  2.46s/it]Epoch 2/10:  18%|█▊        | 7/40 [00:17<01:23,  2.53s/it]Epoch 2/10:  20%|██        | 8/40 [00:19<01:17,  2.41s/it]Epoch 2/10:  22%|██▎       | 9/40 [00:22<01:12,  2.34s/it]Epoch 2/10:  25%|██▌       | 10/40 [00:24<01:08,  2.29s/it]Epoch 2/10:  28%|██▊       | 11/40 [00:26<01:09,  2.41s/it]Epoch 2/10:  30%|███       | 12/40 [00:29<01:09,  2.49s/it]Epoch 2/10:  32%|███▎      | 13/40 [00:32<01:08,  2.54s/it]Epoch 2/10:  35%|███▌      | 14/40 [00:34<01:03,  2.43s/it]Epoch 2/10:  38%|███▊      | 15/40 [00:36<00:58,  2.35s/it]Epoch 2/10:  40%|████      | 16/40 [00:39<00:58,  2.45s/it]Epoch 2/10:  42%|████▎     | 17/40 [00:41<00:57,  2.52s/it]Epoch 2/10:  45%|████▌     | 18/40 [00:44<00:53,  2.42s/it]Epoch 2/10:  48%|████▊     | 19/40 [00:46<00:52,  2.50s/it]Epoch 2/10:  50%|█████     | 20/40 [00:49<00:50,  2.55s/it]Epoch 2/10:  52%|█████▎    | 21/40 [00:52<00:49,  2.59s/it]Epoch 2/10:  55%|█████▌    | 22/40 [00:54<00:44,  2.47s/it]Epoch 2/10:  57%|█████▊    | 23/40 [00:56<00:43,  2.53s/it]Epoch 2/10:  60%|██████    | 24/40 [00:59<00:41,  2.58s/it]Epoch 2/10:  62%|██████▎   | 25/40 [01:02<00:39,  2.61s/it]Epoch 2/10:  65%|██████▌   | 26/40 [01:05<00:36,  2.63s/it]Epoch 2/10:  68%|██████▊   | 27/40 [01:07<00:34,  2.64s/it]Epoch 2/10:  70%|███████   | 28/40 [01:09<00:30,  2.50s/it]Epoch 2/10:  72%|███████▎  | 29/40 [01:12<00:28,  2.56s/it]Epoch 2/10:  75%|███████▌  | 30/40 [01:14<00:24,  2.44s/it]Epoch 2/10:  78%|███████▊  | 31/40 [01:17<00:22,  2.51s/it]Epoch 2/10:  80%|████████  | 32/40 [01:20<00:20,  2.57s/it]Epoch 2/10:  82%|████████▎ | 33/40 [01:22<00:17,  2.45s/it]Epoch 2/10:  85%|████████▌ | 34/40 [01:24<00:15,  2.52s/it]Epoch 2/10:  88%|████████▊ | 35/40 [01:27<00:12,  2.42s/it]Epoch 2/10:  90%|█████████ | 36/40 [01:29<00:09,  2.35s/it]Epoch 2/10:  92%|█████████▎| 37/40 [01:32<00:07,  2.45s/it]Epoch 2/10:  95%|█████████▌| 38/40 [01:34<00:05,  2.52s/it]Epoch 2/10:  98%|█████████▊| 39/40 [01:36<00:02,  2.41s/it]Epoch 2/10: 100%|██████████| 40/40 [01:38<00:00,  2.30s/it]Epoch 2/10: 100%|██████████| 40/40 [01:38<00:00,  2.47s/it]
+
+Epoch 2 — avg train loss: 17.7234
+
+[Train classification report — Epoch 2]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.92      0.64      0.75       102
+          CORRECT_SUBSET       0.75      0.18      0.29        17
+       NO_INTERPRETATION       0.03      1.00      0.05         2
+INCORRECT_INTERPRETATION       1.00      0.29      0.45        38
+
+                accuracy                           0.51       159
+               macro avg       0.67      0.53      0.38       159
+            weighted avg       0.91      0.51      0.62       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 2 | Task: modeling_comprehension
+------------------------------------------------------------
+
+[1] Label token ID check
+  'CORRECT_ALL' → token_id=128256 → decoded='CORRECT_ALL'
+  'CORRECT_SUBSET' → token_id=128257 → decoded='CORRECT_SUBSET'
+  'NO_INTERPRETATION' → token_id=128258 → decoded='NO_INTERPRETATION'
+  'INCORRECT_INTERPRETATION' → token_id=128259 → decoded='INCORRECT_INTERPRETATION'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+Diag-val epoch 2:   0%|          | 0/10 [00:00<?, ?it/s]Diag-val epoch 2:  10%|█         | 1/10 [00:00<00:06,  1.38it/s]Diag-val epoch 2:  20%|██        | 2/10 [00:01<00:05,  1.37it/s]Diag-val epoch 2:  30%|███       | 3/10 [00:02<00:05,  1.37it/s]Diag-val epoch 2:  40%|████      | 4/10 [00:02<00:04,  1.37it/s]Diag-val epoch 2:  50%|█████     | 5/10 [00:03<00:03,  1.40it/s]Diag-val epoch 2:  60%|██████    | 6/10 [00:04<00:02,  1.39it/s]Diag-val epoch 2:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s]Diag-val epoch 2:  80%|████████  | 8/10 [00:05<00:01,  1.40it/s]Diag-val epoch 2:  90%|█████████ | 9/10 [00:06<00:00,  1.39it/s]Diag-val epoch 2: 100%|██████████| 10/10 [00:07<00:00,  1.38it/s]Diag-val epoch 2: 100%|██████████| 10/10 [00:07<00:00,  1.38it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'CORRECT_ALL': mean=1.598  std=0.187  min=1.336  max=1.773
+  'CORRECT_SUBSET': mean=-2.574  std=0.254  min=-2.922  max=-2.312
+  'NO_INTERPRETATION': mean=-0.990  std=0.471  min=-1.578  max=-0.547
+  'INCORRECT_INTERPRETATION': mean=-1.738  std=0.427  min=-2.016  max=-1.102
+  Max-min spread per sample: mean=4.172  min=3.922  max=4.320
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  CORRECT_ALL                       62.5%   100.0% ← collapsed?
+  CORRECT_SUBSET                    10.0%     0.0%
+  NO_INTERPRETATION                  2.5%     0.0%
+  INCORRECT_INTERPRETATION          25.0%     0.0%
+
+[Classification report — Epoch 2]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.62      1.00      0.77        25
+          CORRECT_SUBSET       0.00      0.00      0.00         4
+       NO_INTERPRETATION       0.00      0.00      0.00         1
+INCORRECT_INTERPRETATION       0.00      0.00      0.00        10
+
+                accuracy                           0.62        40
+               macro avg       0.16      0.25      0.19        40
+            weighted avg       0.39      0.62      0.48        40
+
+------------------------------------------------------------
+Epoch 3/10:   0%|          | 0/40 [00:00<?, ?it/s]Epoch 3/10:   2%|▎         | 1/40 [00:02<01:25,  2.18s/it]Epoch 3/10:   5%|▌         | 2/40 [00:04<01:34,  2.48s/it]Epoch 3/10:   8%|▊         | 3/40 [00:07<01:26,  2.34s/it]Epoch 3/10:  10%|█         | 4/40 [00:09<01:22,  2.28s/it]Epoch 3/10:  12%|█▎        | 5/40 [00:11<01:24,  2.42s/it]Epoch 3/10:  15%|█▌        | 6/40 [00:14<01:19,  2.34s/it]Epoch 3/10:  18%|█▊        | 7/40 [00:16<01:20,  2.45s/it]Epoch 3/10:  20%|██        | 8/40 [00:19<01:20,  2.53s/it]Epoch 3/10:  22%|██▎       | 9/40 [00:21<01:14,  2.42s/it]Epoch 3/10:  25%|██▌       | 10/40 [00:24<01:14,  2.50s/it]Epoch 3/10:  28%|██▊       | 11/40 [00:26<01:14,  2.55s/it]Epoch 3/10:  30%|███       | 12/40 [00:29<01:08,  2.44s/it]Epoch 3/10:  32%|███▎      | 13/40 [00:31<01:03,  2.36s/it]Epoch 3/10:  35%|███▌      | 14/40 [00:34<01:03,  2.46s/it]Epoch 3/10:  38%|███▊      | 15/40 [00:36<01:03,  2.52s/it]Epoch 3/10:  40%|████      | 16/40 [00:39<01:01,  2.57s/it]Epoch 3/10:  42%|████▎     | 17/40 [00:41<00:56,  2.45s/it]Epoch 3/10:  45%|████▌     | 18/40 [00:44<00:55,  2.52s/it]Epoch 3/10:  48%|████▊     | 19/40 [00:46<00:53,  2.57s/it]Epoch 3/10:  50%|█████     | 20/40 [00:49<00:52,  2.60s/it]Epoch 3/10:  52%|█████▎    | 21/40 [00:52<00:49,  2.63s/it]Epoch 3/10:  55%|█████▌    | 22/40 [00:54<00:47,  2.64s/it]Epoch 3/10:  57%|█████▊    | 23/40 [00:57<00:42,  2.50s/it]Epoch 3/10:  60%|██████    | 24/40 [00:59<00:40,  2.56s/it]Epoch 3/10:  62%|██████▎   | 25/40 [01:02<00:38,  2.59s/it]Epoch 3/10:  65%|██████▌   | 26/40 [01:04<00:34,  2.47s/it]Epoch 3/10:  68%|██████▊   | 27/40 [01:07<00:32,  2.53s/it]Epoch 3/10:  70%|███████   | 28/40 [01:09<00:29,  2.42s/it]Epoch 3/10:  72%|███████▎  | 29/40 [01:12<00:27,  2.50s/it]Epoch 3/10:  75%|███████▌  | 30/40 [01:14<00:25,  2.55s/it]Epoch 3/10:  78%|███████▊  | 31/40 [01:17<00:21,  2.44s/it]Epoch 3/10:  80%|████████  | 32/40 [01:19<00:20,  2.51s/it]Epoch 3/10:  82%|████████▎ | 33/40 [01:22<00:17,  2.56s/it]Epoch 3/10:  85%|████████▌ | 34/40 [01:24<00:14,  2.44s/it]Epoch 3/10:  88%|████████▊ | 35/40 [01:27<00:12,  2.51s/it]Epoch 3/10:  90%|█████████ | 36/40 [01:29<00:10,  2.56s/it]Epoch 3/10:  92%|█████████▎| 37/40 [01:32<00:07,  2.44s/it]Epoch 3/10:  95%|█████████▌| 38/40 [01:34<00:04,  2.36s/it]Epoch 3/10:  98%|█████████▊| 39/40 [01:36<00:02,  2.31s/it]Epoch 3/10: 100%|██████████| 40/40 [01:38<00:00,  2.22s/it]Epoch 3/10: 100%|██████████| 40/40 [01:38<00:00,  2.46s/it]
+
+Epoch 3 — avg train loss: 17.8297
+
+[Train classification report — Epoch 3]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.92      0.65      0.76       102
+          CORRECT_SUBSET       0.75      0.18      0.29        17
+       NO_INTERPRETATION       0.03      1.00      0.05         2
+INCORRECT_INTERPRETATION       1.00      0.29      0.45        38
+
+                accuracy                           0.52       159
+               macro avg       0.67      0.53      0.39       159
+            weighted avg       0.91      0.52      0.63       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 3 | Task: modeling_comprehension
+------------------------------------------------------------
+
+[1] Label token ID check
+  'CORRECT_ALL' → token_id=128256 → decoded='CORRECT_ALL'
+  'CORRECT_SUBSET' → token_id=128257 → decoded='CORRECT_SUBSET'
+  'NO_INTERPRETATION' → token_id=128258 → decoded='NO_INTERPRETATION'
+  'INCORRECT_INTERPRETATION' → token_id=128259 → decoded='INCORRECT_INTERPRETATION'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+Diag-val epoch 3:   0%|          | 0/10 [00:00<?, ?it/s]Diag-val epoch 3:  10%|█         | 1/10 [00:00<00:06,  1.38it/s]Diag-val epoch 3:  20%|██        | 2/10 [00:01<00:05,  1.38it/s]Diag-val epoch 3:  30%|███       | 3/10 [00:02<00:05,  1.37it/s]Diag-val epoch 3:  40%|████      | 4/10 [00:02<00:04,  1.37it/s]Diag-val epoch 3:  50%|█████     | 5/10 [00:03<00:03,  1.40it/s]Diag-val epoch 3:  60%|██████    | 6/10 [00:04<00:02,  1.39it/s]Diag-val epoch 3:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s]Diag-val epoch 3:  80%|████████  | 8/10 [00:05<00:01,  1.40it/s]Diag-val epoch 3:  90%|█████████ | 9/10 [00:06<00:00,  1.39it/s]Diag-val epoch 3: 100%|██████████| 10/10 [00:07<00:00,  1.38it/s]Diag-val epoch 3: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'CORRECT_ALL': mean=1.598  std=0.187  min=1.336  max=1.773
+  'CORRECT_SUBSET': mean=-2.574  std=0.254  min=-2.922  max=-2.312
+  'NO_INTERPRETATION': mean=-0.990  std=0.471  min=-1.578  max=-0.547
+  'INCORRECT_INTERPRETATION': mean=-1.738  std=0.427  min=-2.016  max=-1.102
+  Max-min spread per sample: mean=4.172  min=3.922  max=4.320
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  CORRECT_ALL                       62.5%   100.0% ← collapsed?
+  CORRECT_SUBSET                    10.0%     0.0%
+  NO_INTERPRETATION                  2.5%     0.0%
+  INCORRECT_INTERPRETATION          25.0%     0.0%
+
+[Classification report — Epoch 3]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.62      1.00      0.77        25
+          CORRECT_SUBSET       0.00      0.00      0.00         4
+       NO_INTERPRETATION       0.00      0.00      0.00         1
+INCORRECT_INTERPRETATION       0.00      0.00      0.00        10
+
+                accuracy                           0.62        40
+               macro avg       0.16      0.25      0.19        40
+            weighted avg       0.39      0.62      0.48        40
+
+------------------------------------------------------------
+Epoch 4/10:   0%|          | 0/40 [00:00<?, ?it/s]Epoch 4/10:   2%|▎         | 1/40 [00:02<01:44,  2.68s/it]Epoch 4/10:   5%|▌         | 2/40 [00:04<01:30,  2.38s/it]Epoch 4/10:   8%|▊         | 3/40 [00:07<01:33,  2.52s/it]Epoch 4/10:  10%|█         | 4/40 [00:09<01:25,  2.38s/it]Epoch 4/10:  12%|█▎        | 5/40 [00:12<01:26,  2.49s/it]Epoch 4/10:  15%|█▌        | 6/40 [00:14<01:20,  2.38s/it]Epoch 4/10:  18%|█▊        | 7/40 [00:16<01:16,  2.31s/it]Epoch 4/10:  20%|██        | 8/40 [00:19<01:17,  2.43s/it]Epoch 4/10:  22%|██▎       | 9/40 [00:22<01:17,  2.50s/it]Epoch 4/10:  25%|██▌       | 10/40 [00:24<01:16,  2.56s/it]Epoch 4/10:  28%|██▊       | 11/40 [00:26<01:10,  2.44s/it]Epoch 4/10:  30%|███       | 12/40 [00:29<01:06,  2.36s/it]Epoch 4/10:  32%|███▎      | 13/40 [00:31<01:02,  2.30s/it]Epoch 4/10:  35%|███▌      | 14/40 [00:33<00:58,  2.26s/it]Epoch 4/10:  38%|███▊      | 15/40 [00:36<00:59,  2.39s/it]Epoch 4/10:  40%|████      | 16/40 [00:38<00:59,  2.47s/it]Epoch 4/10:  42%|████▎     | 17/40 [00:41<00:58,  2.53s/it]Epoch 4/10:  45%|████▌     | 18/40 [00:44<00:56,  2.58s/it]Epoch 4/10:  48%|████▊     | 19/40 [00:46<00:54,  2.60s/it]Epoch 4/10:  50%|█████     | 20/40 [00:48<00:49,  2.47s/it]Epoch 4/10:  52%|█████▎    | 21/40 [00:51<00:48,  2.53s/it]Epoch 4/10:  55%|█████▌    | 22/40 [00:54<00:46,  2.57s/it]Epoch 4/10:  57%|█████▊    | 23/40 [00:56<00:41,  2.45s/it]Epoch 4/10:  60%|██████    | 24/40 [00:59<00:40,  2.52s/it]Epoch 4/10:  62%|██████▎   | 25/40 [01:01<00:38,  2.56s/it]Epoch 4/10:  65%|██████▌   | 26/40 [01:04<00:36,  2.60s/it]Epoch 4/10:  68%|██████▊   | 27/40 [01:07<00:34,  2.62s/it]Epoch 4/10:  70%|███████   | 28/40 [01:09<00:29,  2.49s/it]Epoch 4/10:  72%|███████▎  | 29/40 [01:12<00:27,  2.54s/it]Epoch 4/10:  75%|███████▌  | 30/40 [01:14<00:25,  2.58s/it]Epoch 4/10:  78%|███████▊  | 31/40 [01:17<00:23,  2.61s/it]Epoch 4/10:  80%|████████  | 32/40 [01:19<00:19,  2.48s/it]Epoch 4/10:  82%|████████▎ | 33/40 [01:22<00:17,  2.54s/it]Epoch 4/10:  85%|████████▌ | 34/40 [01:24<00:15,  2.58s/it]Epoch 4/10:  88%|████████▊ | 35/40 [01:27<00:13,  2.61s/it]Epoch 4/10:  90%|█████████ | 36/40 [01:30<00:10,  2.63s/it]Epoch 4/10:  92%|█████████▎| 37/40 [01:32<00:07,  2.64s/it]Epoch 4/10:  95%|█████████▌| 38/40 [01:35<00:05,  2.65s/it]Epoch 4/10:  98%|█████████▊| 39/40 [01:38<00:02,  2.66s/it]Epoch 4/10: 100%|██████████| 40/40 [01:39<00:00,  2.35s/it]Epoch 4/10: 100%|██████████| 40/40 [01:39<00:00,  2.50s/it]
+
+Epoch 4 — avg train loss: 17.7734
+
+[Train classification report — Epoch 4]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.92      0.66      0.77       102
+          CORRECT_SUBSET       0.75      0.18      0.29        17
+       NO_INTERPRETATION       0.03      1.00      0.05         2
+INCORRECT_INTERPRETATION       1.00      0.29      0.45        38
+
+                accuracy                           0.52       159
+               macro avg       0.67      0.53      0.39       159
+            weighted avg       0.91      0.52      0.63       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 4 | Task: modeling_comprehension
+------------------------------------------------------------
+
+[1] Label token ID check
+  'CORRECT_ALL' → token_id=128256 → decoded='CORRECT_ALL'
+  'CORRECT_SUBSET' → token_id=128257 → decoded='CORRECT_SUBSET'
+  'NO_INTERPRETATION' → token_id=128258 → decoded='NO_INTERPRETATION'
+  'INCORRECT_INTERPRETATION' → token_id=128259 → decoded='INCORRECT_INTERPRETATION'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+Diag-val epoch 4:   0%|          | 0/10 [00:00<?, ?it/s]Diag-val epoch 4:  10%|█         | 1/10 [00:00<00:06,  1.38it/s]Diag-val epoch 4:  20%|██        | 2/10 [00:01<00:05,  1.37it/s]Diag-val epoch 4:  30%|███       | 3/10 [00:02<00:05,  1.37it/s]Diag-val epoch 4:  40%|████      | 4/10 [00:02<00:04,  1.37it/s]Diag-val epoch 4:  50%|█████     | 5/10 [00:03<00:03,  1.40it/s]Diag-val epoch 4:  60%|██████    | 6/10 [00:04<00:02,  1.39it/s]Diag-val epoch 4:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s]Diag-val epoch 4:  80%|████████  | 8/10 [00:05<00:01,  1.41it/s]Diag-val epoch 4:  90%|█████████ | 9/10 [00:06<00:00,  1.40it/s]Diag-val epoch 4: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]Diag-val epoch 4: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'CORRECT_ALL': mean=1.598  std=0.187  min=1.336  max=1.773
+  'CORRECT_SUBSET': mean=-2.574  std=0.254  min=-2.922  max=-2.312
+  'NO_INTERPRETATION': mean=-0.990  std=0.471  min=-1.578  max=-0.547
+  'INCORRECT_INTERPRETATION': mean=-1.738  std=0.427  min=-2.016  max=-1.102
+  Max-min spread per sample: mean=4.172  min=3.922  max=4.320
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  CORRECT_ALL                       62.5%   100.0% ← collapsed?
+  CORRECT_SUBSET                    10.0%     0.0%
+  NO_INTERPRETATION                  2.5%     0.0%
+  INCORRECT_INTERPRETATION          25.0%     0.0%
+
+[Classification report — Epoch 4]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.62      1.00      0.77        25
+          CORRECT_SUBSET       0.00      0.00      0.00         4
+       NO_INTERPRETATION       0.00      0.00      0.00         1
+INCORRECT_INTERPRETATION       0.00      0.00      0.00        10
+
+                accuracy                           0.62        40
+               macro avg       0.16      0.25      0.19        40
+            weighted avg       0.39      0.62      0.48        40
+
+------------------------------------------------------------
+Epoch 5/10:   0%|          | 0/40 [00:00<?, ?it/s]Epoch 5/10:   2%|▎         | 1/40 [00:02<01:24,  2.18s/it]Epoch 5/10:   5%|▌         | 2/40 [00:04<01:33,  2.47s/it]Epoch 5/10:   8%|▊         | 3/40 [00:07<01:26,  2.33s/it]Epoch 5/10:  10%|█         | 4/40 [00:09<01:21,  2.27s/it]Epoch 5/10:  12%|█▎        | 5/40 [00:11<01:18,  2.23s/it]Epoch 5/10:  15%|█▌        | 6/40 [00:14<01:21,  2.39s/it]Epoch 5/10:  18%|█▊        | 7/40 [00:16<01:21,  2.48s/it]Epoch 5/10:  20%|██        | 8/40 [00:19<01:21,  2.54s/it]Epoch 5/10:  22%|██▎       | 9/40 [00:22<01:19,  2.58s/it]Epoch 5/10:  25%|██▌       | 10/40 [00:24<01:18,  2.61s/it]Epoch 5/10:  28%|██▊       | 11/40 [00:27<01:16,  2.63s/it]Epoch 5/10:  30%|███       | 12/40 [00:29<01:09,  2.49s/it]Epoch 5/10:  32%|███▎      | 13/40 [00:32<01:08,  2.54s/it]Epoch 5/10:  35%|███▌      | 14/40 [00:34<01:07,  2.58s/it]Epoch 5/10:  38%|███▊      | 15/40 [00:37<01:05,  2.61s/it]Epoch 5/10:  40%|████      | 16/40 [00:39<00:59,  2.48s/it]Epoch 5/10:  42%|████▎     | 17/40 [00:42<00:58,  2.54s/it]Epoch 5/10:  45%|████▌     | 18/40 [00:44<00:53,  2.43s/it]Epoch 5/10:  48%|████▊     | 19/40 [00:46<00:49,  2.35s/it]Epoch 5/10:  50%|█████     | 20/40 [00:49<00:48,  2.45s/it]Epoch 5/10:  52%|█████▎    | 21/40 [00:52<00:47,  2.51s/it]Epoch 5/10:  55%|█████▌    | 22/40 [00:54<00:46,  2.56s/it]Epoch 5/10:  57%|█████▊    | 23/40 [00:57<00:44,  2.59s/it]Epoch 5/10:  60%|██████    | 24/40 [00:59<00:39,  2.47s/it]Epoch 5/10:  62%|██████▎   | 25/40 [01:02<00:37,  2.53s/it]Epoch 5/10:  65%|██████▌   | 26/40 [01:04<00:36,  2.57s/it]Epoch 5/10:  68%|██████▊   | 27/40 [01:07<00:33,  2.60s/it]Epoch 5/10:  70%|███████   | 28/40 [01:10<00:31,  2.62s/it]Epoch 5/10:  72%|███████▎  | 29/40 [01:12<00:27,  2.49s/it]Epoch 5/10:  75%|███████▌  | 30/40 [01:15<00:25,  2.54s/it]Epoch 5/10:  78%|███████▊  | 31/40 [01:17<00:23,  2.58s/it]Epoch 5/10:  80%|████████  | 32/40 [01:19<00:19,  2.46s/it]Epoch 5/10:  82%|████████▎ | 33/40 [01:22<00:17,  2.52s/it]Epoch 5/10:  85%|████████▌ | 34/40 [01:24<00:14,  2.42s/it]Epoch 5/10:  88%|████████▊ | 35/40 [01:27<00:12,  2.50s/it]Epoch 5/10:  90%|█████████ | 36/40 [01:30<00:10,  2.55s/it]Epoch 5/10:  92%|█████████▎| 37/40 [01:32<00:07,  2.43s/it]Epoch 5/10:  95%|█████████▌| 38/40 [01:35<00:05,  2.51s/it]Epoch 5/10:  98%|█████████▊| 39/40 [01:37<00:02,  2.56s/it]Epoch 5/10: 100%|██████████| 40/40 [01:39<00:00,  2.28s/it]Epoch 5/10: 100%|██████████| 40/40 [01:39<00:00,  2.48s/it]
+
+Epoch 5 — avg train loss: 17.8078
+
+[Train classification report — Epoch 5]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.92      0.67      0.77       102
+          CORRECT_SUBSET       0.75      0.18      0.29        17
+       NO_INTERPRETATION       0.03      1.00      0.06         2
+INCORRECT_INTERPRETATION       1.00      0.29      0.45        38
+
+                accuracy                           0.53       159
+               macro avg       0.67      0.53      0.39       159
+            weighted avg       0.91      0.53      0.63       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 5 | Task: modeling_comprehension
+------------------------------------------------------------
+
+[1] Label token ID check
+  'CORRECT_ALL' → token_id=128256 → decoded='CORRECT_ALL'
+  'CORRECT_SUBSET' → token_id=128257 → decoded='CORRECT_SUBSET'
+  'NO_INTERPRETATION' → token_id=128258 → decoded='NO_INTERPRETATION'
+  'INCORRECT_INTERPRETATION' → token_id=128259 → decoded='INCORRECT_INTERPRETATION'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+Diag-val epoch 5:   0%|          | 0/10 [00:00<?, ?it/s]Diag-val epoch 5:  10%|█         | 1/10 [00:00<00:06,  1.38it/s]Diag-val epoch 5:  20%|██        | 2/10 [00:01<00:05,  1.38it/s]Diag-val epoch 5:  30%|███       | 3/10 [00:02<00:05,  1.37it/s]Diag-val epoch 5:  40%|████      | 4/10 [00:02<00:04,  1.37it/s]Diag-val epoch 5:  50%|█████     | 5/10 [00:03<00:03,  1.40it/s]Diag-val epoch 5:  60%|██████    | 6/10 [00:04<00:02,  1.39it/s]Diag-val epoch 5:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s]Diag-val epoch 5:  80%|████████  | 8/10 [00:05<00:01,  1.41it/s]Diag-val epoch 5:  90%|█████████ | 9/10 [00:06<00:00,  1.40it/s]Diag-val epoch 5: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]Diag-val epoch 5: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'CORRECT_ALL': mean=1.598  std=0.187  min=1.336  max=1.773
+  'CORRECT_SUBSET': mean=-2.574  std=0.254  min=-2.922  max=-2.312
+  'NO_INTERPRETATION': mean=-0.990  std=0.471  min=-1.578  max=-0.547
+  'INCORRECT_INTERPRETATION': mean=-1.738  std=0.427  min=-2.016  max=-1.102
+  Max-min spread per sample: mean=4.172  min=3.922  max=4.320
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  CORRECT_ALL                       62.5%   100.0% ← collapsed?
+  CORRECT_SUBSET                    10.0%     0.0%
+  NO_INTERPRETATION                  2.5%     0.0%
+  INCORRECT_INTERPRETATION          25.0%     0.0%
+
+[Classification report — Epoch 5]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.62      1.00      0.77        25
+          CORRECT_SUBSET       0.00      0.00      0.00         4
+       NO_INTERPRETATION       0.00      0.00      0.00         1
+INCORRECT_INTERPRETATION       0.00      0.00      0.00        10
+
+                accuracy                           0.62        40
+               macro avg       0.16      0.25      0.19        40
+            weighted avg       0.39      0.62      0.48        40
+
+------------------------------------------------------------
+Epoch 6/10:   0%|          | 0/40 [00:00<?, ?it/s]Epoch 6/10:   2%|▎         | 1/40 [00:02<01:24,  2.17s/it]Epoch 6/10:   5%|▌         | 2/40 [00:04<01:33,  2.47s/it]Epoch 6/10:   8%|▊         | 3/40 [00:07<01:26,  2.33s/it]Epoch 6/10:  10%|█         | 4/40 [00:09<01:28,  2.47s/it]Epoch 6/10:  12%|█▎        | 5/40 [00:12<01:28,  2.54s/it]Epoch 6/10:  15%|█▌        | 6/40 [00:14<01:22,  2.42s/it]Epoch 6/10:  18%|█▊        | 7/40 [00:16<01:17,  2.33s/it]Epoch 6/10:  20%|██        | 8/40 [00:19<01:18,  2.44s/it]Epoch 6/10:  22%|██▎       | 9/40 [00:21<01:13,  2.36s/it]Epoch 6/10:  25%|██▌       | 10/40 [00:24<01:13,  2.46s/it]Epoch 6/10:  28%|██▊       | 11/40 [00:26<01:08,  2.37s/it]Epoch 6/10:  30%|███       | 12/40 [00:29<01:08,  2.46s/it]Epoch 6/10:  32%|███▎      | 13/40 [00:31<01:08,  2.53s/it]Epoch 6/10:  35%|███▌      | 14/40 [00:34<01:06,  2.57s/it]Epoch 6/10:  38%|███▊      | 15/40 [00:37<01:05,  2.60s/it]Epoch 6/10:  40%|████      | 16/40 [00:39<01:02,  2.62s/it]Epoch 6/10:  42%|████▎     | 17/40 [00:42<01:00,  2.64s/it]Epoch 6/10:  45%|████▌     | 18/40 [00:45<00:58,  2.65s/it]Epoch 6/10:  48%|████▊     | 19/40 [00:47<00:55,  2.65s/it]Epoch 6/10:  50%|█████     | 20/40 [00:50<00:53,  2.66s/it]Epoch 6/10:  52%|█████▎    | 21/40 [00:53<00:50,  2.66s/it]Epoch 6/10:  55%|█████▌    | 22/40 [00:55<00:47,  2.66s/it]Epoch 6/10:  57%|█████▊    | 23/40 [00:58<00:45,  2.67s/it]Epoch 6/10:  60%|██████    | 24/40 [01:01<00:42,  2.67s/it]Epoch 6/10:  62%|██████▎   | 25/40 [01:03<00:40,  2.67s/it]Epoch 6/10:  65%|██████▌   | 26/40 [01:05<00:35,  2.52s/it]Epoch 6/10:  68%|██████▊   | 27/40 [01:08<00:33,  2.56s/it]Epoch 6/10:  70%|███████   | 28/40 [01:10<00:29,  2.44s/it]Epoch 6/10:  72%|███████▎  | 29/40 [01:13<00:27,  2.51s/it]Epoch 6/10:  75%|███████▌  | 30/40 [01:16<00:25,  2.56s/it]Epoch 6/10:  78%|███████▊  | 31/40 [01:18<00:23,  2.59s/it]Epoch 6/10:  80%|████████  | 32/40 [01:21<00:20,  2.62s/it]Epoch 6/10:  82%|████████▎ | 33/40 [01:24<00:18,  2.63s/it]Epoch 6/10:  85%|████████▌ | 34/40 [01:26<00:15,  2.64s/it]Epoch 6/10:  88%|████████▊ | 35/40 [01:29<00:12,  2.50s/it]Epoch 6/10:  90%|█████████ | 36/40 [01:31<00:10,  2.55s/it]Epoch 6/10:  92%|█████████▎| 37/40 [01:34<00:07,  2.59s/it]Epoch 6/10:  95%|█████████▌| 38/40 [01:36<00:04,  2.46s/it]Epoch 6/10:  98%|█████████▊| 39/40 [01:39<00:02,  2.53s/it]Epoch 6/10: 100%|██████████| 40/40 [01:40<00:00,  2.26s/it]Epoch 6/10: 100%|██████████| 40/40 [01:40<00:00,  2.52s/it]
+
+Epoch 6 — avg train loss: 17.7812
+
+[Train classification report — Epoch 6]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.92      0.66      0.77       102
+          CORRECT_SUBSET       0.75      0.18      0.29        17
+       NO_INTERPRETATION       0.03      1.00      0.05         2
+INCORRECT_INTERPRETATION       1.00      0.29      0.45        38
+
+                accuracy                           0.52       159
+               macro avg       0.67      0.53      0.39       159
+            weighted avg       0.91      0.52      0.63       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 6 | Task: modeling_comprehension
+------------------------------------------------------------
+
+[1] Label token ID check
+  'CORRECT_ALL' → token_id=128256 → decoded='CORRECT_ALL'
+  'CORRECT_SUBSET' → token_id=128257 → decoded='CORRECT_SUBSET'
+  'NO_INTERPRETATION' → token_id=128258 → decoded='NO_INTERPRETATION'
+  'INCORRECT_INTERPRETATION' → token_id=128259 → decoded='INCORRECT_INTERPRETATION'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+Diag-val epoch 6:   0%|          | 0/10 [00:00<?, ?it/s]Diag-val epoch 6:  10%|█         | 1/10 [00:00<00:06,  1.38it/s]Diag-val epoch 6:  20%|██        | 2/10 [00:01<00:05,  1.38it/s]Diag-val epoch 6:  30%|███       | 3/10 [00:02<00:05,  1.37it/s]Diag-val epoch 6:  40%|████      | 4/10 [00:02<00:04,  1.37it/s]Diag-val epoch 6:  50%|█████     | 5/10 [00:03<00:03,  1.40it/s]Diag-val epoch 6:  60%|██████    | 6/10 [00:04<00:02,  1.39it/s]Diag-val epoch 6:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s]Diag-val epoch 6:  80%|████████  | 8/10 [00:05<00:01,  1.41it/s]Diag-val epoch 6:  90%|█████████ | 9/10 [00:06<00:00,  1.40it/s]Diag-val epoch 6: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]Diag-val epoch 6: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'CORRECT_ALL': mean=1.598  std=0.187  min=1.336  max=1.773
+  'CORRECT_SUBSET': mean=-2.574  std=0.254  min=-2.922  max=-2.312
+  'NO_INTERPRETATION': mean=-0.990  std=0.471  min=-1.578  max=-0.547
+  'INCORRECT_INTERPRETATION': mean=-1.738  std=0.427  min=-2.016  max=-1.102
+  Max-min spread per sample: mean=4.172  min=3.922  max=4.320
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  CORRECT_ALL                       62.5%   100.0% ← collapsed?
+  CORRECT_SUBSET                    10.0%     0.0%
+  NO_INTERPRETATION                  2.5%     0.0%
+  INCORRECT_INTERPRETATION          25.0%     0.0%
+
+[Classification report — Epoch 6]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.62      1.00      0.77        25
+          CORRECT_SUBSET       0.00      0.00      0.00         4
+       NO_INTERPRETATION       0.00      0.00      0.00         1
+INCORRECT_INTERPRETATION       0.00      0.00      0.00        10
+
+                accuracy                           0.62        40
+               macro avg       0.16      0.25      0.19        40
+            weighted avg       0.39      0.62      0.48        40
+
+------------------------------------------------------------
+Epoch 7/10:   0%|          | 0/40 [00:00<?, ?it/s]Epoch 7/10:   2%|▎         | 1/40 [00:02<01:44,  2.68s/it]Epoch 7/10:   5%|▌         | 2/40 [00:04<01:30,  2.38s/it]Epoch 7/10:   8%|▊         | 3/40 [00:07<01:24,  2.28s/it]Epoch 7/10:  10%|█         | 4/40 [00:09<01:27,  2.44s/it]Epoch 7/10:  12%|█▎        | 5/40 [00:12<01:28,  2.52s/it]Epoch 7/10:  15%|█▌        | 6/40 [00:15<01:27,  2.57s/it]Epoch 7/10:  18%|█▊        | 7/40 [00:17<01:25,  2.61s/it]Epoch 7/10:  20%|██        | 8/40 [00:20<01:24,  2.63s/it]Epoch 7/10:  22%|██▎       | 9/40 [00:22<01:16,  2.48s/it]Epoch 7/10:  25%|██▌       | 10/40 [00:25<01:16,  2.54s/it]Epoch 7/10:  28%|██▊       | 11/40 [00:27<01:10,  2.43s/it]Epoch 7/10:  30%|███       | 12/40 [00:30<01:10,  2.50s/it]Epoch 7/10:  32%|███▎      | 13/40 [00:32<01:04,  2.40s/it]Epoch 7/10:  35%|███▌      | 14/40 [00:34<01:00,  2.33s/it]Epoch 7/10:  38%|███▊      | 15/40 [00:37<01:00,  2.43s/it]Epoch 7/10:  40%|████      | 16/40 [00:39<01:00,  2.51s/it]Epoch 7/10:  42%|████▎     | 17/40 [00:42<00:58,  2.55s/it]Epoch 7/10:  45%|████▌     | 18/40 [00:44<00:53,  2.44s/it]Epoch 7/10:  48%|████▊     | 19/40 [00:47<00:52,  2.51s/it]Epoch 7/10:  50%|█████     | 20/40 [00:49<00:48,  2.41s/it]Epoch 7/10:  52%|█████▎    | 21/40 [00:52<00:47,  2.48s/it]Epoch 7/10:  55%|█████▌    | 22/40 [00:54<00:45,  2.54s/it]Epoch 7/10:  57%|█████▊    | 23/40 [00:57<00:43,  2.58s/it]Epoch 7/10:  60%|██████    | 24/40 [01:00<00:41,  2.61s/it]Epoch 7/10:  62%|██████▎   | 25/40 [01:02<00:39,  2.63s/it]Epoch 7/10:  65%|██████▌   | 26/40 [01:05<00:36,  2.64s/it]Epoch 7/10:  68%|██████▊   | 27/40 [01:08<00:34,  2.65s/it]Epoch 7/10:  70%|███████   | 28/40 [01:10<00:31,  2.66s/it]Epoch 7/10:  72%|███████▎  | 29/40 [01:12<00:27,  2.51s/it]Epoch 7/10:  75%|███████▌  | 30/40 [01:15<00:25,  2.56s/it]Epoch 7/10:  78%|███████▊  | 31/40 [01:18<00:23,  2.59s/it]Epoch 7/10:  80%|████████  | 32/40 [01:20<00:20,  2.62s/it]Epoch 7/10:  82%|████████▎ | 33/40 [01:23<00:18,  2.63s/it]Epoch 7/10:  85%|████████▌ | 34/40 [01:25<00:14,  2.49s/it]Epoch 7/10:  88%|████████▊ | 35/40 [01:28<00:12,  2.55s/it]Epoch 7/10:  90%|█████████ | 36/40 [01:30<00:09,  2.43s/it]Epoch 7/10:  92%|█████████▎| 37/40 [01:33<00:07,  2.50s/it]Epoch 7/10:  95%|█████████▌| 38/40 [01:35<00:05,  2.55s/it]Epoch 7/10:  98%|█████████▊| 39/40 [01:38<00:02,  2.44s/it]Epoch 7/10: 100%|██████████| 40/40 [01:40<00:00,  2.31s/it]Epoch 7/10: 100%|██████████| 40/40 [01:40<00:00,  2.50s/it]
+
+Epoch 7 — avg train loss: 17.8078
+
+[Train classification report — Epoch 7]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.92      0.66      0.77       102
+          CORRECT_SUBSET       0.75      0.18      0.29        17
+       NO_INTERPRETATION       0.03      1.00      0.05         2
+INCORRECT_INTERPRETATION       1.00      0.29      0.45        38
+
+                accuracy                           0.52       159
+               macro avg       0.67      0.53      0.39       159
+            weighted avg       0.91      0.52      0.63       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 7 | Task: modeling_comprehension
+------------------------------------------------------------
+
+[1] Label token ID check
+  'CORRECT_ALL' → token_id=128256 → decoded='CORRECT_ALL'
+  'CORRECT_SUBSET' → token_id=128257 → decoded='CORRECT_SUBSET'
+  'NO_INTERPRETATION' → token_id=128258 → decoded='NO_INTERPRETATION'
+  'INCORRECT_INTERPRETATION' → token_id=128259 → decoded='INCORRECT_INTERPRETATION'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+Diag-val epoch 7:   0%|          | 0/10 [00:00<?, ?it/s]Diag-val epoch 7:  10%|█         | 1/10 [00:00<00:06,  1.39it/s]Diag-val epoch 7:  20%|██        | 2/10 [00:01<00:05,  1.38it/s]Diag-val epoch 7:  30%|███       | 3/10 [00:02<00:05,  1.37it/s]Diag-val epoch 7:  40%|████      | 4/10 [00:02<00:04,  1.37it/s]Diag-val epoch 7:  50%|█████     | 5/10 [00:03<00:03,  1.40it/s]Diag-val epoch 7:  60%|██████    | 6/10 [00:04<00:02,  1.39it/s]Diag-val epoch 7:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s]Diag-val epoch 7:  80%|████████  | 8/10 [00:05<00:01,  1.41it/s]Diag-val epoch 7:  90%|█████████ | 9/10 [00:06<00:00,  1.40it/s]Diag-val epoch 7: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]Diag-val epoch 7: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'CORRECT_ALL': mean=1.598  std=0.187  min=1.336  max=1.773
+  'CORRECT_SUBSET': mean=-2.574  std=0.254  min=-2.922  max=-2.312
+  'NO_INTERPRETATION': mean=-0.990  std=0.471  min=-1.578  max=-0.547
+  'INCORRECT_INTERPRETATION': mean=-1.738  std=0.427  min=-2.016  max=-1.102
+  Max-min spread per sample: mean=4.172  min=3.922  max=4.320
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  CORRECT_ALL                       62.5%   100.0% ← collapsed?
+  CORRECT_SUBSET                    10.0%     0.0%
+  NO_INTERPRETATION                  2.5%     0.0%
+  INCORRECT_INTERPRETATION          25.0%     0.0%
+
+[Classification report — Epoch 7]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.62      1.00      0.77        25
+          CORRECT_SUBSET       0.00      0.00      0.00         4
+       NO_INTERPRETATION       0.00      0.00      0.00         1
+INCORRECT_INTERPRETATION       0.00      0.00      0.00        10
+
+                accuracy                           0.62        40
+               macro avg       0.16      0.25      0.19        40
+            weighted avg       0.39      0.62      0.48        40
+
+------------------------------------------------------------
+Epoch 8/10:   0%|          | 0/40 [00:00<?, ?it/s]Epoch 8/10:   2%|▎         | 1/40 [00:02<01:44,  2.68s/it]Epoch 8/10:   5%|▌         | 2/40 [00:04<01:30,  2.38s/it]Epoch 8/10:   8%|▊         | 3/40 [00:07<01:32,  2.51s/it]Epoch 8/10:  10%|█         | 4/40 [00:09<01:25,  2.38s/it]Epoch 8/10:  12%|█▎        | 5/40 [00:12<01:26,  2.48s/it]Epoch 8/10:  15%|█▌        | 6/40 [00:14<01:20,  2.38s/it]Epoch 8/10:  18%|█▊        | 7/40 [00:17<01:21,  2.47s/it]Epoch 8/10:  20%|██        | 8/40 [00:19<01:16,  2.38s/it]Epoch 8/10:  22%|██▎       | 9/40 [00:22<01:16,  2.47s/it]Epoch 8/10:  25%|██▌       | 10/40 [00:24<01:11,  2.38s/it]Epoch 8/10:  28%|██▊       | 11/40 [00:26<01:07,  2.31s/it]Epoch 8/10:  30%|███       | 12/40 [00:28<01:03,  2.27s/it]Epoch 8/10:  32%|███▎      | 13/40 [00:31<01:04,  2.39s/it]Epoch 8/10:  35%|███▌      | 14/40 [00:33<01:00,  2.32s/it]Epoch 8/10:  38%|███▊      | 15/40 [00:35<00:56,  2.28s/it]Epoch 8/10:  40%|████      | 16/40 [00:38<00:57,  2.40s/it]Epoch 8/10:  42%|████▎     | 17/40 [00:40<00:56,  2.48s/it]Epoch 8/10:  45%|████▌     | 18/40 [00:43<00:52,  2.38s/it]Epoch 8/10:  48%|████▊     | 19/40 [00:45<00:51,  2.47s/it]Epoch 8/10:  50%|█████     | 20/40 [00:48<00:50,  2.53s/it]Epoch 8/10:  52%|█████▎    | 21/40 [00:51<00:48,  2.57s/it]Epoch 8/10:  55%|█████▌    | 22/40 [00:53<00:44,  2.45s/it]Epoch 8/10:  57%|█████▊    | 23/40 [00:55<00:42,  2.51s/it]Epoch 8/10:  60%|██████    | 24/40 [00:58<00:40,  2.56s/it]Epoch 8/10:  62%|██████▎   | 25/40 [01:01<00:38,  2.59s/it]Epoch 8/10:  65%|██████▌   | 26/40 [01:03<00:36,  2.62s/it]Epoch 8/10:  68%|██████▊   | 27/40 [01:06<00:32,  2.48s/it]Epoch 8/10:  70%|███████   | 28/40 [01:08<00:30,  2.54s/it]Epoch 8/10:  72%|███████▎  | 29/40 [01:11<00:28,  2.58s/it]Epoch 8/10:  75%|███████▌  | 30/40 [01:14<00:26,  2.61s/it]Epoch 8/10:  78%|███████▊  | 31/40 [01:16<00:22,  2.47s/it]Epoch 8/10:  80%|████████  | 32/40 [01:18<00:20,  2.53s/it]Epoch 8/10:  82%|████████▎ | 33/40 [01:21<00:18,  2.58s/it]Epoch 8/10:  85%|████████▌ | 34/40 [01:24<00:15,  2.61s/it]Epoch 8/10:  88%|████████▊ | 35/40 [01:26<00:13,  2.63s/it]Epoch 8/10:  90%|█████████ | 36/40 [01:29<00:10,  2.64s/it]Epoch 8/10:  92%|█████████▎| 37/40 [01:32<00:07,  2.65s/it]Epoch 8/10:  95%|█████████▌| 38/40 [01:34<00:05,  2.66s/it]Epoch 8/10:  98%|█████████▊| 39/40 [01:37<00:02,  2.66s/it]Epoch 8/10: 100%|██████████| 40/40 [01:39<00:00,  2.47s/it]Epoch 8/10: 100%|██████████| 40/40 [01:39<00:00,  2.49s/it]
+
+Epoch 8 — avg train loss: 17.8125
+
+[Train classification report — Epoch 8]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.92      0.66      0.77       102
+          CORRECT_SUBSET       0.75      0.18      0.29        17
+       NO_INTERPRETATION       0.03      1.00      0.05         2
+INCORRECT_INTERPRETATION       1.00      0.29      0.45        38
+
+                accuracy                           0.52       159
+               macro avg       0.67      0.53      0.39       159
+            weighted avg       0.91      0.52      0.63       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 8 | Task: modeling_comprehension
+------------------------------------------------------------
+
+[1] Label token ID check
+  'CORRECT_ALL' → token_id=128256 → decoded='CORRECT_ALL'
+  'CORRECT_SUBSET' → token_id=128257 → decoded='CORRECT_SUBSET'
+  'NO_INTERPRETATION' → token_id=128258 → decoded='NO_INTERPRETATION'
+  'INCORRECT_INTERPRETATION' → token_id=128259 → decoded='INCORRECT_INTERPRETATION'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+Diag-val epoch 8:   0%|          | 0/10 [00:00<?, ?it/s]Diag-val epoch 8:  10%|█         | 1/10 [00:00<00:06,  1.39it/s]Diag-val epoch 8:  20%|██        | 2/10 [00:01<00:05,  1.38it/s]Diag-val epoch 8:  30%|███       | 3/10 [00:02<00:05,  1.37it/s]Diag-val epoch 8:  40%|████      | 4/10 [00:02<00:04,  1.37it/s]Diag-val epoch 8:  50%|█████     | 5/10 [00:03<00:03,  1.41it/s]Diag-val epoch 8:  60%|██████    | 6/10 [00:04<00:02,  1.39it/s]Diag-val epoch 8:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s]Diag-val epoch 8:  80%|████████  | 8/10 [00:05<00:01,  1.41it/s]Diag-val epoch 8:  90%|█████████ | 9/10 [00:06<00:00,  1.40it/s]Diag-val epoch 8: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]Diag-val epoch 8: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'CORRECT_ALL': mean=1.598  std=0.187  min=1.336  max=1.773
+  'CORRECT_SUBSET': mean=-2.574  std=0.254  min=-2.922  max=-2.312
+  'NO_INTERPRETATION': mean=-0.990  std=0.471  min=-1.578  max=-0.547
+  'INCORRECT_INTERPRETATION': mean=-1.738  std=0.427  min=-2.016  max=-1.102
+  Max-min spread per sample: mean=4.172  min=3.922  max=4.320
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  CORRECT_ALL                       62.5%   100.0% ← collapsed?
+  CORRECT_SUBSET                    10.0%     0.0%
+  NO_INTERPRETATION                  2.5%     0.0%
+  INCORRECT_INTERPRETATION          25.0%     0.0%
+
+[Classification report — Epoch 8]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.62      1.00      0.77        25
+          CORRECT_SUBSET       0.00      0.00      0.00         4
+       NO_INTERPRETATION       0.00      0.00      0.00         1
+INCORRECT_INTERPRETATION       0.00      0.00      0.00        10
+
+                accuracy                           0.62        40
+               macro avg       0.16      0.25      0.19        40
+            weighted avg       0.39      0.62      0.48        40
+
+------------------------------------------------------------
+Epoch 9/10:   0%|          | 0/40 [00:00<?, ?it/s]Epoch 9/10:   2%|▎         | 1/40 [00:02<01:44,  2.67s/it]Epoch 9/10:   5%|▌         | 2/40 [00:04<01:30,  2.37s/it]Epoch 9/10:   8%|▊         | 3/40 [00:07<01:32,  2.51s/it]Epoch 9/10:  10%|█         | 4/40 [00:10<01:32,  2.57s/it]Epoch 9/10:  12%|█▎        | 5/40 [00:12<01:31,  2.61s/it]Epoch 9/10:  15%|█▌        | 6/40 [00:15<01:29,  2.63s/it]Epoch 9/10:  18%|█▊        | 7/40 [00:18<01:27,  2.64s/it]Epoch 9/10:  20%|██        | 8/40 [00:20<01:24,  2.65s/it]Epoch 9/10:  22%|██▎       | 9/40 [00:23<01:22,  2.66s/it]Epoch 9/10:  25%|██▌       | 10/40 [00:26<01:19,  2.66s/it]Epoch 9/10:  28%|██▊       | 11/40 [00:28<01:17,  2.67s/it]Epoch 9/10:  30%|███       | 12/40 [00:31<01:14,  2.67s/it]Epoch 9/10:  32%|███▎      | 13/40 [00:34<01:12,  2.67s/it]Epoch 9/10:  35%|███▌      | 14/40 [00:36<01:09,  2.67s/it]Epoch 9/10:  38%|███▊      | 15/40 [00:39<01:06,  2.67s/it]Epoch 9/10:  40%|████      | 16/40 [00:41<01:00,  2.52s/it]Epoch 9/10:  42%|████▎     | 17/40 [00:43<00:55,  2.41s/it]Epoch 9/10:  45%|████▌     | 18/40 [00:46<00:51,  2.34s/it]Epoch 9/10:  48%|████▊     | 19/40 [00:48<00:51,  2.44s/it]Epoch 9/10:  50%|█████     | 20/40 [00:51<00:50,  2.51s/it]Epoch 9/10:  52%|█████▎    | 21/40 [00:53<00:45,  2.41s/it]Epoch 9/10:  55%|█████▌    | 22/40 [00:56<00:44,  2.49s/it]Epoch 9/10:  57%|█████▊    | 23/40 [00:58<00:43,  2.54s/it]Epoch 9/10:  60%|██████    | 24/40 [01:01<00:38,  2.43s/it]Epoch 9/10:  62%|██████▎   | 25/40 [01:03<00:37,  2.50s/it]Epoch 9/10:  65%|██████▌   | 26/40 [01:06<00:35,  2.55s/it]Epoch 9/10:  68%|██████▊   | 27/40 [01:09<00:33,  2.59s/it]Epoch 9/10:  70%|███████   | 28/40 [01:11<00:31,  2.62s/it]Epoch 9/10:  72%|███████▎  | 29/40 [01:13<00:27,  2.48s/it]Epoch 9/10:  75%|███████▌  | 30/40 [01:16<00:25,  2.54s/it]Epoch 9/10:  78%|███████▊  | 31/40 [01:19<00:23,  2.58s/it]Epoch 9/10:  80%|████████  | 32/40 [01:21<00:19,  2.46s/it]Epoch 9/10:  82%|████████▎ | 33/40 [01:23<00:16,  2.37s/it]Epoch 9/10:  85%|████████▌ | 34/40 [01:25<00:13,  2.31s/it]Epoch 9/10:  88%|████████▊ | 35/40 [01:27<00:11,  2.27s/it]Epoch 9/10:  90%|█████████ | 36/40 [01:30<00:08,  2.24s/it]Epoch 9/10:  92%|█████████▎| 37/40 [01:32<00:06,  2.22s/it]Epoch 9/10:  95%|█████████▌| 38/40 [01:34<00:04,  2.20s/it]Epoch 9/10:  98%|█████████▊| 39/40 [01:37<00:02,  2.35s/it]Epoch 9/10: 100%|██████████| 40/40 [01:38<00:00,  2.13s/it]Epoch 9/10: 100%|██████████| 40/40 [01:38<00:00,  2.47s/it]
+
+Epoch 9 — avg train loss: 17.7156
+
+[Train classification report — Epoch 9]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.92      0.65      0.76       102
+          CORRECT_SUBSET       0.75      0.18      0.29        17
+       NO_INTERPRETATION       0.03      1.00      0.05         2
+INCORRECT_INTERPRETATION       1.00      0.29      0.45        38
+
+                accuracy                           0.52       159
+               macro avg       0.67      0.53      0.39       159
+            weighted avg       0.91      0.52      0.63       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 9 | Task: modeling_comprehension
+------------------------------------------------------------
+
+[1] Label token ID check
+  'CORRECT_ALL' → token_id=128256 → decoded='CORRECT_ALL'
+  'CORRECT_SUBSET' → token_id=128257 → decoded='CORRECT_SUBSET'
+  'NO_INTERPRETATION' → token_id=128258 → decoded='NO_INTERPRETATION'
+  'INCORRECT_INTERPRETATION' → token_id=128259 → decoded='INCORRECT_INTERPRETATION'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+Diag-val epoch 9:   0%|          | 0/10 [00:00<?, ?it/s]Diag-val epoch 9:  10%|█         | 1/10 [00:00<00:06,  1.38it/s]Diag-val epoch 9:  20%|██        | 2/10 [00:01<00:05,  1.38it/s]Diag-val epoch 9:  30%|███       | 3/10 [00:02<00:05,  1.37it/s]Diag-val epoch 9:  40%|████      | 4/10 [00:02<00:04,  1.37it/s]Diag-val epoch 9:  50%|█████     | 5/10 [00:03<00:03,  1.40it/s]Diag-val epoch 9:  60%|██████    | 6/10 [00:04<00:02,  1.39it/s]Diag-val epoch 9:  70%|███████   | 7/10 [00:05<00:02,  1.38it/s]Diag-val epoch 9:  80%|████████  | 8/10 [00:05<00:01,  1.41it/s]Diag-val epoch 9:  90%|█████████ | 9/10 [00:06<00:00,  1.40it/s]Diag-val epoch 9: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]Diag-val epoch 9: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'CORRECT_ALL': mean=1.598  std=0.187  min=1.336  max=1.773
+  'CORRECT_SUBSET': mean=-2.574  std=0.254  min=-2.922  max=-2.312
+  'NO_INTERPRETATION': mean=-0.990  std=0.471  min=-1.578  max=-0.547
+  'INCORRECT_INTERPRETATION': mean=-1.738  std=0.427  min=-2.016  max=-1.102
+  Max-min spread per sample: mean=4.172  min=3.922  max=4.320
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  CORRECT_ALL                       62.5%   100.0% ← collapsed?
+  CORRECT_SUBSET                    10.0%     0.0%
+  NO_INTERPRETATION                  2.5%     0.0%
+  INCORRECT_INTERPRETATION          25.0%     0.0%
+
+[Classification report — Epoch 9]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.62      1.00      0.77        25
+          CORRECT_SUBSET       0.00      0.00      0.00         4
+       NO_INTERPRETATION       0.00      0.00      0.00         1
+INCORRECT_INTERPRETATION       0.00      0.00      0.00        10
+
+                accuracy                           0.62        40
+               macro avg       0.16      0.25      0.19        40
+            weighted avg       0.39      0.62      0.48        40
+
+------------------------------------------------------------
+Epoch 10/10:   0%|          | 0/40 [00:00<?, ?it/s]Epoch 10/10:   2%|▎         | 1/40 [00:02<01:44,  2.68s/it]Epoch 10/10:   5%|▌         | 2/40 [00:05<01:41,  2.68s/it]Epoch 10/10:   8%|▊         | 3/40 [00:07<01:30,  2.45s/it]Epoch 10/10:  10%|█         | 4/40 [00:10<01:31,  2.54s/it]Epoch 10/10:  12%|█▎        | 5/40 [00:12<01:24,  2.40s/it]Epoch 10/10:  15%|█▌        | 6/40 [00:15<01:24,  2.50s/it]Epoch 10/10:  18%|█▊        | 7/40 [00:17<01:18,  2.39s/it]Epoch 10/10:  20%|██        | 8/40 [00:19<01:19,  2.48s/it]Epoch 10/10:  22%|██▎       | 9/40 [00:22<01:18,  2.54s/it]Epoch 10/10:  25%|██▌       | 10/40 [00:25<01:17,  2.58s/it]Epoch 10/10:  28%|██▊       | 11/40 [00:27<01:15,  2.61s/it]Epoch 10/10:  30%|███       | 12/40 [00:30<01:13,  2.63s/it]Epoch 10/10:  32%|███▎      | 13/40 [00:32<01:07,  2.49s/it]Epoch 10/10:  35%|███▌      | 14/40 [00:35<01:06,  2.55s/it]Epoch 10/10:  38%|███▊      | 15/40 [00:38<01:04,  2.58s/it]Epoch 10/10:  40%|████      | 16/40 [00:40<00:59,  2.46s/it]Epoch 10/10:  42%|████▎     | 17/40 [00:42<00:58,  2.52s/it]Epoch 10/10:  45%|████▌     | 18/40 [00:45<00:56,  2.57s/it]Epoch 10/10:  48%|████▊     | 19/40 [00:48<00:54,  2.60s/it]Epoch 10/10:  50%|█████     | 20/40 [00:50<00:49,  2.47s/it]Epoch 10/10:  52%|█████▎    | 21/40 [00:52<00:45,  2.38s/it]Epoch 10/10:  55%|█████▌    | 22/40 [00:55<00:44,  2.47s/it]Epoch 10/10:  57%|█████▊    | 23/40 [00:57<00:43,  2.53s/it]Epoch 10/10:  60%|██████    | 24/40 [01:00<00:38,  2.42s/it]Epoch 10/10:  62%|██████▎   | 25/40 [01:02<00:37,  2.50s/it]Epoch 10/10:  65%|██████▌   | 26/40 [01:05<00:35,  2.55s/it]Epoch 10/10:  68%|██████▊   | 27/40 [01:08<00:33,  2.59s/it]Epoch 10/10:  70%|███████   | 28/40 [01:10<00:31,  2.61s/it]Epoch 10/10:  72%|███████▎  | 29/40 [01:13<00:28,  2.63s/it]Epoch 10/10:  75%|███████▌  | 30/40 [01:15<00:24,  2.49s/it]Epoch 10/10:  78%|███████▊  | 31/40 [01:17<00:21,  2.40s/it]Epoch 10/10:  80%|████████  | 32/40 [01:20<00:18,  2.33s/it]Epoch 10/10:  82%|████████▎ | 33/40 [01:22<00:17,  2.43s/it]Epoch 10/10:  85%|████████▌ | 34/40 [01:25<00:15,  2.50s/it]Epoch 10/10:  88%|████████▊ | 35/40 [01:28<00:12,  2.55s/it]Epoch 10/10:  90%|█████████ | 36/40 [01:30<00:09,  2.44s/it]Epoch 10/10:  92%|█████████▎| 37/40 [01:32<00:07,  2.36s/it]Epoch 10/10:  95%|█████████▌| 38/40 [01:35<00:04,  2.45s/it]Epoch 10/10:  98%|█████████▊| 39/40 [01:37<00:02,  2.52s/it]Epoch 10/10: 100%|██████████| 40/40 [01:39<00:00,  2.37s/it]Epoch 10/10: 100%|██████████| 40/40 [01:39<00:00,  2.49s/it]
+
+Epoch 10 — avg train loss: 17.8891
+
+[Train classification report — Epoch 10]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.92      0.66      0.77       102
+          CORRECT_SUBSET       0.75      0.18      0.29        17
+       NO_INTERPRETATION       0.03      1.00      0.05         2
+INCORRECT_INTERPRETATION       1.00      0.29      0.45        38
+
+                accuracy                           0.52       159
+               macro avg       0.67      0.53      0.39       159
+            weighted avg       0.91      0.52      0.63       159
+
+
+------------------------------------------------------------
+DIAGNOSTIC — Epoch 10 | Task: modeling_comprehension
+------------------------------------------------------------
+
+[1] Label token ID check
+  'CORRECT_ALL' → token_id=128256 → decoded='CORRECT_ALL'
+  'CORRECT_SUBSET' → token_id=128257 → decoded='CORRECT_SUBSET'
+  'NO_INTERPRETATION' → token_id=128258 → decoded='NO_INTERPRETATION'
+  'INCORRECT_INTERPRETATION' → token_id=128259 → decoded='INCORRECT_INTERPRETATION'
+  ✓ All label token IDs are unique.
+
+[2] Last-token identity (first 3 val samples)
+Diag-val epoch 10:   0%|          | 0/10 [00:00<?, ?it/s]Diag-val epoch 10:  10%|█         | 1/10 [00:00<00:06,  1.39it/s]Diag-val epoch 10:  20%|██        | 2/10 [00:01<00:05,  1.38it/s]Diag-val epoch 10:  30%|███       | 3/10 [00:02<00:05,  1.37it/s]Diag-val epoch 10:  40%|████      | 4/10 [00:02<00:04,  1.37it/s]Diag-val epoch 10:  50%|█████     | 5/10 [00:03<00:03,  1.41it/s]Diag-val epoch 10:  60%|██████    | 6/10 [00:04<00:02,  1.39it/s]Diag-val epoch 10:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s]Diag-val epoch 10:  80%|████████  | 8/10 [00:05<00:01,  1.41it/s]Diag-val epoch 10:  90%|█████████ | 9/10 [00:06<00:00,  1.40it/s]Diag-val epoch 10: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]Diag-val epoch 10: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]
+  Sample 0: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 1: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+  Sample 2: last real token=':' (id=25) ✓ | position[-1] token=':' (id=25) ✓
+
+[3] Logit spread over label tokens (first batch)
+  'CORRECT_ALL': mean=1.598  std=0.187  min=1.336  max=1.773
+  'CORRECT_SUBSET': mean=-2.574  std=0.254  min=-2.922  max=-2.312
+  'NO_INTERPRETATION': mean=-0.990  std=0.471  min=-1.578  max=-0.547
+  'INCORRECT_INTERPRETATION': mean=-1.738  std=0.427  min=-2.016  max=-1.102
+  Max-min spread per sample: mean=4.172  min=3.922  max=4.320
+  (Spread near 0 → model not differentiating labels; large spread → confident predictions)
+
+[4] Prediction vs. true label distribution
+  Label                            True %   Pred %
+  ------------------------------ -------- --------
+  CORRECT_ALL                       62.5%   100.0% ← collapsed?
+  CORRECT_SUBSET                    10.0%     0.0%
+  NO_INTERPRETATION                  2.5%     0.0%
+  INCORRECT_INTERPRETATION          25.0%     0.0%
+
+[Classification report — Epoch 10]
+                          precision    recall  f1-score   support
+
+             CORRECT_ALL       0.62      1.00      0.77        25
+          CORRECT_SUBSET       0.00      0.00      0.00         4
+       NO_INTERPRETATION       0.00      0.00      0.00         1
+INCORRECT_INTERPRETATION       0.00      0.00      0.00        10
+
+                accuracy                           0.62        40
+               macro avg       0.16      0.25      0.19        40
+            weighted avg       0.39      0.62      0.48        40
+
+------------------------------------------------------------
+
+LoRA adapters saved to: trained_adapters/modeling_comprehension
+./run_training.sh: line 49: cho: command not found

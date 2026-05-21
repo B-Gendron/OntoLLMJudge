@@ -1,0 +1,2885 @@
+REQUEST_ID,Annotation Setting,OA,I,M_i,generation,MODEL_ID,QD1_MODELING_COMPR,QD2_INF_CAPACITY,QD3_MISTAKE_CORR,QD4_VOCAB_USAGE
+0,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:Bag rdf:type owl:Class ;
+  rdfs:subClassOf :Accessory ;
+  rdfs:comment ""A bag is an accessory."" .","Every Outfit suitable for an Event has to
+have exactly one bag.",Domain/Range Instead of Class Restriction,"The axiom incorrectly places cardinality restrictions in the range of the object property `suitableForEvent`, which implies that any `ClothingItem` suitable for an event must itself be associated with exactly one `Bag`, rather than ensuring that each `EventOutfit` has exactly one `Bag`, potentially leading to unintended inferences about individual clothing items.",GPT,1.0,1.0,0,1
+1,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:Jewelry rdf:type owl:Class ;
+  rdfs:subClassOf :ClothingItem ;
+  rdfs:comment ""Jewelery is worn with an outfit."" .","Every Outfit suitable for an Event has to
+have at least three pieces of Jewelry.",Domain/Range Instead of Class Restriction,"The axiom incorrectly places the cardinality restriction on the range of the object property, which implies that any suitable clothing item must itself be an entity that is associated with at least three pieces of jewelry, rather than ensuring that an EventOutfit includes at least three pieces of jewelry.",GPT,1.0,0.0,0,1
+2,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:HighHeels rdf:type owl:Class ;
+  rdfs:subClassOf :Footwear ;
+  rdfs:comment ""High heels are footwear."" .","Every Outfit suitable for an Event has to
+have exactly one pair of High Heels.",Domain/Range Instead of Class Restriction,"The axiom incorrectly places the cardinality restriction on the range of the property `suitableForEvent`, implying that any `ClothingItem` suitable for an event must itself have exactly one pair of `HighHeels`, rather than ensuring that each `EventOutfit` includes exactly one pair of `HighHeels`.",GPT,1.0,0.0,0,1
+3,MS+ST together,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Sneakers rdf:type owl:Class ;
+  rdfs:subClassOf :Footwear ;
+  rdfs:comment ""Sneakers are footwear."" .","An Outfit suitable for every day Events has
+a maximum of one pair of sneakers.",Domain/Range Instead of Class Restriction,"The axiom incorrectly places the cardinality restriction on the range of the object property, which implies that any clothing item suitable for every day activity must be a Thing that includes at most one pair of sneakers, rather than constraining the class of outfits to have at most one pair of sneakers.",GPT,1.0,0.0,0,1
+4,ST only,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Sunglasses rdf:type owl:Class ;
+  rdfs:subClassOf :Accessory ;
+  rdfs:comment ""Sunglasses are an accessory."" .","Every Outfit suitable for an Everyday
+Activity has to have exactly one pair of
+Sunglasses.",Domain/Range Instead of Class Restriction,"The axiom incorrectly places the cardinality restriction on the range of the object property, which implies that any clothing item suitable for an everyday activity must itself be a thing that has exactly one pair of sunglasses, rather than ensuring that every outfit suitable for an everyday activity includes exactly one pair of sunglasses.",GPT,1.0,0.0,0,1
+5,ST only,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Hoodie rdf:type owl:Class ;
+  rdfs:subClassOf :Clothing ;
+  rdfs:comment ""A hoodie is a type of clothing."" .","Every Outfit suitable for Everyday Activity
+has to have exactly one Hoodie.",Domain/Range Instead of Class Restriction,"The axiom incorrectly applies the cardinality restriction on the range of the object property `suitableForEveryDayActivity`, which implies that any `ClothingItem` suitable for everyday activity must be a `Thing` that includes exactly one `Hoodie`, one `Sunglasses`, and at most one `Sneakers`, rather than restricting `EveryDayAcitivtyOutfit` to have exactly one `Hoodie`.",GPT,1.0,0.0,0,1
+6,ST only,":Route rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :startAtLocation ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Location
+  ] ;
+  rdfs:comment ""The Route class represents the different types of routes available in the transportation network. Subclasses like InternationalRoute, RegionalRoute, and UrbanRoute specify the scope and type of routes, allowing for targeted queries about route coverage."" .
+
+:hasStop rdf:type owl:ObjectProperty ;
+  rdfs:domain :Route ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :hasStop ;
+  owl:maxQualifiedCardinality ""50""^^xsd:nonNegativeInteger ;
+  owl:onClass :BusStop
+  ] .
+
+:BusStop rdf:type owl:Class ;
+  rdfs:subClassOf :Location .","Each Route can have at most 50 Stops, ensuring that a route has a reasonable number of stops for efficiency and manageability.",Domain/Range Instead of Class Restriction,"The student's axiom incorrectly places the cardinality restriction on the range of the object property `:hasStop`, which implies that any entity in the range must be a Thing that has at most 50 `:BusStop` instances, rather than restricting the number of stops a `:Route` can have, potentially leading to unintended inferences about entities unrelated to routes.",GPT,1.0,0.5,0,1
+7,ST only,":ModeOfTransportation rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasVehicleType ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :EnergySource
+  ] ;
+  rdfs:comment ""This class represents the various types of transportation modes available, such as Ferry, Airplane, Bicycle, Train, Bus, and Car. Each subclass describes a specific type of transport option that passengers may use."" .
+
+:operatesOnRoute rdf:type owl:ObjectProperty ;
+  rdfs:domain :ModeOfTransportation ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :operatesOnRoute ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Route
+  ] ;
+  rdfs:comment ""Indicates which route a transportation mode operates on."" .
+
+:Route rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :startAtLocation ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Location
+  ] ;
+  rdfs:comment ""The Route class represents the different types of routes available in the transportation network. Subclasses like InternationalRoute, RegionalRoute, and UrbanRoute specify the scope and type of routes, allowing for targeted queries about route coverage."" .","Each ModeOfTransportation must operate on at least one Route, ensuring that every mode of transportation is assigned to a route.",Domain/Range Instead of Class Restriction,"Your axiom incorrectly applies the cardinality constraint on the range of the property `operatesOnRoute`, which implies that any entity in the range must operate on at least one route, rather than ensuring that each `ModeOfTransportation` is assigned to a route, potentially leading to unintended inferences about the nature of routes themselves.",GPT,1.0,1.0,0,1
+8,MS+ST together,":Guest rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :attends ;
+  owl:someValuesFrom :Wedding
+  ] .
+
+:attends rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Guest ;
+  rdfs:range :Wedding .
+
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :employs ;
+  owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isSetIn ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",At least one Guest attends the Wedding,Wrong Class Restricted,"The axiom incorrectly places the restriction on the class Guest, implying that each Guest attends at least one Wedding, rather than ensuring that at least one Guest attends a specific Wedding, which could lead to the unintended inference that every Guest must be associated with a Wedding.",GPT,1.0,0.5,0,1
+9,ST only,":Photographer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :takesPicturesOf ;
+ owl:minQualifiedCardinality ""400""^^xsd:nonNegativeInteger ;
+ owl:onClass :Wedding
+  ] ;
+  rdfs:comment ""works at wedding, takes pictures of guests and to be weds"" .
+
+:takesPicturesOf rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Photographer ;
+  rdfs:range :Guest ,
+  :ToBeWeds .
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :employs ;
+ owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :isSetIn ;
+ owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",The photographer takes at least 400 pictures at the wedding.,Misunderstood Constraint,"The axiom incorrectly models the intended meaning because it implies that a photographer must take at least 400 pictures of entities that are either guests or the couple, but not necessarily at a wedding, leading to unintended inferences about the context in which the pictures are taken.",GPT,-1.0,-1.0,0,1
+9,ST only,":Photographer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :takesPicturesOf ;
+ owl:minQualifiedCardinality ""400""^^xsd:nonNegativeInteger ;
+ owl:onClass :Wedding
+  ] ;
+  rdfs:comment ""works at wedding, takes pictures of guests and to be weds"" .
+
+:takesPicturesOf rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Photographer ;
+  rdfs:range :Guest ,
+  :ToBeWeds .
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :employs ;
+ owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :isSetIn ;
+ owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",The photographer takes at least 400 pictures at the wedding.,Inconsistent Domain/Range,"The axiom incorrectly models the intended meaning because it implies that a photographer must take at least 400 pictures of entities that are either guests or the couple, but not necessarily at a wedding, leading to unintended inferences about the context in which the pictures are taken.",GPT,-1.0,-1.0,0,1
+10,ST only,":Author rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasNotableWork ;
+  owl:minQualifiedCardinality """"1""""^^xsd:nonNegativeInteger ;
+  owl:onDataRange xsd:string
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasBirthdate ;
+  owl:maxQualifiedCardinality """"1""""^^xsd:nonNegativeInteger ;
+  owl:onDataRange xsd:dateTime
+  ] ;
+  owl:disjointWith :Book .
+
+:hasNotableWork rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Author ;
+  rdfs:range xsd:string .","Each Author needs at least one book
+he is known for, to be added to the
+list. It is in each persons view, what
+notable means. Notable doesnt need
+to be a specific award. For this the
+class award is added",Other,"The axiom incorrectly uses a datatype property, :hasNotableWork, with a range of xsd:string to represent a relationship that should involve an object property linking an Author to a Book, leading to unintended inferences that notable works are merely strings rather than entities with their own properties. Additionally, the disjointness between Author and Book is inappropriate, as it suggests that an individual cannot simultaneously be an author and a book, which is conceptually flawed.",GPT,1.0,1.0,0,1
+11,MS+ST together,":Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :originatedIn ;
+  owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :createsA ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .
+
+
+:originatedIn rdf:type owl:ObjectProperty ,
+  owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Designer
+  :Trend
+  )
+  ] ;
+  rdfs:range :Country .
+
+:Country rdf:type owl:Class ;
+  rdfs:comment ""Countrys are specific regions having their own authority"" .","Designer1, of type Designer, could
+only originate in one Country",Misunderstood Constraint,"The axiom incorrectly models the intention because it allows for the inference that a Designer could originate from multiple countries, as the use of `owl:allValuesFrom` does not restrict the number of countries to one, and the `owl:FunctionalProperty` on `:originatedIn` applies to the union of `:Designer` and `:Trend`, not specifically to `:Designer`.",GPT,0.0,0.5,0,1
+12,ST only,":ClothingItem rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :createdBy ;
+ owl:allValuesFrom :Designer
+  ] ;
+  rdfs:comment ""ClothingItems are all types of Items that you can wear"" .
+
+:createdBy rdf:type owl:ObjectProperty ;
+  owl:inverseOf :createsA ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Outfit
+ :Trend
+  )
+  ] ;
+  rdfs:range :Designer .
+
+:Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :originatedIn ;
+ owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :createsA ;
+ owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+ owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .","ClothingItem1, of type ClothingItem,
+could only be createdBy one
+Designer",Misunderstood Constraint,"The axiom incorrectly models the intended meaning because using an owl:allValuesFrom restriction implies that if a ClothingItem is created by someone, that someone must be a Designer, but it does not enforce that each ClothingItem must have a creator, nor does it restrict a ClothingItem to be created by only one Designer.",GPT,0.5,0.5,0,1
+12,ST only,":ClothingItem rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :createdBy ;
+ owl:allValuesFrom :Designer
+  ] ;
+  rdfs:comment ""ClothingItems are all types of Items that you can wear"" .
+
+:createdBy rdf:type owl:ObjectProperty ;
+  owl:inverseOf :createsA ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Outfit
+ :Trend
+  )
+  ] ;
+  rdfs:range :Designer .
+
+:Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :originatedIn ;
+ owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :createsA ;
+ owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+ owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .","ClothingItem1, of type ClothingItem,
+could only be createdBy one
+Designer",Inconsistent Domain/Range,"The axiom incorrectly models the intended meaning because using an owl:allValuesFrom restriction implies that if a ClothingItem is created by someone, that someone must be a Designer, but it does not enforce that each ClothingItem must have a creator, nor does it restrict a ClothingItem to be created by only one Designer.",GPT,0.5,0.5,0,1
+13,ST+MS individually ,":Film rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :producedIn ;
+  owl:someValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :produced ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Producer
+  ] .
+:produced rdf:type owl:ObjectProperty ;
+  rdfs:domain :Producer ;
+  rdfs:range :Film .
+
+:Producer rdf:type owl:Class ;
+  rdfs:subClassOf :People .","Every film must have at least one
+producer. For example, ThIrishman
+(type Film) is required to have at
+least one associated Producer, such
+as RobertDeNiro.",Inconsistent Domain/Range,"The axiom incorrectly implies that only Producers can be associated with Films through the ""produced"" property due to its domain being set to Producer, which means that any individual related to a Film via ""produced"" must be a Producer, contradicting the intended meaning that Films must have at least one Producer.",GPT,1.0,0.0,0,1
+14,ST only,"sports:SportsTeam rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty sports:hasVenue ;
+  owl:someValuesFrom sports:Venue
+  ] .
+
+sports:hasVenue rdf:type owl:ObjectProperty ;
+  rdfs:domain sports:SportsTeam ;
+  rdfs:range sports:Venue .
+
+sports:Venue rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","Each SportsTeam must have their
+own Venue.",Misunderstood Constraint,"The axiom allows for the possibility that a SportsTeam can share a Venue with other teams, as it only requires that each SportsTeam has at least one Venue, not that each Venue is unique to a single SportsTeam, which does not align with the intended meaning of exclusivity.",GPT,1.0,1.0,0,1
+15,ST only,":Learning_Progress rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :givesFeedbackTo ;
+  owl:someValuesFrom :Student
+  ] .
+
+:givesFeedbackTo rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdf:type owl:AsymmetricProperty ;
+  rdfs:domain :Instructor ;
+  rdfs:range :Student .
+
+:Student rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isLearningfor ;
+  owl:allValuesFrom :Exam
+  ] .",Learning Progress are giving Feedback to the student,Inconsistent Domain/Range,"The axiom incorrectly implies that instances of Learning Progress, which are not defined as being within the domain of the property :givesFeedbackTo, can give feedback to students, leading to an inconsistency with the property's defined domain of Instructor.",GPT,1.0,1.0,0,1
+16,ST only,":LandscapePhotography rdf:type owl:Class ;
+  rdfs:subClassOf :PhotoStyle ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isLocatedAt ;
+  owl:allValuesFrom :Outside
+  ] .
+
+:isLocatedAt rdf:type owl:ObjectProperty ;
+  rdfs:domain :Technique ;
+  rdfs:range :Location ;
+  rdfs:comment ""technique for each location"" .
+
+:Outside rdf:type owl:Class ;
+  rdfs:subClassOf :Location .","Landscape Photography can only be
+done Outside",Universal Trivial Satisfaction,"The axiom allows for instances of Landscape Photography to have no location specified at all, which means it does not enforce that Landscape Photography must be done outside, only that if it is located somewhere, it must be outside.",GPT,1.0,1.0,0,1
+17,ST+MS individually ,":PetLover rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPet ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Pet
+  ] ;
+  rdfs:subClassOf :Owner .
+
+:hasPet rdf:type owl:ObjectProperty ;
+  rdfs:domain :Person ;
+  rdfs:range :Pet .
+
+:Pet rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","PetLover is an owner who has at
+least 2 pets",Equivalence Instead of Restriction,"The axiom incorrectly uses equivalence, which implies that any individual with at least 2 pets is inferred to be a PetLover, regardless of whether they are an owner, potentially leading to unintended inferences about individuals who meet the pet criterion but do not fit the intended owner context.",GPT,1.0,1.0,0,1
+18,ST only,":FriendlyPet rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :isFriendlyWith ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Pet
+  ] ;
+  rdfs:subClassOf :Pet .
+
+:isFriendlyWith rdf:type owl:ObjectProperty ,
+  owl:SymmetricProperty ,
+  owl:TransitiveProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Pet .
+
+:Pet rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","FriendlyPet is a pet that is friendly to
+at least one other pet.",Equivalence Instead of Restriction,"The axiom incorrectly uses an equivalence instead of a restriction, which means that any pet that is friendly with at least one other pet will be inferred to be a FriendlyPet, potentially classifying all pets as FriendlyPets if they have any friendly interactions, rather than just those intended to be modeled as such.",GPT,1.0,1.0,0,1
+19,ST only,":MinorIllness rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :needsMedication ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Medication
+  ] ;
+  rdfs:subClassOf :HealthStatus .
+
+:needsMedication rdf:type owl:ObjectProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Medication .
+
+:Medication rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+  owl:disjointWith :Pet .","Pet which needs 1 medication has
+healthstatus MinorIllness",Wrong Class Restricted,"The axiom incorrectly places the cardinality restriction on the class `MinorIllness` rather than on `Pet`, leading to the unintended inference that any instance of `MinorIllness` itself needs exactly one `Medication`, which is logically inconsistent given that `MinorIllness` is a subclass of `HealthStatus`, not an entity that can have medications.",GPT,1.0,1.0,0,1
+19,ST only,":MinorIllness rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :needsMedication ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Medication
+  ] ;
+  rdfs:subClassOf :HealthStatus .
+
+:needsMedication rdf:type owl:ObjectProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Medication .
+
+:Medication rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+  owl:disjointWith :Pet .","Pet which needs 1 medication has
+healthstatus MinorIllness",Other,"The axiom incorrectly places the cardinality restriction on the class `MinorIllness` rather than on `Pet`, leading to the unintended inference that any instance of `MinorIllness` itself needs exactly one `Medication`, which is logically inconsistent given that `MinorIllness` is a subclass of `HealthStatus`, not an entity that can have medications.",GPT,1.0,1.0,0,1
+20,ST only,":Course rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isHaving ;
+  owl:minQualifiedCardinality ""5""^^xsd:nonNegativeInteger ;
+  owl:onClass :Student
+  ] .
+
+:isHaving rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Student ;
+  rdfs:range :Study_Session .
+
+:Student rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isLearningfor ;
+  owl:allValuesFrom :Exam
+  ] .",A course must have at least 5 students,Inconsistent Domain/Range,"The axiom is incorrectly modeled because the object property "":isHaving"" has a domain of "":Student,"" which implies that a Student is having at least 5 Students, leading to unintended inferences that contradict the intended meaning of a Course having at least 5 Students.",GPT,-1.0,1.0,0,1
+21,ST only,":Trip rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :usesTransportation ;
+  owl:someValuesFrom :Transportation
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasAccommodation ;
+  owl:allValuesFrom :Apartment
+  ] ;
+  rdfs:comment ""Journey, which can have different type of purpose"" .
+
+:hasAccommodation rdf:type owl:ObjectProperty ;
+  owl:inverseOf :isAccommodationFor ;
+  rdf:type owl:AsymmetricProperty ;
+  rdfs:domain :Trip;
+  rdfs:range :Accommodation ;
+  rdfs:comment ""Trip has accommodation"" .
+
+:Apartment rdf:type owl:Class ;
+  rdfs:subClassOf :Accommodation ;
+  owl:disjointWith :Hotel ;
+  rdfs:comment ""Flat, that is well appointed or used for holidays."" .","Instances of type Trip can only have
+an instance of type Apartment as
+accommodation and not ParisHotel
+(type Hotel) which we had to delete
+and create the new one
+ParisApartment (type Apartment)",Universal Trivial Satisfaction,"The axiom allows for instances of type Trip to have no accommodation at all, which means a Trip could be validly modeled without any instance of Apartment as accommodation, contrary to the intended restriction that a Trip must have an Apartment as its accommodation.",GPT,1.0,1.0,0,1
+22,ST only,":Book rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasReadingStatus ;
+  owl:allValuesFrom :ReadingStatus
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :belongsTo ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Genre
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isWrittenBy ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :PrimaryAuthor
+  ] .
+
+:hasReadingStatus rdf:type owl:ObjectProperty ;
+  rdfs:domain :Book ;
+  rdfs:range :ReadingStatus .
+
+:ReadingStatus rdf:type owl:Class .","Harry Potter and the Philosophers
+Stone, of type Book, must link to an
+instance of ReadingStatus.",Universal Trivial Satisfaction,"The axiom allows for instances of Book, such as ""Harry Potter and the Philosophers Stone,"" to exist without any :hasReadingStatus property values, which contradicts the intended meaning that every Book must link to an instance of ReadingStatus.",GPT,0.0,1.0,0,1
+23,ST only,":Vehicle rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasCapacity ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onDataRange owl:rational
+  ] ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasEnergySource ;
+  owl:someValuesFrom :Electricity
+  ] ;
+  rdfs:comment ""The Vehicle class defines types of vehicles used in transportation, including specific categories like HybridVehicle, DieselVehicle, and ElectricVehicle. This classification supports queries based on vehicle type and associated energy use."" .
+
+:hasCapacity rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf :hasCapacity ;
+  rdfs:domain :Airplane ,
+  :Bus ,
+  :Car ,
+  :Ferry ;
+  rdfs:range xsd:string ;
+  rdfs:comment ""Specifies the maximum passenger capacity of a vehicle."" .","Each Vehicle must have a minimum capacity of 1, preventing vehicles with zero capacity",Equivalence Instead of Restriction,"The student's axiom incorrectly uses an equivalence instead of a restriction, which implies that any class equivalent to Vehicle must have a minimum capacity of 1, but it does not prevent the existence of vehicles with zero capacity, as it does not enforce this constraint on all instances of Vehicle.",GPT,-1.0,-1.0,0,1
+23,ST only,":Vehicle rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasCapacity ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onDataRange owl:rational
+  ] ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasEnergySource ;
+  owl:someValuesFrom :Electricity
+  ] ;
+  rdfs:comment ""The Vehicle class defines types of vehicles used in transportation, including specific categories like HybridVehicle, DieselVehicle, and ElectricVehicle. This classification supports queries based on vehicle type and associated energy use."" .
+
+:hasCapacity rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf :hasCapacity ;
+  rdfs:domain :Airplane ,
+  :Bus ,
+  :Car ,
+  :Ferry ;
+  rdfs:range xsd:string ;
+  rdfs:comment ""Specifies the maximum passenger capacity of a vehicle."" .","Each Vehicle must have a minimum capacity of 1, preventing vehicles with zero capacity",Misunderstood Constraint,"The student's axiom incorrectly uses an equivalence instead of a restriction, which implies that any class equivalent to Vehicle must have a minimum capacity of 1, but it does not prevent the existence of vehicles with zero capacity, as it does not enforce this constraint on all instances of Vehicle.",GPT,-1.0,-1.0,0,1
+24,ST only,":Passenger rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :requiresTicketType ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Passenger
+  ] ;
+  rdfs:comment ""This class defines various types of passengers who might use transportation services. Subclasses like StudentPassenger, ChildPassenger, and AdultPassenger help to categorize passengers based on age or eligibility for certain services or discounts."" .
+
+:hasTicket rdf:type owl:ObjectProperty ;
+  rdfs:domain :Passenger ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :hasTicket ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Ticket
+  ] ;
+  rdfs:comment ""a Person who has one active ticket at the time"" .
+
+:Ticket rdf:type owl:Class ;
+  rdfs:comment ""The Ticket class captures different ticket types available to passengers, such as StudentTicket, AnnualPass, MonthlyPass, and SingleTicket. This allows for flexibility in ticketing options and helps in managing access and pricing based on ticket type."" .","Each Passenger can have at most one active Ticket, enforcing that passengers hold only one ticket at a time.",Domain/Range Instead of Class Restriction,"Your axiom incorrectly places the cardinality restriction on the range of the object property, which implies that any entity in the range must have at most one ticket, rather than restricting each Passenger to having at most one active Ticket.",GPT,1.0,0.0,0,1
+25,ST only,":CardGames rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPlayer ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Player
+  ] ;
+  rdfs:subClassOf :Game ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasComponents ;
+  owl:allValuesFrom :Cards
+  ] .
+
+:hasPlayer rdf:type owl:ObjectProperty ;
+  rdfs:domain :Game ;
+  rdfs:range :Player .
+
+:Player rdf:type owl:Class ;
+  rdfs:subClassOf :Person .",Card games must have at least 2 players,Equivalence Instead of Restriction,"The axiom incorrectly uses equivalence instead of restriction, leading to the unintended inference that any game with at least 2 players is necessarily a card game, rather than simply stating that card games require at least 2 players.",GPT,0.0,1.0,0,1
+26,ST+MS individually ,":CardGames rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPlayer ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Player
+  ] ;
+  rdfs:subClassOf :Game ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasComponents ;
+  owl:allValuesFrom :Cards
+  ] .
+:hasComponents rdf:type owl:ObjectProperty ;
+  owl:inverseOf :isComponentOf ;
+  rdfs:domain :Game ;
+  rdfs:range :GameComponents .
+
+:Cards rdf:type owl:Class ;
+  rdfs:subClassOf :GameComponents .",Card games only have components of type Cards.,Universal Trivial Satisfaction,"The axiom allows for the possibility of a CardGame having no components at all, as the universal restriction only specifies that if there are components, they must be of type Cards, but it does not enforce that there must be any components present.",GPT,1.0,1.0,0,1
+27,ST only,":Court rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :affiliatedWith ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Judge
+  ] .
+
+:affiliatedWith rdf:type owl:ObjectProperty ;
+  rdfs:domain :LegalProfessional ;
+  rdfs:range :Court .
+
+:Judge rdf:type owl:Class ;
+  rdfs:subClassOf :LegalProfessional ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :supervises ;
+  owl:allValuesFrom :Lawyer
+  ] ;
+  owl:disjointWith :Lawyer .","Each court is affiliated with at most
+one judge",Inconsistent Domain/Range,"The axiom incorrectly models the intended meaning because the object property :affiliatedWith has a domain of :LegalProfessional and a range of :Court, which implies that a :LegalProfessional is affiliated with a :Court, not the other way around, leading to an inconsistency with the intended restriction on :Court.",GPT,1.0,1.0,0,1
+28,ST only,":Singer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :providesMusicFor ;
+  owl:someValuesFrom :Wedding
+  ] ;
+  rdfs:comment ""works at the wedding, provides musical entertainment for the wedding party"" .
+
+:providesMusicFor rdf:type owl:ObjectProperty ;
+  rdfs:domain :Singer ;
+  rdfs:range :Wedding .
+
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :employs ;
+  owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isSetIn ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",At least one Singer provides Music.,Wrong Class Restricted,"The axiom incorrectly places the restriction on the class `Singer`, implying that each `Singer` is associated with at least one `Wedding`, rather than modeling that a `Wedding` involves at least one `Singer` providing music, which could lead to the unintended inference that every `Singer` must be involved in a wedding.",GPT,1.0,0.5,0,1
+0,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:Bag rdf:type owl:Class ;
+  rdfs:subClassOf :Accessory ;
+  rdfs:comment ""A bag is an accessory."" .","Every Outfit suitable for an Event has to
+have exactly one bag.",Domain/Range Instead of Class Restriction,"Your error is placing cardinality restrictions in the range of :suitableForEvent, which means anything in the range must simultaneously be a :ClothingItem AND something that has exactly one bag, which creates an impossible constraint since the range itself would need to have relationships. Instead, these cardinality constraints should be defined at the class level for :EventOutfit to properly express that event outfits must include exactly one bag.",CL,1.0,0.0,1,1
+1,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:Jewelry rdf:type owl:Class ;
+  rdfs:subClassOf :ClothingItem ;
+  rdfs:comment ""Jewelery is worn with an outfit."" .","Every Outfit suitable for an Event has to
+have at least three pieces of Jewelry.",Domain/Range Instead of Class Restriction,"Your range restriction on :suitableForEvent incorrectly states that anything that is the target of this property must itself have at least 3 jewelry items, rather than expressing that an EventOutfit must have at least 3 jewelry items; this creates a circular dependency where the range of the property depends on the same property being used again.",CL,1.0,0.0,0,1
+2,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:HighHeels rdf:type owl:Class ;
+  rdfs:subClassOf :Footwear ;
+  rdfs:comment ""High heels are footwear."" .","Every Outfit suitable for an Event has to
+have exactly one pair of High Heels.",Domain/Range Instead of Class Restriction,"Your error is placing cardinality restrictions in the range of :suitableForEvent, which means anything in the range must be both a ClothingItem AND something that has exactly one HighHeels (among other constraints), rather than expressing that EventOutfits must include exactly one pair of HighHeels. This creates a logical contradiction since a single clothing item cannot simultaneously be a HighHeels, a Bag, and three pieces of Jewelry.",CL,1.0,0.0,0,1
+3,MS+ST together,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Sneakers rdf:type owl:Class ;
+  rdfs:subClassOf :Footwear ;
+  rdfs:comment ""Sneakers are footwear."" .","An Outfit suitable for every day Events has
+a maximum of one pair of sneakers.",Domain/Range Instead of Class Restriction,"Your range definition for :suitableForEveryDayActivity incorrectly states that anything that is the object of this property must itself have exactly one hoodie, exactly one pair of sunglasses, and at most one pair of sneakers, rather than expressing that an EveryDayActivityOutfit has these constraints. This means any clothing item in the range would paradoxically need to have relationships with other clothing items, creating unintended inferences and potential inconsistencies.",CL,1.0,1.0,0,-1
+4,ST only,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Sunglasses rdf:type owl:Class ;
+  rdfs:subClassOf :Accessory ;
+  rdfs:comment ""Sunglasses are an accessory."" .","Every Outfit suitable for an Everyday
+Activity has to have exactly one pair of
+Sunglasses.",Domain/Range Instead of Class Restriction,"By placing the cardinality restriction on the range of the property :suitableForEveryDayActivity, you've inadvertently asserted that anything that is the target of this property must itself have exactly one pair of Sunglasses, rather than expressing that an EveryDayActivityOutfit must have exactly one pair of Sunglasses. This creates a logical error where the range itself becomes a complex class expression requiring further relationships, instead of properly constraining the EveryDayActivityOutfit class to have the required Sunglasses.",CL,1.0,1.0,0,1
+5,ST only,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Hoodie rdf:type owl:Class ;
+  rdfs:subClassOf :Clothing ;
+  rdfs:comment ""A hoodie is a type of clothing."" .","Every Outfit suitable for Everyday Activity
+has to have exactly one Hoodie.",Domain/Range Instead of Class Restriction,"By placing the cardinality restriction in the range of the property :suitableForEveryDayActivity, you've inadvertently specified that anything in the range must be both a :ClothingItem AND something that has exactly one :Hoodie related to it via the same property, which creates a circular definition and doesn't actually constrain :EveryDayActivityOutfit to have exactly one :Hoodie as intended.",CL,1.0,0.5,0,1
+6,ST only,":Route rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :startAtLocation ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Location
+  ] ;
+  rdfs:comment ""The Route class represents the different types of routes available in the transportation network. Subclasses like InternationalRoute, RegionalRoute, and UrbanRoute specify the scope and type of routes, allowing for targeted queries about route coverage."" .
+
+:hasStop rdf:type owl:ObjectProperty ;
+  rdfs:domain :Route ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :hasStop ;
+  owl:maxQualifiedCardinality ""50""^^xsd:nonNegativeInteger ;
+  owl:onClass :BusStop
+  ] .
+
+:BusStop rdf:type owl:Class ;
+  rdfs:subClassOf :Location .","Each Route can have at most 50 Stops, ensuring that a route has a reasonable number of stops for efficiency and manageability.",Domain/Range Instead of Class Restriction,"Your error is that you've placed the cardinality restriction in the range of the :hasStop property, which means anything in the range of this property must be something that has at most 50 bus stops (not a bus stop itself), rather than restricting routes to have at most 50 stops. This creates a circular definition where the range of :hasStop must satisfy a restriction involving :hasStop itself, leading to logical inconsistencies in your ontology.",CL,1.0,1.0,0,1
+7,ST only,":ModeOfTransportation rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasVehicleType ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :EnergySource
+  ] ;
+  rdfs:comment ""This class represents the various types of transportation modes available, such as Ferry, Airplane, Bicycle, Train, Bus, and Car. Each subclass describes a specific type of transport option that passengers may use."" .
+
+:operatesOnRoute rdf:type owl:ObjectProperty ;
+  rdfs:domain :ModeOfTransportation ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :operatesOnRoute ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Route
+  ] ;
+  rdfs:comment ""Indicates which route a transportation mode operates on."" .
+
+:Route rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :startAtLocation ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Location
+  ] ;
+  rdfs:comment ""The Route class represents the different types of routes available in the transportation network. Subclasses like InternationalRoute, RegionalRoute, and UrbanRoute specify the scope and type of routes, allowing for targeted queries about route coverage."" .","Each ModeOfTransportation must operate on at least one Route, ensuring that every mode of transportation is assigned to a route.",Domain/Range Instead of Class Restriction,"Your range restriction on :operatesOnRoute incorrectly states that anything a ModeOfTransportation operates on must itself operate on at least one Route, rather than enforcing that each ModeOfTransportation must operate on at least one Route. This creates a circular definition where the range of the property must satisfy the same property restriction, which is logically problematic and doesn't capture your intended meaning that each ModeOfTransportation must be assigned to at least one Route.",CL,1.0,1.0,0,1
+8,MS+ST together,":Guest rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :attends ;
+  owl:someValuesFrom :Wedding
+  ] .
+
+:attends rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Guest ;
+  rdfs:range :Wedding .
+
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :employs ;
+  owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isSetIn ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",At least one Guest attends the Wedding,Wrong Class Restricted,"Your axiom incorrectly places the restriction on the Guest class rather than the Wedding class, which means your ontology states that ""every Guest must attend at least one Wedding"" instead of ""every Wedding must have at least one Guest attending it."" This reverses the intended meaning and would allow for the possibility of Weddings with no Guests, while forcing every individual classified as a Guest to attend at least one Wedding.",CL,1.0,1.0,0,1
+9,ST only,":Photographer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :takesPicturesOf ;
+ owl:minQualifiedCardinality ""400""^^xsd:nonNegativeInteger ;
+ owl:onClass :Wedding
+  ] ;
+  rdfs:comment ""works at wedding, takes pictures of guests and to be weds"" .
+
+:takesPicturesOf rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Photographer ;
+  rdfs:range :Guest ,
+  :ToBeWeds .
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :employs ;
+ owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :isSetIn ;
+ owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",The photographer takes at least 400 pictures at the wedding.,Misunderstood Constraint,"Your axiom creates a logical conflict because the property :takesPicturesOf has a restricted range of :Guest and :ToBeWeds, but your cardinality restriction requires the photographer to take pictures of :Wedding instances, which isn't in the allowed range of the property.",CL,0.5,0.5,0,1
+9,ST only,":Photographer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :takesPicturesOf ;
+ owl:minQualifiedCardinality ""400""^^xsd:nonNegativeInteger ;
+ owl:onClass :Wedding
+  ] ;
+  rdfs:comment ""works at wedding, takes pictures of guests and to be weds"" .
+
+:takesPicturesOf rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Photographer ;
+  rdfs:range :Guest ,
+  :ToBeWeds .
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :employs ;
+ owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :isSetIn ;
+ owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",The photographer takes at least 400 pictures at the wedding.,Inconsistent Domain/Range,"Your axiom creates a logical conflict because the property :takesPicturesOf has a restricted range of :Guest and :ToBeWeds, but your cardinality restriction requires the photographer to take pictures of :Wedding instances, which isn't in the allowed range of the property.",CL,0.5,0.5,0,1
+10,ST only,":Author rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasNotableWork ;
+  owl:minQualifiedCardinality """"1""""^^xsd:nonNegativeInteger ;
+  owl:onDataRange xsd:string
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasBirthdate ;
+  owl:maxQualifiedCardinality """"1""""^^xsd:nonNegativeInteger ;
+  owl:onDataRange xsd:dateTime
+  ] ;
+  owl:disjointWith :Book .
+
+:hasNotableWork rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Author ;
+  rdfs:range xsd:string .","Each Author needs at least one book
+he is known for, to be added to the
+list. It is in each persons view, what
+notable means. Notable doesnt need
+to be a specific award. For this the
+class award is added",Other,"Your axiom models `:hasNotableWork` as a datatype property with range `xsd:string`, which means authors are related to string literals rather than actual book instances, contradicting your intention that authors need books they are known for. This modeling approach prevents you from establishing meaningful relationships between authors and book entities, as strings cannot have properties or relationships of their own.",CL,1.0,1.0,1,1
+11,MS+ST together,":Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :originatedIn ;
+  owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :createsA ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .
+
+
+:originatedIn rdf:type owl:ObjectProperty ,
+  owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Designer
+  :Trend
+  )
+  ] ;
+  rdfs:range :Country .
+
+:Country rdf:type owl:Class ;
+  rdfs:comment ""Countrys are specific regions having their own authority"" .","Designer1, of type Designer, could
+only originate in one Country",Misunderstood Constraint,"Your axiom using owl:allValuesFrom correctly ensures that if a Designer has an origin, it must be a Country, but it doesn't enforce that Designer1 must have exactly one country of origin; a Designer could have multiple countries of origin or none at all, despite your intention to restrict it to exactly one Country. While you've defined originatedIn as a FunctionalProperty (which would limit to at most one value), the owl:allValuesFrom restriction doesn't require the property to be used at all.",CL,1.0,1.0,0,1
+12,ST only,":ClothingItem rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :createdBy ;
+ owl:allValuesFrom :Designer
+  ] ;
+  rdfs:comment ""ClothingItems are all types of Items that you can wear"" .
+
+:createdBy rdf:type owl:ObjectProperty ;
+  owl:inverseOf :createsA ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Outfit
+ :Trend
+  )
+  ] ;
+  rdfs:range :Designer .
+
+:Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :originatedIn ;
+ owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :createsA ;
+ owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+ owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .","ClothingItem1, of type ClothingItem,
+could only be createdBy one
+Designer",Misunderstood Constraint,"Your axiom has two issues: first, the universal restriction (owl:allValuesFrom) only ensures that if a ClothingItem is created by something, it must be a Designer, but doesn't require any creation relationship at all; second, there's a domain inconsistency where createdBy is restricted to Outfit or Trend, making ClothingItem instances that use this property logically inconsistent with your ontology.",CL,1.0,0.5,0,1
+12,ST only,":ClothingItem rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :createdBy ;
+ owl:allValuesFrom :Designer
+  ] ;
+  rdfs:comment ""ClothingItems are all types of Items that you can wear"" .
+
+:createdBy rdf:type owl:ObjectProperty ;
+  owl:inverseOf :createsA ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Outfit
+ :Trend
+  )
+  ] ;
+  rdfs:range :Designer .
+
+:Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :originatedIn ;
+ owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :createsA ;
+ owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+ owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .","ClothingItem1, of type ClothingItem,
+could only be createdBy one
+Designer",Inconsistent Domain/Range,"Your axiom has two issues: first, the universal restriction (owl:allValuesFrom) only ensures that if a ClothingItem is created by something, it must be a Designer, but doesn't require any creation relationship at all; second, there's a domain inconsistency where createdBy is restricted to Outfit or Trend, making ClothingItem instances that use this property logically inconsistent with your ontology.",CL,1.0,0.5,0,1
+13,ST+MS individually ,":Film rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :producedIn ;
+  owl:someValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :produced ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Producer
+  ] .
+:produced rdf:type owl:ObjectProperty ;
+  rdfs:domain :Producer ;
+  rdfs:range :Film .
+
+:Producer rdf:type owl:Class ;
+  rdfs:subClassOf :People .","Every film must have at least one
+producer. For example, ThIrishman
+(type Film) is required to have at
+least one associated Producer, such
+as RobertDeNiro.",Inconsistent Domain/Range,"Your axiom states that every Film must have at least one Producer that it produces (via the :produced property), but this contradicts your domain/range declaration where :produced has :Producer as domain and :Film as range, meaning only Producers can produce Films, not the other way around. This domain/range inconsistency creates a logical contradiction where Films would need to be simultaneously both the subject and object of the :produced relation.",CL,1.0,1.0,0,1
+14,ST only,"sports:SportsTeam rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty sports:hasVenue ;
+  owl:someValuesFrom sports:Venue
+  ] .
+
+sports:hasVenue rdf:type owl:ObjectProperty ;
+  rdfs:domain sports:SportsTeam ;
+  rdfs:range sports:Venue .
+
+sports:Venue rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","Each SportsTeam must have their
+own Venue.",Misunderstood Constraint,"Your axiom correctly states that each SportsTeam must have at least one Venue (through the someValuesFrom restriction), but it fails to capture the ""their own"" part of your intention, as multiple SportsTeams could share the same Venue under this model. The current axiom only ensures that SportsTeams have venues, not that these venues are unique to each team.",CL,1.0,0.0,0,1
+15,ST only,":Learning_Progress rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :givesFeedbackTo ;
+  owl:someValuesFrom :Student
+  ] .
+
+:givesFeedbackTo rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdf:type owl:AsymmetricProperty ;
+  rdfs:domain :Instructor ;
+  rdfs:range :Student .
+
+:Student rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isLearningfor ;
+  owl:allValuesFrom :Exam
+  ] .",Learning Progress are giving Feedback to the student,Inconsistent Domain/Range,"Your axiom creates an inconsistency because you've defined the domain of :givesFeedbackTo as :Instructor, but then used this property in a restriction on :Learning_Progress, which implies that every :Learning_Progress instance must also be an :Instructor instance - this contradicts your intended meaning where ""Learning Progress"" itself gives feedback rather than an instructor.",CL,1.0,1.0,0,1
+16,ST only,":LandscapePhotography rdf:type owl:Class ;
+  rdfs:subClassOf :PhotoStyle ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isLocatedAt ;
+  owl:allValuesFrom :Outside
+  ] .
+
+:isLocatedAt rdf:type owl:ObjectProperty ;
+  rdfs:domain :Technique ;
+  rdfs:range :Location ;
+  rdfs:comment ""technique for each location"" .
+
+:Outside rdf:type owl:Class ;
+  rdfs:subClassOf :Location .","Landscape Photography can only be
+done Outside",Universal Trivial Satisfaction,"Your axiom allows for instances of LandscapePhotography that aren't located anywhere at all, as the universal restriction (owl:allValuesFrom) only constrains that IF there are any isLocatedAt relationships, they must point to Outside locations, but doesn't require that such relationships exist. This means a LandscapePhotography instance with no location information would satisfy your axiom, which contradicts your intention that landscape photography must occur outside.",CL,1.0,1.0,0,1
+17,ST+MS individually ,":PetLover rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPet ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Pet
+  ] ;
+  rdfs:subClassOf :Owner .
+
+:hasPet rdf:type owl:ObjectProperty ;
+  rdfs:domain :Person ;
+  rdfs:range :Pet .
+
+:Pet rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","PetLover is an owner who has at
+least 2 pets",Equivalence Instead of Restriction,"Your axiom using owl:equivalentClass means that not only is every PetLover someone who has at least 2 pets, but also that every person who has at least 2 pets is automatically classified as a PetLover, which may not be your intention. This equivalence creates a bidirectional relationship that could lead to unintended classifications, whereas a subclass restriction would only establish that PetLovers must have at least 2 pets without forcing the reverse inference.",CL,1.0,1.0,1,1
+18,ST only,":FriendlyPet rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :isFriendlyWith ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Pet
+  ] ;
+  rdfs:subClassOf :Pet .
+
+:isFriendlyWith rdf:type owl:ObjectProperty ,
+  owl:SymmetricProperty ,
+  owl:TransitiveProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Pet .
+
+:Pet rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","FriendlyPet is a pet that is friendly to
+at least one other pet.",Equivalence Instead of Restriction,"Your use of owl:equivalentClass instead of rdfs:subClassOf means that any pet that happens to be friendly with another pet will automatically be classified as a FriendlyPet, and conversely, every instance of FriendlyPet must be friendly with another pet - this creates a bidirectional relationship that may lead to unintended classifications when you likely only wanted to define a necessary condition for FriendlyPet.",CL,1.0,1.0,1,1
+19,ST only,":MinorIllness rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :needsMedication ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Medication
+  ] ;
+  rdfs:subClassOf :HealthStatus .
+
+:needsMedication rdf:type owl:ObjectProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Medication .
+
+:Medication rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+  owl:disjointWith :Pet .","Pet which needs 1 medication has
+healthstatus MinorIllness",Wrong Class Restricted,"Your axiom incorrectly defines MinorIllness as equivalent to things that need exactly 1 medication, rather than defining a property of Pets with minor illnesses; this creates a logical inconsistency since MinorIllness (as a subclass of HealthStatus) would need to simultaneously be a Medication (due to the range of needsMedication) while these classes are disjoint from each other.",CL,1.0,-1.0,0,1
+19,ST only,":MinorIllness rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :needsMedication ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Medication
+  ] ;
+  rdfs:subClassOf :HealthStatus .
+
+:needsMedication rdf:type owl:ObjectProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Medication .
+
+:Medication rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+  owl:disjointWith :Pet .","Pet which needs 1 medication has
+healthstatus MinorIllness",Other,"Your axiom incorrectly defines MinorIllness as equivalent to things that need exactly 1 medication, rather than defining a property of Pets with minor illnesses; this creates a logical inconsistency since MinorIllness (as a subclass of HealthStatus) would need to simultaneously be a Medication (due to the range of needsMedication) while these classes are disjoint from each other.",CL,1.0,-1.0,0,1
+20,ST only,":Course rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isHaving ;
+  owl:minQualifiedCardinality ""5""^^xsd:nonNegativeInteger ;
+  owl:onClass :Student
+  ] .
+
+:isHaving rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Student ;
+  rdfs:range :Study_Session .
+
+:Student rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isLearningfor ;
+  owl:allValuesFrom :Exam
+  ] .",A course must have at least 5 students,Inconsistent Domain/Range,"Your axiom incorrectly uses the property "":isHaving"" which has a domain of "":Student"" and range of "":Study_Session"", but you're applying it to connect "":Course"" to "":Student"". This domain/range inconsistency means that any "":Course"" instance with this restriction would also be classified as a "":Student"" (due to the domain constraint), and the restriction would require connections to "":Study_Session"" instances rather than "":Student"" instances (due to the range constraint).",CL,1.0,1.0,0,1
+21,ST only,":Trip rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :usesTransportation ;
+  owl:someValuesFrom :Transportation
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasAccommodation ;
+  owl:allValuesFrom :Apartment
+  ] ;
+  rdfs:comment ""Journey, which can have different type of purpose"" .
+
+:hasAccommodation rdf:type owl:ObjectProperty ;
+  owl:inverseOf :isAccommodationFor ;
+  rdf:type owl:AsymmetricProperty ;
+  rdfs:domain :Trip;
+  rdfs:range :Accommodation ;
+  rdfs:comment ""Trip has accommodation"" .
+
+:Apartment rdf:type owl:Class ;
+  rdfs:subClassOf :Accommodation ;
+  owl:disjointWith :Hotel ;
+  rdfs:comment ""Flat, that is well appointed or used for holidays."" .","Instances of type Trip can only have
+an instance of type Apartment as
+accommodation and not ParisHotel
+(type Hotel) which we had to delete
+and create the new one
+ParisApartment (type Apartment)",Universal Trivial Satisfaction,"Your axiom using owl:allValuesFrom for hasAccommodation means that a Trip can only have Apartments as accommodation if it has any accommodation at all, but it doesn't require a Trip to actually have any accommodation - a Trip with no hasAccommodation property values would still satisfy your constraint while violating your intention that all Trips must have an Apartment accommodation.",CL,1.0,1.0,0,1
+22,ST only,":Book rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasReadingStatus ;
+  owl:allValuesFrom :ReadingStatus
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :belongsTo ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Genre
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isWrittenBy ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :PrimaryAuthor
+  ] .
+
+:hasReadingStatus rdf:type owl:ObjectProperty ;
+  rdfs:domain :Book ;
+  rdfs:range :ReadingStatus .
+
+:ReadingStatus rdf:type owl:Class .","Harry Potter and the Philosophers
+Stone, of type Book, must link to an
+instance of ReadingStatus.",Universal Trivial Satisfaction,"Your axiom using only an owl:allValuesFrom restriction for hasReadingStatus means that a Book can have zero reading status values and still satisfy the constraint, as the universal restriction is trivially satisfied when no property values exist - this contradicts your intention that each Book ""must link to an instance of ReadingStatus.""",CL,1.0,1.0,0,1
+23,ST only,":Vehicle rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasCapacity ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onDataRange owl:rational
+  ] ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasEnergySource ;
+  owl:someValuesFrom :Electricity
+  ] ;
+  rdfs:comment ""The Vehicle class defines types of vehicles used in transportation, including specific categories like HybridVehicle, DieselVehicle, and ElectricVehicle. This classification supports queries based on vehicle type and associated energy use."" .
+
+:hasCapacity rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf :hasCapacity ;
+  rdfs:domain :Airplane ,
+  :Bus ,
+  :Car ,
+  :Ferry ;
+  rdfs:range xsd:string ;
+  rdfs:comment ""Specifies the maximum passenger capacity of a vehicle."" .","Each Vehicle must have a minimum capacity of 1, preventing vehicles with zero capacity",Equivalence Instead of Restriction,"Your equivalence axiom states that ""Vehicle"" is exactly the same as ""things with at least one rational capacity value,"" which means anything with a capacity is automatically a Vehicle, and anything without a capacity is automatically not a Vehicle - this is much stronger than your intention to simply ensure all Vehicles have a minimum capacity of 1. Additionally, there's a domain/range mismatch where hasCapacity is defined with range xsd:string but used with owl:rational in the restriction.",CL,1.0,1.0,0,1
+23,ST only,":Vehicle rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasCapacity ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onDataRange owl:rational
+  ] ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasEnergySource ;
+  owl:someValuesFrom :Electricity
+  ] ;
+  rdfs:comment ""The Vehicle class defines types of vehicles used in transportation, including specific categories like HybridVehicle, DieselVehicle, and ElectricVehicle. This classification supports queries based on vehicle type and associated energy use."" .
+
+:hasCapacity rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf :hasCapacity ;
+  rdfs:domain :Airplane ,
+  :Bus ,
+  :Car ,
+  :Ferry ;
+  rdfs:range xsd:string ;
+  rdfs:comment ""Specifies the maximum passenger capacity of a vehicle."" .","Each Vehicle must have a minimum capacity of 1, preventing vehicles with zero capacity",Misunderstood Constraint,"Your equivalence axiom states that ""Vehicle"" is exactly the same as ""things with at least one rational capacity value,"" which means anything with a capacity is automatically a Vehicle, and anything without a capacity is automatically not a Vehicle - this is much stronger than your intention to simply ensure all Vehicles have a minimum capacity of 1. Additionally, there's a domain/range mismatch where hasCapacity is defined with range xsd:string but used with owl:rational in the restriction.",CL,1.0,1.0,0,1
+24,ST only,":Passenger rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :requiresTicketType ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Passenger
+  ] ;
+  rdfs:comment ""This class defines various types of passengers who might use transportation services. Subclasses like StudentPassenger, ChildPassenger, and AdultPassenger help to categorize passengers based on age or eligibility for certain services or discounts."" .
+
+:hasTicket rdf:type owl:ObjectProperty ;
+  rdfs:domain :Passenger ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :hasTicket ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Ticket
+  ] ;
+  rdfs:comment ""a Person who has one active ticket at the time"" .
+
+:Ticket rdf:type owl:Class ;
+  rdfs:comment ""The Ticket class captures different ticket types available to passengers, such as StudentTicket, AnnualPass, MonthlyPass, and SingleTicket. This allows for flexibility in ticketing options and helps in managing access and pricing based on ticket type."" .","Each Passenger can have at most one active Ticket, enforcing that passengers hold only one ticket at a time.",Domain/Range Instead of Class Restriction,"Your error is placing the cardinality restriction in the range of :hasTicket rather than as a subclass restriction on :Passenger, which means that anything in the range of :hasTicket must be something that has at most one ticket (not that passengers have at most one ticket). This creates a circular definition since the range is defined in terms of the property itself, and fails to properly constrain passengers as intended.",CL,1.0,0.5,1,1
+25,ST only,":CardGames rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPlayer ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Player
+  ] ;
+  rdfs:subClassOf :Game ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasComponents ;
+  owl:allValuesFrom :Cards
+  ] .
+
+:hasPlayer rdf:type owl:ObjectProperty ;
+  rdfs:domain :Game ;
+  rdfs:range :Player .
+
+:Player rdf:type owl:Class ;
+  rdfs:subClassOf :Person .",Card games must have at least 2 players,Equivalence Instead of Restriction,"Your axiom incorrectly uses an equivalence relation (owl:equivalentClass) instead of a subclass restriction, which means you're defining CardGames as exactly the class of things that have at least 2 players, rather than simply constraining card games to require at least 2 players. This creates an unintended bidirectional inference where any entity with at least 2 players would automatically be classified as a CardGame, even if it's not actually a card game (like a football match with 22 players).",CL,1.0,1.0,1,1
+26,ST+MS individually ,":CardGames rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPlayer ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Player
+  ] ;
+  rdfs:subClassOf :Game ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasComponents ;
+  owl:allValuesFrom :Cards
+  ] .
+:hasComponents rdf:type owl:ObjectProperty ;
+  owl:inverseOf :isComponentOf ;
+  rdfs:domain :Game ;
+  rdfs:range :GameComponents .
+
+:Cards rdf:type owl:Class ;
+  rdfs:subClassOf :GameComponents .",Card games only have components of type Cards.,Universal Trivial Satisfaction,"Your axiom allows card games to have no components at all, as the universal restriction (owl:allValuesFrom) only states that IF a card game has components, they must be cards, but doesn't require the existence of any components - this contradicts the common understanding that card games must have cards as components.",CL,1.0,1.0,0,1
+27,ST only,":Court rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :affiliatedWith ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Judge
+  ] .
+
+:affiliatedWith rdf:type owl:ObjectProperty ;
+  rdfs:domain :LegalProfessional ;
+  rdfs:range :Court .
+
+:Judge rdf:type owl:Class ;
+  rdfs:subClassOf :LegalProfessional ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :supervises ;
+  owl:allValuesFrom :Lawyer
+  ] ;
+  owl:disjointWith :Lawyer .","Each court is affiliated with at most
+one judge",Inconsistent Domain/Range,"Your axiom incorrectly models the relationship direction since the property :affiliatedWith has :LegalProfessional as its domain and :Court as its range, but you've placed the restriction on :Court instead of :Judge. This domain/range inconsistency means your axiom actually states that ""each court is affiliated with at most one judge"" when the property definition indicates that legal professionals (including judges) are affiliated with courts, not the other way around.",CL,1.0,0.0,-1,1
+28,ST only,":Singer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :providesMusicFor ;
+  owl:someValuesFrom :Wedding
+  ] ;
+  rdfs:comment ""works at the wedding, provides musical entertainment for the wedding party"" .
+
+:providesMusicFor rdf:type owl:ObjectProperty ;
+  rdfs:domain :Singer ;
+  rdfs:range :Wedding .
+
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :employs ;
+  owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isSetIn ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",At least one Singer provides Music.,Wrong Class Restricted,"Your axiom states that every Singer must provide music for at least one Wedding, but your intended meaning was that at least one Singer provides Music (not necessarily for every Singer). This restriction on the Singer class forces all singers to provide music for weddings, which is too strong a constraint compared to your intention of requiring just the existence of at least one such Singer.",CL,1.0,0.5,0,1
+0,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:Bag rdf:type owl:Class ;
+  rdfs:subClassOf :Accessory ;
+  rdfs:comment ""A bag is an accessory."" .","Every Outfit suitable for an Event has to
+have exactly one bag.",Domain/Range Instead of Class Restriction,"Your axiom is incorrect because by placing the cardinality restrictions in the range of `:suitableForEvent`, you are stating that any `:ClothingItem` (or `:Bag`, `:HighHeels`, etc.) must be suitable for exactly one `:EventOutfit`, which is not your intended meaning and could lead to unintended inferences, such as inferring that a `:Bag` or `:HighHeels` can only belong to one `:EventOutfit`.",DS,-1.0,-1.0,0,1
+1,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:Jewelry rdf:type owl:Class ;
+  rdfs:subClassOf :ClothingItem ;
+  rdfs:comment ""Jewelery is worn with an outfit."" .","Every Outfit suitable for an Event has to
+have at least three pieces of Jewelry.",Domain/Range Instead of Class Restriction,"Your axiom incorrectly places the cardinality constraint in the range of the `:suitableForEvent` property, which implies that any `:ClothingItem` used with `:suitableForEvent` must itself be associated with at least three pieces of `:Jewelry`, rather than ensuring that every `:EventOutfit` has at least three pieces of `:Jewelry`. This could lead to unintended inferences, such as requiring individual `:ClothingItem` instances to satisfy the constraint independently, rather than the `:EventOutfit` as a whole.",DS,1.0,0.5,0,1
+2,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:HighHeels rdf:type owl:Class ;
+  rdfs:subClassOf :Footwear ;
+  rdfs:comment ""High heels are footwear."" .","Every Outfit suitable for an Event has to
+have exactly one pair of High Heels.",Domain/Range Instead of Class Restriction,"Your axiom incorrectly places the cardinality constraint on the range of the `:suitableForEvent` property, which implies that any `:ClothingItem` used in the range must itself satisfy the constraints (e.g., being a `:HighHeels` with exactly one instance), rather than restricting `:EventOutfit` to have exactly one `:HighHeels` as part of its composition. This could lead to unintended inferences, such as requiring all `:ClothingItem` instances to inherently satisfy these constraints, which is not your intended meaning.",DS,1.0,1.0,0,1
+3,MS+ST together,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Sneakers rdf:type owl:Class ;
+  rdfs:subClassOf :Footwear ;
+  rdfs:comment ""Sneakers are footwear."" .","An Outfit suitable for every day Events has
+a maximum of one pair of sneakers.",Domain/Range Instead of Class Restriction,"Your axiom incorrectly places the cardinality restriction on the range of the `suitableForEveryDayActivity` property, which means that any `ClothingItem` used in this property must satisfy the restriction (e.g., only one `Sneakers` instance can exist globally for this property), rather than restricting the number of `Sneakers` that can be part of an `EveryDayActivityOutfit`. This could lead to unintended inferences, such as inferring that only one `Sneakers` instance can ever exist in the entire ontology.",DS,1.0,-1.0,0,1
+4,ST only,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Sunglasses rdf:type owl:Class ;
+  rdfs:subClassOf :Accessory ;
+  rdfs:comment ""Sunglasses are an accessory."" .","Every Outfit suitable for an Everyday
+Activity has to have exactly one pair of
+Sunglasses.",Domain/Range Instead of Class Restriction,"Your axiom incorrectly places the cardinality constraint on the range of the `suitableForEveryDayActivity` property, which implies that any `ClothingItem` (e.g., `Hoodie`, `Sunglasses`, `Sneakers`) must itself be associated with exactly one `Hoodie`, one `Sunglasses`, and at most one `Sneakers`, rather than ensuring that an `EveryDayActivityOutfit` has exactly one pair of `Sunglasses` as part of its composition. This leads to unintended inferences about the `ClothingItem` instances themselves, not the `Outfit`.",DS,1.0,1.0,0,1
+5,ST only,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Hoodie rdf:type owl:Class ;
+  rdfs:subClassOf :Clothing ;
+  rdfs:comment ""A hoodie is a type of clothing."" .","Every Outfit suitable for Everyday Activity
+has to have exactly one Hoodie.",Domain/Range Instead of Class Restriction,"Your axiom incorrectly places the cardinality restriction on the range of the `suitableForEveryDayActivity` property, which implies that any `ClothingItem` must be associated with exactly one `Hoodie` and one `Sunglasses`, and at most one `Sneakers`, rather than ensuring that every `EveryDayActivityOutfit` has exactly one `Hoodie`. This could lead to unintended inferences, such as requiring all `ClothingItem` instances to satisfy these constraints, even if they are not part of an `EveryDayActivityOutfit`.",DS,1.0,-1.0,0,1
+6,ST only,":Route rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :startAtLocation ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Location
+  ] ;
+  rdfs:comment ""The Route class represents the different types of routes available in the transportation network. Subclasses like InternationalRoute, RegionalRoute, and UrbanRoute specify the scope and type of routes, allowing for targeted queries about route coverage."" .
+
+:hasStop rdf:type owl:ObjectProperty ;
+  rdfs:domain :Route ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :hasStop ;
+  owl:maxQualifiedCardinality ""50""^^xsd:nonNegativeInteger ;
+  owl:onClass :BusStop
+  ] .
+
+:BusStop rdf:type owl:Class ;
+  rdfs:subClassOf :Location .","Each Route can have at most 50 Stops, ensuring that a route has a reasonable number of stops for efficiency and manageability.",Domain/Range Instead of Class Restriction,"Your axiom incorrectly places the cardinality constraint on the range of the `:hasStop` property, which implies that any `:BusStop` must be part of at most 50 routes, rather than ensuring that each `:Route` has at most 50 stops. This unintended interpretation could lead to inconsistencies, such as inferring that a `:BusStop` cannot belong to more than 50 routes, even if that was not your intention.",DS,-1.0,-1.0,0,1
+7,ST only,":ModeOfTransportation rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasVehicleType ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :EnergySource
+  ] ;
+  rdfs:comment ""This class represents the various types of transportation modes available, such as Ferry, Airplane, Bicycle, Train, Bus, and Car. Each subclass describes a specific type of transport option that passengers may use."" .
+
+:operatesOnRoute rdf:type owl:ObjectProperty ;
+  rdfs:domain :ModeOfTransportation ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :operatesOnRoute ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Route
+  ] ;
+  rdfs:comment ""Indicates which route a transportation mode operates on."" .
+
+:Route rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :startAtLocation ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Location
+  ] ;
+  rdfs:comment ""The Route class represents the different types of routes available in the transportation network. Subclasses like InternationalRoute, RegionalRoute, and UrbanRoute specify the scope and type of routes, allowing for targeted queries about route coverage."" .","Each ModeOfTransportation must operate on at least one Route, ensuring that every mode of transportation is assigned to a route.",Domain/Range Instead of Class Restriction,"Your axiom incorrectly places the cardinality constraint on the range of the `operatesOnRoute` property, which means that any individual in the range (i.e., a `Route`) must be operated on by at least one `ModeOfTransportation`, rather than ensuring that every `ModeOfTransportation` operates on at least one `Route`. This could lead to unintended inferences, such as requiring all `Route` instances to have a `ModeOfTransportation` operating on them, which is not your intended meaning.",DS,-1.0,-1.0,0,1
+8,MS+ST together,":Guest rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :attends ;
+  owl:someValuesFrom :Wedding
+  ] .
+
+:attends rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Guest ;
+  rdfs:range :Wedding .
+
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :employs ;
+  owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isSetIn ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",At least one Guest attends the Wedding,Wrong Class Restricted,"Your axiom incorrectly restricts the `Guest` class to attend at least one `Wedding`, which implies that every `Guest` must attend at least one `Wedding`, rather than expressing that at least one `Guest` attends a specific `Wedding`. This unintended inference could lead to inconsistencies, as it enforces a universal constraint on all `Guest` instances, not the intended existential condition.",DS,1.0,0.5,0,-1
+9,ST only,":Photographer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :takesPicturesOf ;
+ owl:minQualifiedCardinality ""400""^^xsd:nonNegativeInteger ;
+ owl:onClass :Wedding
+  ] ;
+  rdfs:comment ""works at wedding, takes pictures of guests and to be weds"" .
+
+:takesPicturesOf rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Photographer ;
+  rdfs:range :Guest ,
+  :ToBeWeds .
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :employs ;
+ owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :isSetIn ;
+ owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",The photographer takes at least 400 pictures at the wedding.,Misunderstood Constraint,"Your axiom incorrectly implies that a photographer must take at least 400 pictures of the wedding itself (the event), not the wedding's participants (guests/to-be-weds), which contradicts your stated domain/range for :takesPicturesOf and could allow nonsensical inferences like a photographer taking pictures of an abstract event rather than people.",DS,0.5,0.5,0,1
+9,ST only,":Photographer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :takesPicturesOf ;
+ owl:minQualifiedCardinality ""400""^^xsd:nonNegativeInteger ;
+ owl:onClass :Wedding
+  ] ;
+  rdfs:comment ""works at wedding, takes pictures of guests and to be weds"" .
+
+:takesPicturesOf rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Photographer ;
+  rdfs:range :Guest ,
+  :ToBeWeds .
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :employs ;
+ owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :isSetIn ;
+ owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",The photographer takes at least 400 pictures at the wedding.,Inconsistent Domain/Range,"Your axiom incorrectly implies that a photographer must take at least 400 pictures of the wedding itself (the event), not the wedding's participants (guests/to-be-weds), which contradicts your stated domain/range for :takesPicturesOf and could allow nonsensical inferences like a photographer taking pictures of an abstract event rather than people.",DS,0.5,0.5,0,1
+10,ST only,":Author rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasNotableWork ;
+  owl:minQualifiedCardinality """"1""""^^xsd:nonNegativeInteger ;
+  owl:onDataRange xsd:string
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasBirthdate ;
+  owl:maxQualifiedCardinality """"1""""^^xsd:nonNegativeInteger ;
+  owl:onDataRange xsd:dateTime
+  ] ;
+  owl:disjointWith :Book .
+
+:hasNotableWork rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Author ;
+  rdfs:range xsd:string .","Each Author needs at least one book
+he is known for, to be added to the
+list. It is in each persons view, what
+notable means. Notable doesnt need
+to be a specific award. For this the
+class award is added",Other,"Your axiom incorrectly uses `owl:onDataRange` with `xsd:string` for `:hasNotableWork`, which implies that notable works are literal strings rather than instances of a class like `:Book`. This could lead to unintended inferences where notable works are treated as simple text values, contradicting your intention to model them as meaningful entities (e.g., books) with their own properties.",DS,1.0,1.0,1,1
+11,MS+ST together,":Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :originatedIn ;
+  owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :createsA ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .
+
+
+:originatedIn rdf:type owl:ObjectProperty ,
+  owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Designer
+  :Trend
+  )
+  ] ;
+  rdfs:range :Country .
+
+:Country rdf:type owl:Class ;
+  rdfs:comment ""Countrys are specific regions having their own authority"" .","Designer1, of type Designer, could
+only originate in one Country",Misunderstood Constraint,"Your axiom incorrectly uses an `owl:allValuesFrom` restriction, which means that if a Designer originates in any location, it must be a Country, but it does not enforce that a Designer must originate in exactly one Country. This could allow unintended inferences, such as a Designer originating in multiple Countries or none at all, which contradicts your intention of restricting them to exactly one.",DS,1.0,1.0,0,1
+12,ST only,":ClothingItem rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :createdBy ;
+ owl:allValuesFrom :Designer
+  ] ;
+  rdfs:comment ""ClothingItems are all types of Items that you can wear"" .
+
+:createdBy rdf:type owl:ObjectProperty ;
+  owl:inverseOf :createsA ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Outfit
+ :Trend
+  )
+  ] ;
+  rdfs:range :Designer .
+
+:Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :originatedIn ;
+ owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :createsA ;
+ owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+ owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .","ClothingItem1, of type ClothingItem,
+could only be createdBy one
+Designer",Misunderstood Constraint,"Your axiom incorrectly implies that every ClothingItem must be created by a Designer (allValuesFrom), not that it can only be created by one (FunctionalProperty), and the domain restriction on :createdBy excludes ClothingItem, making the axiom inconsistent with your intention.",DS,1.0,0.5,0,1
+12,ST only,":ClothingItem rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :createdBy ;
+ owl:allValuesFrom :Designer
+  ] ;
+  rdfs:comment ""ClothingItems are all types of Items that you can wear"" .
+
+:createdBy rdf:type owl:ObjectProperty ;
+  owl:inverseOf :createsA ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Outfit
+ :Trend
+  )
+  ] ;
+  rdfs:range :Designer .
+
+:Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :originatedIn ;
+ owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :createsA ;
+ owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+ owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .","ClothingItem1, of type ClothingItem,
+could only be createdBy one
+Designer",Inconsistent Domain/Range,"Your axiom incorrectly implies that every ClothingItem must be created by a Designer (allValuesFrom), not that it can only be created by one (FunctionalProperty), and the domain restriction on :createdBy excludes ClothingItem, making the axiom inconsistent with your intention.",DS,1.0,0.5,0,1
+13,ST+MS individually ,":Film rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :producedIn ;
+  owl:someValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :produced ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Producer
+  ] .
+:produced rdf:type owl:ObjectProperty ;
+  rdfs:domain :Producer ;
+  rdfs:range :Film .
+
+:Producer rdf:type owl:Class ;
+  rdfs:subClassOf :People .","Every film must have at least one
+producer. For example, ThIrishman
+(type Film) is required to have at
+least one associated Producer, such
+as RobertDeNiro.",Inconsistent Domain/Range,"Your axiom incorrectly defines the domain and range of the `:produced` property, stating that the domain is `:Producer` and the range is `:Film`, which implies that a `:Producer` produces a `:Film`, rather than a `:Film` being produced by at least one `:Producer`. This could lead to unintended inferences, such as inferring that a `:Producer` must produce at least one `:Film`, which contradicts your intended meaning.",DS,1.0,-1.0,0,1
+14,ST only,"sports:SportsTeam rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty sports:hasVenue ;
+  owl:someValuesFrom sports:Venue
+  ] .
+
+sports:hasVenue rdf:type owl:ObjectProperty ;
+  rdfs:domain sports:SportsTeam ;
+  rdfs:range sports:Venue .
+
+sports:Venue rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","Each SportsTeam must have their
+own Venue.",Misunderstood Constraint,"Your axiom states that every `SportsTeam` has at least one `Venue`, but it does not enforce that each `SportsTeam` must have its own unique `Venue`; multiple teams could share the same `Venue`, which contradicts your intention of ""each SportsTeam must have their own Venue.""",DS,1.0,1.0,0,1
+15,ST only,":Learning_Progress rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :givesFeedbackTo ;
+  owl:someValuesFrom :Student
+  ] .
+
+:givesFeedbackTo rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdf:type owl:AsymmetricProperty ;
+  rdfs:domain :Instructor ;
+  rdfs:range :Student .
+
+:Student rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isLearningfor ;
+  owl:allValuesFrom :Exam
+  ] .",Learning Progress are giving Feedback to the student,Inconsistent Domain/Range,"Your axiom is incorrect because the domain of `:givesFeedbackTo` is defined as `:Instructor`, but you are applying it to `:Learning_Progress`, which implies that `:Learning_Progress` is an `:Instructor`. This creates an unintended inference that `:Learning_Progress` is a subclass of `:Instructor`, which contradicts your intended meaning.",DS,1.0,1.0,0,1
+16,ST only,":LandscapePhotography rdf:type owl:Class ;
+  rdfs:subClassOf :PhotoStyle ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isLocatedAt ;
+  owl:allValuesFrom :Outside
+  ] .
+
+:isLocatedAt rdf:type owl:ObjectProperty ;
+  rdfs:domain :Technique ;
+  rdfs:range :Location ;
+  rdfs:comment ""technique for each location"" .
+
+:Outside rdf:type owl:Class ;
+  rdfs:subClassOf :Location .","Landscape Photography can only be
+done Outside",Universal Trivial Satisfaction,"Your axiom states that all instances of `:LandscapePhotography` must have `:isLocatedAt` values that are of type `:Outside`, but it does not require that `:LandscapePhotography` instances must have any `:isLocatedAt` values at all. This means an instance of `:LandscapePhotography` could exist without any location, which contradicts your intention that it must be done outside.",DS,1.0,1.0,0,1
+17,ST+MS individually ,":PetLover rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPet ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Pet
+  ] ;
+  rdfs:subClassOf :Owner .
+
+:hasPet rdf:type owl:ObjectProperty ;
+  rdfs:domain :Person ;
+  rdfs:range :Pet .
+
+:Pet rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","PetLover is an owner who has at
+least 2 pets",Equivalence Instead of Restriction,"Your axiom incorrectly equates `:PetLover` with the restriction of having at least 2 pets, which implies that *any* individual with at least 2 pets is a `:PetLover`, rather than restricting `:PetLover` to only those who are owners with at least 2 pets. This could lead to unintended inferences, such as classifying non-owners with pets as `:PetLover`.",DS,1.0,1.0,0,1
+18,ST only,":FriendlyPet rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :isFriendlyWith ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Pet
+  ] ;
+  rdfs:subClassOf :Pet .
+
+:isFriendlyWith rdf:type owl:ObjectProperty ,
+  owl:SymmetricProperty ,
+  owl:TransitiveProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Pet .
+
+:Pet rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","FriendlyPet is a pet that is friendly to
+at least one other pet.",Equivalence Instead of Restriction,"Your axiom incorrectly uses `owl:equivalentClass`, which implies that `:FriendlyPet` is exactly the class of pets that are friendly with at least one other pet, rather than a subclass. This could lead to unintended inferences where any pet friendly with another pet is automatically classified as a `:FriendlyPet`, even if it doesn't meet other criteria you might later define for `:FriendlyPet`.",DS,1.0,1.0,0,1
+19,ST only,":MinorIllness rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :needsMedication ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Medication
+  ] ;
+  rdfs:subClassOf :HealthStatus .
+
+:needsMedication rdf:type owl:ObjectProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Medication .
+
+:Medication rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+  owl:disjointWith :Pet .","Pet which needs 1 medication has
+healthstatus MinorIllness",Wrong Class Restricted,"Your axiom incorrectly restricts the class `:MinorIllness` to represent ""Pets that need exactly 1 Medication,"" which changes the intended meaning. This implies that any instance of `:MinorIllness` must be a `:Pet` needing exactly 1 `:Medication`, leading to unintended inferences and potential inconsistencies, such as misclassifying `:MinorIllness` as a subclass of `:Pet`.",DS,1.0,1.0,0,1
+19,ST only,":MinorIllness rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :needsMedication ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Medication
+  ] ;
+  rdfs:subClassOf :HealthStatus .
+
+:needsMedication rdf:type owl:ObjectProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Medication .
+
+:Medication rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+  owl:disjointWith :Pet .","Pet which needs 1 medication has
+healthstatus MinorIllness",Other,"Your axiom incorrectly restricts the class `:MinorIllness` to represent ""Pets that need exactly 1 Medication,"" which changes the intended meaning. This implies that any instance of `:MinorIllness` must be a `:Pet` needing exactly 1 `:Medication`, leading to unintended inferences and potential inconsistencies, such as misclassifying `:MinorIllness` as a subclass of `:Pet`.",DS,1.0,1.0,0,1
+20,ST only,":Course rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isHaving ;
+  owl:minQualifiedCardinality ""5""^^xsd:nonNegativeInteger ;
+  owl:onClass :Student
+  ] .
+
+:isHaving rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Student ;
+  rdfs:range :Study_Session .
+
+:Student rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isLearningfor ;
+  owl:allValuesFrom :Exam
+  ] .",A course must have at least 5 students,Inconsistent Domain/Range,"Your axiom is incorrect because the domain of `:isHaving` is defined as `:Student`, meaning the property is intended to describe a relationship where the subject is a `:Student` and the object is a `:Study_Session`. However, your restriction on `:Course` implies that `:Course` is the subject of `:isHaving`, which contradicts the domain definition, leading to unintended inferences that a `:Course` is a type of `:Student`.",DS,1.0,1.0,0,1
+21,ST only,":Trip rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :usesTransportation ;
+  owl:someValuesFrom :Transportation
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasAccommodation ;
+  owl:allValuesFrom :Apartment
+  ] ;
+  rdfs:comment ""Journey, which can have different type of purpose"" .
+
+:hasAccommodation rdf:type owl:ObjectProperty ;
+  owl:inverseOf :isAccommodationFor ;
+  rdf:type owl:AsymmetricProperty ;
+  rdfs:domain :Trip;
+  rdfs:range :Accommodation ;
+  rdfs:comment ""Trip has accommodation"" .
+
+:Apartment rdf:type owl:Class ;
+  rdfs:subClassOf :Accommodation ;
+  owl:disjointWith :Hotel ;
+  rdfs:comment ""Flat, that is well appointed or used for holidays."" .","Instances of type Trip can only have
+an instance of type Apartment as
+accommodation and not ParisHotel
+(type Hotel) which we had to delete
+and create the new one
+ParisApartment (type Apartment)",Universal Trivial Satisfaction,"Your axiom incorrectly allows instances of `Trip` to have no `hasAccommodation` values at all, as the universal restriction (`owl:allValuesFrom :Apartment`) does not enforce that a `Trip` must have at least one `hasAccommodation` value, meaning a `Trip` could exist without any accommodation, which contradicts your intended meaning.",DS,1.0,1.0,0,1
+22,ST only,":Book rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasReadingStatus ;
+  owl:allValuesFrom :ReadingStatus
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :belongsTo ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Genre
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isWrittenBy ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :PrimaryAuthor
+  ] .
+
+:hasReadingStatus rdf:type owl:ObjectProperty ;
+  rdfs:domain :Book ;
+  rdfs:range :ReadingStatus .
+
+:ReadingStatus rdf:type owl:Class .","Harry Potter and the Philosophers
+Stone, of type Book, must link to an
+instance of ReadingStatus.",Universal Trivial Satisfaction,"Your axiom incorrectly uses a universal restriction (`owl:allValuesFrom`) for `:hasReadingStatus`, which allows instances of `:Book` to have no `:hasReadingStatus` property at all, violating your intention that every book must link to a `:ReadingStatus`. This means a book could exist without any reading status, which is not what you intended.",DS,1.0,1.0,0,1
+23,ST only,":Vehicle rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasCapacity ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onDataRange owl:rational
+  ] ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasEnergySource ;
+  owl:someValuesFrom :Electricity
+  ] ;
+  rdfs:comment ""The Vehicle class defines types of vehicles used in transportation, including specific categories like HybridVehicle, DieselVehicle, and ElectricVehicle. This classification supports queries based on vehicle type and associated energy use."" .
+
+:hasCapacity rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf :hasCapacity ;
+  rdfs:domain :Airplane ,
+  :Bus ,
+  :Car ,
+  :Ferry ;
+  rdfs:range xsd:string ;
+  rdfs:comment ""Specifies the maximum passenger capacity of a vehicle."" .","Each Vehicle must have a minimum capacity of 1, preventing vehicles with zero capacity",Equivalence Instead of Restriction,"Your axiom incorrectly uses an equivalence class with `owl:minQualifiedCardinality`, which implies that any instance with a capacity of at least 1 is a `Vehicle`, rather than enforcing that every `Vehicle` must have a minimum capacity of 1. This could allow unintended inferences, such as non-vehicle entities with a capacity of 1 being classified as `Vehicle`.",DS,-1.0,-1.0,0,1
+23,ST only,":Vehicle rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasCapacity ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onDataRange owl:rational
+  ] ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasEnergySource ;
+  owl:someValuesFrom :Electricity
+  ] ;
+  rdfs:comment ""The Vehicle class defines types of vehicles used in transportation, including specific categories like HybridVehicle, DieselVehicle, and ElectricVehicle. This classification supports queries based on vehicle type and associated energy use."" .
+
+:hasCapacity rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf :hasCapacity ;
+  rdfs:domain :Airplane ,
+  :Bus ,
+  :Car ,
+  :Ferry ;
+  rdfs:range xsd:string ;
+  rdfs:comment ""Specifies the maximum passenger capacity of a vehicle."" .","Each Vehicle must have a minimum capacity of 1, preventing vehicles with zero capacity",Misunderstood Constraint,"Your axiom incorrectly uses an equivalence class with `owl:minQualifiedCardinality`, which implies that any instance with a capacity of at least 1 is a `Vehicle`, rather than enforcing that every `Vehicle` must have a minimum capacity of 1. This could allow unintended inferences, such as non-vehicle entities with a capacity of 1 being classified as `Vehicle`.",DS,-1.0,-1.0,0,1
+24,ST only,":Passenger rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :requiresTicketType ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Passenger
+  ] ;
+  rdfs:comment ""This class defines various types of passengers who might use transportation services. Subclasses like StudentPassenger, ChildPassenger, and AdultPassenger help to categorize passengers based on age or eligibility for certain services or discounts."" .
+
+:hasTicket rdf:type owl:ObjectProperty ;
+  rdfs:domain :Passenger ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :hasTicket ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Ticket
+  ] ;
+  rdfs:comment ""a Person who has one active ticket at the time"" .
+
+:Ticket rdf:type owl:Class ;
+  rdfs:comment ""The Ticket class captures different ticket types available to passengers, such as StudentTicket, AnnualPass, MonthlyPass, and SingleTicket. This allows for flexibility in ticketing options and helps in managing access and pricing based on ticket type."" .","Each Passenger can have at most one active Ticket, enforcing that passengers hold only one ticket at a time.",Domain/Range Instead of Class Restriction,"Your axiom incorrectly places the cardinality constraint on the range of the `:hasTicket` property, which means that any `:Ticket` must be associated with at most one `:Passenger`, rather than enforcing that each `:Passenger` can have at most one `:Ticket`. This unintended inference could lead to inconsistencies, such as preventing multiple passengers from sharing the same ticket, which contradicts your intended meaning.",DS,-1.0,-1.0,0,1
+25,ST only,":CardGames rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPlayer ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Player
+  ] ;
+  rdfs:subClassOf :Game ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasComponents ;
+  owl:allValuesFrom :Cards
+  ] .
+
+:hasPlayer rdf:type owl:ObjectProperty ;
+  rdfs:domain :Game ;
+  rdfs:range :Player .
+
+:Player rdf:type owl:Class ;
+  rdfs:subClassOf :Person .",Card games must have at least 2 players,Equivalence Instead of Restriction,"Your axiom incorrectly states that **:CardGames** is *equivalent* to the class of things with at least 2 players, which means any game with at least 2 players would be inferred to be a card game, leading to unintended and incorrect classifications. Instead, you should have used a *subclass restriction* to ensure that card games are a subset of games with at least 2 players, without implying equivalence.",DS,1.0,1.0,1,1
+26,ST+MS individually ,":CardGames rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPlayer ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Player
+  ] ;
+  rdfs:subClassOf :Game ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasComponents ;
+  owl:allValuesFrom :Cards
+  ] .
+:hasComponents rdf:type owl:ObjectProperty ;
+  owl:inverseOf :isComponentOf ;
+  rdfs:domain :Game ;
+  rdfs:range :GameComponents .
+
+:Cards rdf:type owl:Class ;
+  rdfs:subClassOf :GameComponents .",Card games only have components of type Cards.,Universal Trivial Satisfaction,"Your axiom states that all components of a CardGame must be of type Cards, but it does not enforce that a CardGame must have any components at all, meaning a CardGame could exist with no components, which contradicts your intended meaning.",DS,1.0,1.0,0,1
+27,ST only,":Court rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :affiliatedWith ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Judge
+  ] .
+
+:affiliatedWith rdf:type owl:ObjectProperty ;
+  rdfs:domain :LegalProfessional ;
+  rdfs:range :Court .
+
+:Judge rdf:type owl:Class ;
+  rdfs:subClassOf :LegalProfessional ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :supervises ;
+  owl:allValuesFrom :Lawyer
+  ] ;
+  owl:disjointWith :Lawyer .","Each court is affiliated with at most
+one judge",Inconsistent Domain/Range,"Your axiom incorrectly implies that the domain of `:affiliatedWith` is `:LegalProfessional`, not `:Court`, meaning the restriction on `:Court` (affiliated with at most one `:Judge`) is not enforced as intended. This could lead to unintended inferences, such as `:LegalProfessional` instances being affiliated with multiple `:Court` instances, violating your intended meaning.",DS,1.0,-1.0,0,1
+28,ST only,":Singer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :providesMusicFor ;
+  owl:someValuesFrom :Wedding
+  ] ;
+  rdfs:comment ""works at the wedding, provides musical entertainment for the wedding party"" .
+
+:providesMusicFor rdf:type owl:ObjectProperty ;
+  rdfs:domain :Singer ;
+  rdfs:range :Wedding .
+
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :employs ;
+  owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isSetIn ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",At least one Singer provides Music.,Wrong Class Restricted,"Your axiom incorrectly restricts the `Singer` class with `providesMusicFor`, implying that every `Singer` provides music for at least one `Wedding`, which changes the intended meaning to ""Every Singer provides music for at least one Wedding"" instead of ""At least one Singer provides music for a Wedding."" This could lead to unintended inferences, such as assuming all singers are associated with weddings, which is not your intended meaning.",DS,1.0,0.5,0,1
+0,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:Bag rdf:type owl:Class ;
+  rdfs:subClassOf :Accessory ;
+  rdfs:comment ""A bag is an accessory."" .","Every Outfit suitable for an Event has to
+have exactly one bag.",Domain/Range Instead of Class Restriction,"The student's axiom is modeled incorrectly because it defines the constraint on the range of the object property ""suitableForEvent"", which implies that the range (i.e., the clothing items) must have exactly one bag, rather than the outfit having exactly one bag. This leads to an unintended inference that the bag, jewelry, or high heels themselves are the ones that have exactly one bag, rather than the outfit.",L70,1.0,0.5,0,1
+1,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:Jewelry rdf:type owl:Class ;
+  rdfs:subClassOf :ClothingItem ;
+  rdfs:comment ""Jewelery is worn with an outfit."" .","Every Outfit suitable for an Event has to
+have at least three pieces of Jewelry.",Domain/Range Instead of Class Restriction,"The student's axiom is modeled incorrectly because it implies that the range of the ""suitableForEvent"" property must be a single thing that is simultaneously at least three pieces of Jewelry, one Bag, and one HighHeels, rather than an Outfit that has at least three pieces of Jewelry. This unintended inference arises from defining the constraint in the range of the object property instead of at the class-level, leading to a logical interpretation that is inconsistent with the intended meaning.",L70,-1.0,0.0,1,1
+2,ST only,":EventOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit .
+
+:suitableForEvent rdf:type owl:ObjectProperty ;
+  rdfs:domain :EventOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:minQualifiedCardinality ""3""^^xsd:nonNegativeInteger ;
+  owl:onClass :Jewelry
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Bag
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEvent ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :HighHeels
+  ] ;
+  rdfs:comment ""Clothing items suitable for events."" .
+
+:HighHeels rdf:type owl:Class ;
+  rdfs:subClassOf :Footwear ;
+  rdfs:comment ""High heels are footwear."" .","Every Outfit suitable for an Event has to
+have exactly one pair of High Heels.",Domain/Range Instead of Class Restriction,"The student's axiom is modeled incorrectly because it defines the constraint on the range of the ""suitableForEvent"" object property, which implies that the range (HighHeels, Jewelry, Bag) must have certain properties, rather than restricting the class ""EventOutfit"" to have exactly one pair of HighHeels. This leads to an unintended inference that the HighHeels itself has a qualified cardinality of 1, rather than the Outfit having exactly one pair of HighHeels.",L70,1.0,-1.0,0,-1
+3,MS+ST together,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Sneakers rdf:type owl:Class ;
+  rdfs:subClassOf :Footwear ;
+  rdfs:comment ""Sneakers are footwear."" .","An Outfit suitable for every day Events has
+a maximum of one pair of sneakers.",Domain/Range Instead of Class Restriction,"The student's axiom incorrectly models the intended meaning because it imposes a cardinality restriction on the range of the ""suitableForEveryDayActivity"" property, which could be misinterpreted as restricting the types of clothing items that can be suitable for everyday activities, rather than restricting the composition of the outfit itself. This could lead to unintended inferences, such as implying that an outfit can have at most one sneaker as a separate entity, rather than as a component of the outfit.",L70,1.0,-1.0,0,1
+4,ST only,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Sunglasses rdf:type owl:Class ;
+  rdfs:subClassOf :Accessory ;
+  rdfs:comment ""Sunglasses are an accessory."" .","Every Outfit suitable for an Everyday
+Activity has to have exactly one pair of
+Sunglasses.",Domain/Range Instead of Class Restriction,"The student's axiom incorrectly models the intention by defining the cardinality constraint on the range of the object property, which implies that the range (ClothingItem) must have exactly one pair of Sunglasses, rather than restricting the class of Outfits. This leads to an unintended inference that the ClothingItem itself has the cardinality constraint, rather than the Outfit having exactly one pair of Sunglasses.",L70,1.0,0.0,0,1
+5,ST only,":EveryDayAcitivtyOutfit rdf:type owl:Class ;
+  rdfs:subClassOf :Outfit ;
+  rdfs:comment ""EveryDay are casual clothes."" .
+
+:suitableForEveryDayActivity rdf:type owl:ObjectProperty ;
+  rdfs:domain :EveryDayAcitivtyOutfit ;
+  rdfs:range :ClothingItem ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Hoodie
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sunglasses
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :suitableForEveryDayActivity ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Sneakers
+  ] ;
+  rdfs:comment ""Clothing items suitable for every day activity."" .
+
+:Hoodie rdf:type owl:Class ;
+  rdfs:subClassOf :Clothing ;
+  rdfs:comment ""A hoodie is a type of clothing."" .","Every Outfit suitable for Everyday Activity
+has to have exactly one Hoodie.",Domain/Range Instead of Class Restriction,"The student's axiom incorrectly models the intention because it constrains the range of the ""suitableForEveryDayActivity"" property to have exactly one Hoodie, among other clothing items, rather than restricting the class of outfits to have exactly one Hoodie. This leads to unintended inferences, such as implying that the range of the property is a single entity that is both a Hoodie and other types of clothing items.",L70,1.0,-1.0,0,1
+6,ST only,":Route rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :startAtLocation ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Location
+  ] ;
+  rdfs:comment ""The Route class represents the different types of routes available in the transportation network. Subclasses like InternationalRoute, RegionalRoute, and UrbanRoute specify the scope and type of routes, allowing for targeted queries about route coverage."" .
+
+:hasStop rdf:type owl:ObjectProperty ;
+  rdfs:domain :Route ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :hasStop ;
+  owl:maxQualifiedCardinality ""50""^^xsd:nonNegativeInteger ;
+  owl:onClass :BusStop
+  ] .
+
+:BusStop rdf:type owl:Class ;
+  rdfs:subClassOf :Location .","Each Route can have at most 50 Stops, ensuring that a route has a reasonable number of stops for efficiency and manageability.",Domain/Range Instead of Class Restriction,"The student's axiom is modeled incorrectly because it constrains the range of the ""Route"" class's ""hasStop"" property to be a ""BusStop"" that has at most 50 ""hasStop"" relations, rather than restricting the ""Route"" class itself to have at most 50 stops. This unintended modeling could lead to inferences that a single bus stop has at most 50 stops, rather than a route having a limited number of stops.",L70,-1.0,-1.0,0,1
+7,ST only,":ModeOfTransportation rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasVehicleType ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :EnergySource
+  ] ;
+  rdfs:comment ""This class represents the various types of transportation modes available, such as Ferry, Airplane, Bicycle, Train, Bus, and Car. Each subclass describes a specific type of transport option that passengers may use."" .
+
+:operatesOnRoute rdf:type owl:ObjectProperty ;
+  rdfs:domain :ModeOfTransportation ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :operatesOnRoute ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Route
+  ] ;
+  rdfs:comment ""Indicates which route a transportation mode operates on."" .
+
+:Route rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :startAtLocation ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Location
+  ] ;
+  rdfs:comment ""The Route class represents the different types of routes available in the transportation network. Subclasses like InternationalRoute, RegionalRoute, and UrbanRoute specify the scope and type of routes, allowing for targeted queries about route coverage."" .","Each ModeOfTransportation must operate on at least one Route, ensuring that every mode of transportation is assigned to a route.",Domain/Range Instead of Class Restriction,"The student's axiom is modeled incorrectly because it defines the constraint on the range of the ""operatesOnRoute"" object property, which implies that the range (i.e., the route) must be a thing that operates on at least one route, rather than ensuring that each mode of transportation operates on at least one route. This unintended inference could lead to inconsistencies, as it misinterprets the original intention of assigning routes to modes of transportation.",L70,1.0,1.0,0,1
+8,MS+ST together,":Guest rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :attends ;
+  owl:someValuesFrom :Wedding
+  ] .
+
+:attends rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Guest ;
+  rdfs:range :Wedding .
+
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :employs ;
+  owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isSetIn ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",At least one Guest attends the Wedding,Wrong Class Restricted,"The student's axiom incorrectly restricts the Guest class, implying that a Guest attends at least one Wedding, rather than modeling that at least one Guest attends a Wedding. This unintended modeling could lead to inferences that every Guest is associated with a Wedding, rather than the intended meaning that a Wedding has at least one attending Guest.",L70,1.0,0.5,0,1
+9,ST only,":Photographer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :takesPicturesOf ;
+ owl:minQualifiedCardinality ""400""^^xsd:nonNegativeInteger ;
+ owl:onClass :Wedding
+  ] ;
+  rdfs:comment ""works at wedding, takes pictures of guests and to be weds"" .
+
+:takesPicturesOf rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Photographer ;
+  rdfs:range :Guest ,
+  :ToBeWeds .
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :employs ;
+ owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :isSetIn ;
+ owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",The photographer takes at least 400 pictures at the wedding.,Misunderstood Constraint,"The student's axiom incorrectly models their intention because it only ensures that the photographer takes at least 400 pictures of something that is a wedding, but it does not guarantee that these pictures are taken at the wedding, allowing for unintended inferences. This is due to the mismatch between the domain and range of the ""takesPicturesOf"" property and the constraint imposed by the axiom, which may lead to incorrect conclusions about the photographer's activities.",L70,1.0,0.5,0,1
+9,ST only,":Photographer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :takesPicturesOf ;
+ owl:minQualifiedCardinality ""400""^^xsd:nonNegativeInteger ;
+ owl:onClass :Wedding
+  ] ;
+  rdfs:comment ""works at wedding, takes pictures of guests and to be weds"" .
+
+:takesPicturesOf rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Photographer ;
+  rdfs:range :Guest ,
+  :ToBeWeds .
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :employs ;
+ owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :isSetIn ;
+ owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",The photographer takes at least 400 pictures at the wedding.,Inconsistent Domain/Range,"The student's axiom incorrectly models their intention because it only ensures that the photographer takes at least 400 pictures of something that is a wedding, but it does not guarantee that these pictures are taken at the wedding, allowing for unintended inferences. This is due to the mismatch between the domain and range of the ""takesPicturesOf"" property and the constraint imposed by the axiom, which may lead to incorrect conclusions about the photographer's activities.",L70,1.0,0.5,0,1
+10,ST only,":Author rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasNotableWork ;
+  owl:minQualifiedCardinality """"1""""^^xsd:nonNegativeInteger ;
+  owl:onDataRange xsd:string
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasBirthdate ;
+  owl:maxQualifiedCardinality """"1""""^^xsd:nonNegativeInteger ;
+  owl:onDataRange xsd:dateTime
+  ] ;
+  owl:disjointWith :Book .
+
+:hasNotableWork rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Author ;
+  rdfs:range xsd:string .","Each Author needs at least one book
+he is known for, to be added to the
+list. It is in each persons view, what
+notable means. Notable doesnt need
+to be a specific award. For this the
+class award is added",Other,"The student's axiom is modeled incorrectly because it defines ""hasNotableWork"" as a datatype property with a range of xsd:string, which implies that a notable work is simply a string, rather than an actual book or award that the author is known for. This could lead to unintended inferences that notable works are just text descriptions, rather than actual entities with their own properties and relationships.",L70,1.0,1.0,0,1
+11,MS+ST together,":Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :originatedIn ;
+  owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :createsA ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .
+
+
+:originatedIn rdf:type owl:ObjectProperty ,
+  owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Designer
+  :Trend
+  )
+  ] ;
+  rdfs:range :Country .
+
+:Country rdf:type owl:Class ;
+  rdfs:comment ""Countrys are specific regions having their own authority"" .","Designer1, of type Designer, could
+only originate in one Country",Misunderstood Constraint,"The student's axiom incorrectly models their intention because it uses an ""allValuesFrom"" restriction, which only ensures that the country of origin is a Country, but does not restrict a Designer to originating in only one Country. This allows for unintended inferences, such as a Designer originating in multiple Countries, which contradicts the student's intended meaning.",L70,1.0,0.5,0,1
+12,ST only,":ClothingItem rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :createdBy ;
+ owl:allValuesFrom :Designer
+  ] ;
+  rdfs:comment ""ClothingItems are all types of Items that you can wear"" .
+
+:createdBy rdf:type owl:ObjectProperty ;
+  owl:inverseOf :createsA ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Outfit
+ :Trend
+  )
+  ] ;
+  rdfs:range :Designer .
+
+:Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :originatedIn ;
+ owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :createsA ;
+ owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+ owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .","ClothingItem1, of type ClothingItem,
+could only be createdBy one
+Designer",Misunderstood Constraint,"The student's axiom incorrectly models their intention because it only restricts the type of designer that can create a ClothingItem, but does not actually limit a ClothingItem to being created by only one designer. Additionally, the domain of the createdBy property is defined as the union of Outfit and Trend, which is inconsistent with the intention of restricting ClothingItem, leading to potential unintended inferences.",L70,1.0,0.5,0,1
+12,ST only,":ClothingItem rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :createdBy ;
+ owl:allValuesFrom :Designer
+  ] ;
+  rdfs:comment ""ClothingItems are all types of Items that you can wear"" .
+
+:createdBy rdf:type owl:ObjectProperty ;
+  owl:inverseOf :createsA ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain [ rdf:type owl:Class ;
+  owl:unionOf ( :Outfit
+ :Trend
+  )
+  ] ;
+  rdfs:range :Designer .
+
+:Designer rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+ owl:onProperty :originatedIn ;
+ owl:allValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+ owl:onProperty :createsA ;
+ owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+ owl:onClass :Outfit
+  ] ;
+  rdfs:comment ""Designers are fashion brands producing clothing goods or accesoires"" .","ClothingItem1, of type ClothingItem,
+could only be createdBy one
+Designer",Inconsistent Domain/Range,"The student's axiom incorrectly models their intention because it only restricts the type of designer that can create a ClothingItem, but does not actually limit a ClothingItem to being created by only one designer. Additionally, the domain of the createdBy property is defined as the union of Outfit and Trend, which is inconsistent with the intention of restricting ClothingItem, leading to potential unintended inferences.",L70,1.0,0.5,0,1
+13,ST+MS individually ,":Film rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :producedIn ;
+  owl:someValuesFrom :Country
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :produced ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Producer
+  ] .
+:produced rdf:type owl:ObjectProperty ;
+  rdfs:domain :Producer ;
+  rdfs:range :Film .
+
+:Producer rdf:type owl:Class ;
+  rdfs:subClassOf :People .","Every film must have at least one
+producer. For example, ThIrishman
+(type Film) is required to have at
+least one associated Producer, such
+as RobertDeNiro.",Inconsistent Domain/Range,"The student's axiom is modeled incorrectly because it defines the domain of the ""produced"" property as Producer, implying that a Producer produces a Film, whereas the intended meaning is that a Film has at least one Producer. This inconsistency could lead to unintended inferences, such as a Producer being inferred to produce a Film, rather than the Film being produced by the Producer.",L70,1.0,-1.0,0,1
+14,ST only,"sports:SportsTeam rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty sports:hasVenue ;
+  owl:someValuesFrom sports:Venue
+  ] .
+
+sports:hasVenue rdf:type owl:ObjectProperty ;
+  rdfs:domain sports:SportsTeam ;
+  rdfs:range sports:Venue .
+
+sports:Venue rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","Each SportsTeam must have their
+own Venue.",Misunderstood Constraint,"The student's axiom allows for a SportsTeam to have no Venue, or to have multiple Venues, which contradicts their intention that each SportsTeam must have its own Venue. This axiom only ensures that if a SportsTeam has a Venue, it must be of type sports:Venue, but it does not guarantee the existence or uniqueness of the Venue.",L70,-1.0,-1.0,0,1
+15,ST only,":Learning_Progress rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :givesFeedbackTo ;
+  owl:someValuesFrom :Student
+  ] .
+
+:givesFeedbackTo rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdf:type owl:AsymmetricProperty ;
+  rdfs:domain :Instructor ;
+  rdfs:range :Student .
+
+:Student rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isLearningfor ;
+  owl:allValuesFrom :Exam
+  ] .",Learning Progress are giving Feedback to the student,Inconsistent Domain/Range,"The student's axiom is modeled incorrectly because it restricts Learning Progress to give feedback to some Student, but the domain of the givesFeedbackTo property is actually an Instructor, not a Learning Progress. This inconsistency could lead to unintended inferences, such as implying that a Learning Progress is an Instructor, which contradicts the intended meaning.",L70,1.0,1.0,0,1
+16,ST only,":LandscapePhotography rdf:type owl:Class ;
+  rdfs:subClassOf :PhotoStyle ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isLocatedAt ;
+  owl:allValuesFrom :Outside
+  ] .
+
+:isLocatedAt rdf:type owl:ObjectProperty ;
+  rdfs:domain :Technique ;
+  rdfs:range :Location ;
+  rdfs:comment ""technique for each location"" .
+
+:Outside rdf:type owl:Class ;
+  rdfs:subClassOf :Location .","Landscape Photography can only be
+done Outside",Universal Trivial Satisfaction,"The student's axiom allows for the possibility that a Landscape Photography instance may not have any location associated with it, which contradicts the intended meaning that it must be done outside. This is because the universal restriction only specifies that if a location is associated, it must be outside, but it does not require that a location must be associated in the first place.",L70,1.0,1.0,0,1
+17,ST+MS individually ,":PetLover rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPet ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Pet
+  ] ;
+  rdfs:subClassOf :Owner .
+
+:hasPet rdf:type owl:ObjectProperty ;
+  rdfs:domain :Person ;
+  rdfs:range :Pet .
+
+:Pet rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","PetLover is an owner who has at
+least 2 pets",Equivalence Instead of Restriction,"The student's axiom is modeled incorrectly because using `owl:equivalentClass` instead of a restriction implies that being a PetLover is not just a condition of having at least 2 pets, but also that anything with at least 2 pets is necessarily a PetLover, potentially leading to unintended inferences. This could result in incorrect classifications where individuals with at least 2 pets are automatically considered PetLovers, even if they don't meet other criteria of being an owner.",L70,1.0,1.0,0,1
+18,ST only,":FriendlyPet rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :isFriendlyWith ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Pet
+  ] ;
+  rdfs:subClassOf :Pet .
+
+:isFriendlyWith rdf:type owl:ObjectProperty ,
+  owl:SymmetricProperty ,
+  owl:TransitiveProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Pet .
+
+:Pet rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing .","FriendlyPet is a pet that is friendly to
+at least one other pet.",Equivalence Instead of Restriction,"Your axiom is modeled incorrectly because it implies that a FriendlyPet is equivalent to a pet that is friendly with at least one other pet, which could lead to unintended inferences that a pet is friendly with itself or that being friendly with one pet makes all pets friendly. This equivalence also suggests that there are no other conditions for being a FriendlyPet, which may not be the intended meaning.",L70,1.0,1.0,0,1
+19,ST only,":MinorIllness rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :needsMedication ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Medication
+  ] ;
+  rdfs:subClassOf :HealthStatus .
+
+:needsMedication rdf:type owl:ObjectProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Medication .
+
+:Medication rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+  owl:disjointWith :Pet .","Pet which needs 1 medication has
+healthstatus MinorIllness",Wrong Class Restricted,"The student's axiom incorrectly restricts the Pet class, implying that a Pet needs exactly one Medication to have a MinorIllness health status, rather than modeling the intended relationship between the health status and the medication need. This incorrect modeling could lead to unintended inferences, such as a Pet being inferred to have a MinorIllness health status solely based on needing one Medication, regardless of other health factors.",L70,-1.0,-1.0,0,1
+19,ST only,":MinorIllness rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :needsMedication ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Medication
+  ] ;
+  rdfs:subClassOf :HealthStatus .
+
+:needsMedication rdf:type owl:ObjectProperty ;
+  rdfs:domain :Pet ;
+  rdfs:range :Medication .
+
+:Medication rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+  owl:disjointWith :Pet .","Pet which needs 1 medication has
+healthstatus MinorIllness",Other,"The student's axiom incorrectly restricts the Pet class, implying that a Pet needs exactly one Medication to have a MinorIllness health status, rather than modeling the intended relationship between the health status and the medication need. This incorrect modeling could lead to unintended inferences, such as a Pet being inferred to have a MinorIllness health status solely based on needing one Medication, regardless of other health factors.",L70,-1.0,-1.0,0,1
+20,ST only,":Course rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isHaving ;
+  owl:minQualifiedCardinality ""5""^^xsd:nonNegativeInteger ;
+  owl:onClass :Student
+  ] .
+
+:isHaving rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain :Student ;
+  rdfs:range :Study_Session .
+
+:Student rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :isLearningfor ;
+  owl:allValuesFrom :Exam
+  ] .",A course must have at least 5 students,Inconsistent Domain/Range,"The student's axiom is modeled incorrectly because it defines a course as having at least 5 students through the ""isHaving"" property, but the domain of ""isHaving"" is actually a student, not a course, which would imply that a student is having at least 5 study sessions, not that a course has at least 5 students. This inconsistency in domain and range leads to unintended inferences about the relationship between students, courses, and study sessions.",L70,-1.0,0.5,0,1
+21,ST only,":Trip rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :usesTransportation ;
+  owl:someValuesFrom :Transportation
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasAccommodation ;
+  owl:allValuesFrom :Apartment
+  ] ;
+  rdfs:comment ""Journey, which can have different type of purpose"" .
+
+:hasAccommodation rdf:type owl:ObjectProperty ;
+  owl:inverseOf :isAccommodationFor ;
+  rdf:type owl:AsymmetricProperty ;
+  rdfs:domain :Trip;
+  rdfs:range :Accommodation ;
+  rdfs:comment ""Trip has accommodation"" .
+
+:Apartment rdf:type owl:Class ;
+  rdfs:subClassOf :Accommodation ;
+  owl:disjointWith :Hotel ;
+  rdfs:comment ""Flat, that is well appointed or used for holidays."" .","Instances of type Trip can only have
+an instance of type Apartment as
+accommodation and not ParisHotel
+(type Hotel) which we had to delete
+and create the new one
+ParisApartment (type Apartment)",Universal Trivial Satisfaction,"Your axiom allows for instances of Trip to have no accommodation at all, which was not your intention, as the universal restriction only ensures that if an accommodation exists, it must be an Apartment, but does not require an accommodation to exist. This means that a Trip with no accommodation would still be considered valid according to your model.",L70,1.0,1.0,0,1
+22,ST only,":Book rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasReadingStatus ;
+  owl:allValuesFrom :ReadingStatus
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :belongsTo ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Genre
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isWrittenBy ;
+  owl:qualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :PrimaryAuthor
+  ] .
+
+:hasReadingStatus rdf:type owl:ObjectProperty ;
+  rdfs:domain :Book ;
+  rdfs:range :ReadingStatus .
+
+:ReadingStatus rdf:type owl:Class .","Harry Potter and the Philosophers
+Stone, of type Book, must link to an
+instance of ReadingStatus.",Universal Trivial Satisfaction,"The student's axiom allows for a Book to have no ReadingStatus at all, which contradicts their intention that ""Harry Potter and the Philosophers Stone"" must link to an instance of ReadingStatus. This is because the universal restriction only specifies that if a Book has a ReadingStatus, it must be of type ReadingStatus, but it does not require the Book to actually have a ReadingStatus.",L70,1.0,1.0,0,1
+23,ST only,":Vehicle rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasCapacity ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onDataRange owl:rational
+  ] ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasEnergySource ;
+  owl:someValuesFrom :Electricity
+  ] ;
+  rdfs:comment ""The Vehicle class defines types of vehicles used in transportation, including specific categories like HybridVehicle, DieselVehicle, and ElectricVehicle. This classification supports queries based on vehicle type and associated energy use."" .
+
+:hasCapacity rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf :hasCapacity ;
+  rdfs:domain :Airplane ,
+  :Bus ,
+  :Car ,
+  :Ferry ;
+  rdfs:range xsd:string ;
+  rdfs:comment ""Specifies the maximum passenger capacity of a vehicle."" .","Each Vehicle must have a minimum capacity of 1, preventing vehicles with zero capacity",Equivalence Instead of Restriction,"The student's axiom is modeled incorrectly because it uses an equivalent class definition with a minQualifiedCardinality restriction, which may lead to unintended inferences, such as implying that all vehicles have exactly one capacity value. This misunderstanding of the constraint type and the use of equivalence instead of a simple restriction may result in incorrect classifications of vehicles based on their capacity.",L70,-1.0,-1.0,0,1
+23,ST only,":Vehicle rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasCapacity ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onDataRange owl:rational
+  ] ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :hasEnergySource ;
+  owl:someValuesFrom :Electricity
+  ] ;
+  rdfs:comment ""The Vehicle class defines types of vehicles used in transportation, including specific categories like HybridVehicle, DieselVehicle, and ElectricVehicle. This classification supports queries based on vehicle type and associated energy use."" .
+
+:hasCapacity rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf :hasCapacity ;
+  rdfs:domain :Airplane ,
+  :Bus ,
+  :Car ,
+  :Ferry ;
+  rdfs:range xsd:string ;
+  rdfs:comment ""Specifies the maximum passenger capacity of a vehicle."" .","Each Vehicle must have a minimum capacity of 1, preventing vehicles with zero capacity",Misunderstood Constraint,"The student's axiom is modeled incorrectly because it uses an equivalent class definition with a minQualifiedCardinality restriction, which may lead to unintended inferences, such as implying that all vehicles have exactly one capacity value. This misunderstanding of the constraint type and the use of equivalence instead of a simple restriction may result in incorrect classifications of vehicles based on their capacity.",L70,-1.0,-1.0,0,1
+24,ST only,":Passenger rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :requiresTicketType ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Passenger
+  ] ;
+  rdfs:comment ""This class defines various types of passengers who might use transportation services. Subclasses like StudentPassenger, ChildPassenger, and AdultPassenger help to categorize passengers based on age or eligibility for certain services or discounts."" .
+
+:hasTicket rdf:type owl:ObjectProperty ;
+  rdfs:domain :Passenger ;
+  rdfs:range [ rdf:type owl:Restriction ;
+  owl:onProperty :hasTicket ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Ticket
+  ] ;
+  rdfs:comment ""a Person who has one active ticket at the time"" .
+
+:Ticket rdf:type owl:Class ;
+  rdfs:comment ""The Ticket class captures different ticket types available to passengers, such as StudentTicket, AnnualPass, MonthlyPass, and SingleTicket. This allows for flexibility in ticketing options and helps in managing access and pricing based on ticket type."" .","Each Passenger can have at most one active Ticket, enforcing that passengers hold only one ticket at a time.",Domain/Range Instead of Class Restriction,"The student's axiom is modeled incorrectly because it defines the constraint on the range of the ""hasTicket"" object property, which implies that the ticket itself has at most one passenger, rather than enforcing that each passenger has at most one active ticket. This unintended inference could lead to inconsistencies in the ontology, as it does not accurately capture the intended meaning of limiting passengers to one ticket at a time.",L70,-1.0,1.0,0,1
+25,ST only,":CardGames rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPlayer ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Player
+  ] ;
+  rdfs:subClassOf :Game ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasComponents ;
+  owl:allValuesFrom :Cards
+  ] .
+
+:hasPlayer rdf:type owl:ObjectProperty ;
+  rdfs:domain :Game ;
+  rdfs:range :Player .
+
+:Player rdf:type owl:Class ;
+  rdfs:subClassOf :Person .",Card games must have at least 2 players,Equivalence Instead of Restriction,"The student's axiom is modeled incorrectly because it implies that any class that has at least 2 players and is a game with cards is equivalent to a CardGame, rather than just being a necessary condition for something to be a CardGame. This could lead to unintended inferences where other types of games with at least 2 players and cards are considered to be CardGames.",L70,1.0,1.0,0,1
+26,ST+MS individually ,":CardGames rdf:type owl:Class ;
+  owl:equivalentClass [ rdf:type owl:Restriction ;
+  owl:onProperty :hasPlayer ;
+  owl:minQualifiedCardinality ""2""^^xsd:nonNegativeInteger ;
+  owl:onClass :Player
+  ] ;
+  rdfs:subClassOf :Game ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :hasComponents ;
+  owl:allValuesFrom :Cards
+  ] .
+:hasComponents rdf:type owl:ObjectProperty ;
+  owl:inverseOf :isComponentOf ;
+  rdfs:domain :Game ;
+  rdfs:range :GameComponents .
+
+:Cards rdf:type owl:Class ;
+  rdfs:subClassOf :GameComponents .",Card games only have components of type Cards.,Universal Trivial Satisfaction,"The student's axiom allows for the possibility of a CardGame having no components at all, which contradicts the intended meaning that Card games only have components of type Cards. This is because the universal restriction only specifies that if a CardGame has components, they must be of type Cards, but it does not require the CardGame to actually have any components.",L70,1.0,1.0,0,1
+27,ST only,":Court rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :affiliatedWith ;
+  owl:maxQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :Judge
+  ] .
+
+:affiliatedWith rdf:type owl:ObjectProperty ;
+  rdfs:domain :LegalProfessional ;
+  rdfs:range :Court .
+
+:Judge rdf:type owl:Class ;
+  rdfs:subClassOf :LegalProfessional ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :supervises ;
+  owl:allValuesFrom :Lawyer
+  ] ;
+  owl:disjointWith :Lawyer .","Each court is affiliated with at most
+one judge",Inconsistent Domain/Range,"The student's axiom is modeled incorrectly because it restricts a Court to be affiliated with at most one Judge, but the domain and range of the ""affiliatedWith"" property are actually defined as a LegalProfessional affiliating with a Court, not the other way around. This inconsistency could lead to unintended inferences, such as a Court being unable to have multiple Judges affiliated with it in the intended direction.",L70,1.0,-1.0,0,1
+28,ST only,":Singer rdf:type owl:Class ;
+  rdfs:subClassOf :WeddingParty ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :providesMusicFor ;
+  owl:someValuesFrom :Wedding
+  ] ;
+  rdfs:comment ""works at the wedding, provides musical entertainment for the wedding party"" .
+
+:providesMusicFor rdf:type owl:ObjectProperty ;
+  rdfs:domain :Singer ;
+  rdfs:range :Wedding .
+
+:Wedding rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+  owl:onProperty :employs ;
+  owl:allValuesFrom :WeddingPlanner
+  ] ,
+  [ rdf:type owl:Restriction ;
+  owl:onProperty :isSetIn ;
+  owl:minQualifiedCardinality ""1""^^xsd:nonNegativeInteger ;
+  owl:onClass :WeddingVenue
+  ] ;
+  rdfs:comment ""a formal event that unites two individuals in marriage"" .",At least one Singer provides Music.,Wrong Class Restricted,"The student's axiom incorrectly restricts the Singer class, implying that a Singer provides music for at least one Wedding, rather than the intended meaning that at least one Singer provides music. This unintended modeling could lead to inferences that every Singer must provide music for a Wedding, rather than just having at least one Singer providing music.",L70,1.0,0.5,0,1
