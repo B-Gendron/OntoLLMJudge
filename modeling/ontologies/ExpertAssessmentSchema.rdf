@@ -6,8 +6,11 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
      xmlns:expertassessmentschema="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema"/>
+    <owl:Ontology rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema">
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0"/>
+    </owl:Ontology>
     
 
 
@@ -19,6 +22,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
     
 
 
@@ -45,6 +54,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isPartOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#ExpertAssessmentSchema"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
+        <rdfs:comment>The property connect an assessment schema to the quality dimensionsit assesses.</rdfs:comment>
+        <rdfs:label>contains quality dimension</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -55,6 +66,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isExplainedBy"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#Explanation"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
+        <rdfs:comment>The property connect an explanaition to the encountered mistake it explains.</rdfs:comment>
+        <rdfs:label>explains mistake</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -62,8 +75,11 @@
     <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#hasQualityDimensionInstance -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#hasQualityDimensionInstance">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isQualityDimensionOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#Explanation"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
+        <rdfs:comment>The property connect an explanation to the quality dimensions that describes it.</rdfs:comment>
+        <rdfs:label>has quality dimension</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -71,8 +87,11 @@
     <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#hasRelevantElement -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#hasRelevantElement">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isRelevantElementOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRModelingRelevantElement"/>
+        <rdfs:comment>The property connect a mistake to relevant ontological elements that have lead to the mistake or are affected by it.</rdfs:comment>
+        <rdfs:label>has relevant element</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -80,8 +99,11 @@
     <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#hasScoringLevel -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#hasScoringLevel">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isScoringLevelOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#ScoringLevel"/>
+        <rdfs:comment>The property connect a quality dimension to its scoring level</rdfs:comment>
+        <rdfs:label>has scoring level</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -92,6 +114,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isAnUnintendedOutcomeOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeUnintendedOutcome"/>
+        <rdfs:comment>The property connect a mistake to the unintened consequences it causes.</rdfs:comment>
+        <rdfs:label>has unintended outcome</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -101,6 +125,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isAnUnintendedOutcomeOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeUnintendedOutcome"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
+        <rdfs:comment>The property connects an unintended consequence to the mistakes that cause it.</rdfs:comment>
+        <rdfs:label>is an unintened outcome of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -110,6 +136,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isExplainedBy">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#Explanation"/>
+        <rdfs:comment>The property connect a mistake to its explanation.</rdfs:comment>
+        <rdfs:label>is explained by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -119,6 +147,41 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isPartOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#ExpertAssessmentSchema"/>
+        <rdfs:comment>The property connect a quality dimension to the assesment schema it is part of.</rdfs:comment>
+        <rdfs:label>is part of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isQualityDimensionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isQualityDimensionOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#Explanation"/>
+        <rdfs:comment>The property connect a quality dimensions to an explanation it assesses.</rdfs:comment>
+        <rdfs:label>is quality dimension of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isRelevantElementOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isRelevantElementOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRModelingRelevantElement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
+        <rdfs:comment>The property connects ontological elements to a mistake they are relvant for</rdfs:comment>
+        <rdfs:label>is relevant element for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isScoringLevelOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#isScoringLevelOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#ScoringLevel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
+        <rdfs:comment>The property connect an a scoring level to the quality dimension it describes</rdfs:comment>
+        <rdfs:label>is scoring level of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -139,6 +202,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#hasText">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#Explanation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>the property connects an explanation instance to its textual content</rdfs:comment>
+        <rdfs:label>has text</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -170,6 +235,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation does not point out to (potential) unintended outcomes of the mistake.</rdfs:comment>
+        <rdfs:label>Absence of Inference Capability</rdfs:label>
     </owl:Class>
     
 
@@ -190,6 +256,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation does not include a modeling suggestion for fixing the mistake.</rdfs:comment>
+        <rdfs:label>Absence of Mistake Correction Competence</rdfs:label>
     </owl:Class>
     
 
@@ -210,6 +277,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation does not contains an interpretation of the modeling.</rdfs:comment>
+        <rdfs:label>Absence of Modeling Comprehension</rdfs:label>
     </owl:Class>
     
 
@@ -218,6 +286,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#AppropriateVocabularyUsage">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
+        <rdfs:comment>Quality dimension centered around the correctness of the vocabulary used within the expalnation.</rdfs:comment>
+        <rdfs:label>Appropriate Vocabulary Usage</rdfs:label>
     </owl:Class>
     
 
@@ -238,6 +308,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation correctly and completely points out to (potential) unintended outcomes of the mistake.</rdfs:comment>
+        <rdfs:label>Complete Inference Capability</rdfs:label>
     </owl:Class>
     
 
@@ -258,6 +329,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation includes a correct modeling suggestion for fixing the mistake.</rdfs:comment>
+        <rdfs:label>Correct Mistake Correction Competence</rdfs:label>
     </owl:Class>
     
 
@@ -278,6 +350,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation contains a correct interpretation of the modeling of all relevant elements.</rdfs:comment>
+        <rdfs:label>Correct Modeling Comprehension</rdfs:label>
     </owl:Class>
     
 
@@ -298,6 +371,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation demonstrates correct usage of domain-specific (ontology) terminology.</rdfs:comment>
+        <rdfs:label>Correct Vocabulary Usage</rdfs:label>
     </owl:Class>
     
 
@@ -306,13 +380,17 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#ExpertAssessmentSchema">
         <rdfs:comment>The Expert-Assessment Schema used to evaluate ontology axiom mistake explanations according to four key dimension: Modeling Comprehension, Inference Capability, Mistake Correction Competence and Appropriate Vocabulary Usage. For each dimension, the generated content matches one of the possible statements, and each statement gives a certain score.</rdfs:comment>
+        <rdfs:label>Expert Assesment Schema</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#Explanation -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#Explanation"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#Explanation">
+        <rdfs:comment>An explantion explains the occurance of a concrete mistake</rdfs:comment>
+        <rdfs:label>Mistake Explanation</rdfs:label>
+    </owl:Class>
     
 
 
@@ -332,6 +410,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation incorrectly points out to (potential) unintended outcomes of the mistake.</rdfs:comment>
+        <rdfs:label>Inocrrect Inference Capability</rdfs:label>
     </owl:Class>
     
 
@@ -352,6 +431,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation includes an incorrect modeling suggestion for fixing the mistake.</rdfs:comment>
+        <rdfs:label>Incorrect Mistake Correction Competence</rdfs:label>
     </owl:Class>
     
 
@@ -372,6 +452,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation contains an incorrect interpretation of the modeling.</rdfs:comment>
+        <rdfs:label>Incorrect Modeling Comprehension</rdfs:label>
     </owl:Class>
     
 
@@ -392,6 +473,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation demonstrates incorrect usage of domain-specific (ontology) terminology.</rdfs:comment>
+        <rdfs:label>Incorrect Vocabulary Usage</rdfs:label>
     </owl:Class>
     
 
@@ -400,6 +482,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#InferenceCapability">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
+        <rdfs:comment>Quality dimension centered around the corrctenss of inferences made and explained within the expalnation.</rdfs:comment>
+        <rdfs:label>Inference Capability</rdfs:label>
     </owl:Class>
     
 
@@ -408,6 +492,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#MistakeCorrectionCompetence">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
+        <rdfs:comment>Quality dimension centered around the correctness of mistake corrections proposed within the expalnation.</rdfs:comment>
+        <rdfs:label>Mistake Correction Competence</rdfs:label>
     </owl:Class>
     
 
@@ -416,6 +502,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#ModelingComprehension">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
+        <rdfs:comment>Quality dimension centered around the correctness of the interpretation of the incorect model</rdfs:comment>
+        <rdfs:label>Modeling Comprehension</rdfs:label>
     </owl:Class>
     
 
@@ -424,88 +512,102 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake">
         <rdfs:comment>An Ontology Property Restriction (OPR) mistake is a modeling error made by a student when they write ontology property restrictions.</rdfs:comment>
+        <rdfs:label>Ontology Property Restriction Mistake</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType1_DomainRangeInconsistency -->
+    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType1DomainRangeInconsistency -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType1_DomainRangeInconsistency">
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType1DomainRangeInconsistency">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
         <expertassessmentschema:example>Assuming the object property takesPictureOf is defined with a domain Photographer and range Wedding. To model the intention “A Photographer takes pictures of at least 10 Guests” one might add a restriction “Photographer takesPictureOf min 10 Guest”. However, such a restriction could lead to an inconsistency or wrong inferences such as Guest being a sucClassOf Wedding.</expertassessmentschema:example>
         <rdfs:comment>Mismatch between the domain and range of an object property and the property restriction definition. Students often overlook the domain and range of object properties and thus define restrictions which do not comply with existing ontology definition.</rdfs:comment>
+        <rdfs:label>OPR Mistake Type 1: Domain/Range Inconsistency</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType2_DomainRangeMisplacement -->
+    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType2DomainRangeMisplacement -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType2_DomainRangeMisplacement">
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType2DomainRangeMisplacement">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
         <expertassessmentschema:example>To model the intention “A Student attends at least 3 Courses” one might add a property restriction as the range of the object property attends such as “attends min 3 Course”. However, this placement would result in the definition that the range of attends must be a Thing that attends 3 Courses rather than the intended meaning.</expertassessmentschema:example>
         <rdfs:comment>Incorrect property restriction placement in the property range. Often novice knowledge engineers define the restriction in the range of the object property rather than at the class-level, which changes its logical interpretation and often leads to inconsistencies.</rdfs:comment>
+        <rdfs:label>OPR Mistake Type 2: Restriction Misplacement at the Property Domain/Range</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType3_EquivalenceMisuse -->
+    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType3EquivalenceMisuse -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType3_EquivalenceMisuse">
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType3EquivalenceMisuse">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
         <expertassessmentschema:example>To model the intention “Every FamousActor plays a MainCharacter” one might define equivalence between the class FamousActor and an Actor, who plays a MainCharacter. However, such a model additionally introduces a restriction that every Actor who plays a MainCharacter is a FamousActor, which is typically not intended.</expertassessmentschema:example>
         <rdfs:comment>Logical over-restriction due to incorrect equivalence usage. A common student-made mistake is the confusion between the usage of equivalence and subClassOf restrictions which potentially leads to unintended over-restrictions.</rdfs:comment>
+        <rdfs:label>OPR Mistake Type 3: Eqiuvalence Misuse</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType4_LogicalMisunderstanding -->
+    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType4LogicalMisunderstanding -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType4_LogicalMisunderstanding">
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType4LogicalMisunderstanding">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
         <expertassessmentschema:example>To model the intention “A Professor may only work at one University” one might use a universal restriction rather than an exact cardinality of 1. However, modeling the requirement using the universal restriction would not restrict that a Professor only has one employment or that they must be employed at all.</expertassessmentschema:example>
         <rdfs:comment>Logical misunderstanding of the used property restriction. Novice knowledge engineers might choose a restriction type not fitted for modeling their intention. This often leads to a mismatch between their ontology axiom and their intention. Examples of this mistake type are the incorrect usage of cardinality to express value constraints and interpreting the universal or existential restrictions as exact cardinality of 1.</rdfs:comment>
+        <rdfs:label>OPR Mistake Type 4: Logical Misunderstanding of the Property Restriction</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType5_TrivialSatisfaction -->
+    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType5TrivialSatisfaction -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType5_TrivialSatisfaction">
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType5TrivialSatisfaction">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
         <expertassessmentschema:example>To model the intention “A Professor should work at a University” one might use a universal restriction. However, the model would not restrict that a Professor must be employed at all. Combining the universal restriction with an existential quantifier or minimum cardinality prevents such cases.</expertassessmentschema:example>
         <rdfs:comment>Logical under-restriction, caused by the trivial satisfaction of the universal restriction. Novice knowledge engineers could incorrectly assume that the universal restriction implies the existential quantifier. This leads to valid instances with no property values at all when this was not intended.</rdfs:comment>
+        <rdfs:label>OPR Mistake Type 5: Trivial Satisfaction of the Universal Restriction</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType6_WrongClass -->
+    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType6WrongClass -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType6_WrongClass">
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType6WrongClass">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
         <expertassessmentschema:example>To model the intention “At least 3 Students attend a Course” one might add a property restriction to the class Student such as “Student attends min 3 Course”. However, this modeling would correspond to the definition that a Student must attend at least 3 Courses rather than the intended meaning.</expertassessmentschema:example>
         <rdfs:comment>Property restriction placement at the wrong class. Sometimes novice knowledge engineers ignore the direction of an object property and thus place the restriction at the wrong class, which changes its logical interpretation and often leads to inconsistencies.</rdfs:comment>
+        <rdfs:label>OPR Mistake Type 6: Wrong Class Restricted</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeTypeOther -->
+    <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType7NonTyped -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeTypeOther">
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType7NonTyped">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistake"/>
         <rdfs:comment>In a single occurrence the student intention was superfluous and included broader definitions, which were only partly related to their modeled axiom. In another instance, an incorrect subClass definition was detected, in addition to a typed mistake.</rdfs:comment>
+        <rdfs:label>OPR Mistake Type: Other</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeUnintendedOutcome -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeUnintendedOutcome"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeUnintendedOutcome">
+        <rdfs:comment>The class comprises unintended consequences of the encountered mistake.</rdfs:comment>
+        <rdfs:label>OPR Mistake Unintended Outcome</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRModelingRelevantElement -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRModelingRelevantElement"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRModelingRelevantElement">
+        <rdfs:comment>The class comprises ontolgogical elements relevant to the encounmistake (such as the used property restriction, the domain of the property etc. )</rdfs:comment>
+        <rdfs:label>OPR Modeling Relevant Element</rdfs:label>
+    </owl:Class>
     
 
 
@@ -525,6 +627,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation correctly but partially points out to (potential) unintended outcomes of the mistake.</rdfs:comment>
+        <rdfs:label>Partly Complete Inference Capability</rdfs:label>
     </owl:Class>
     
 
@@ -545,19 +648,26 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment>The explanation contains a correct interpretation of the modeling for a subset of the relevant elements.</rdfs:comment>
+        <rdfs:label>Partly Correct Modeling Comprehension</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#QualityDimension">
+        <rdfs:comment>describes a quality dimension against which the explanation can be evaluated</rdfs:comment>
+        <rdfs:label>Quality Dimension</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#ScoringLevel -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#ScoringLevel"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#ScoringLevel">
+        <rdfs:comment>The score level of each qaulity dimension</rdfs:comment>
+        <rdfs:label>Scoring Level</rdfs:label>
+    </owl:Class>
     
 
 
@@ -615,18 +725,17 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType1_DomainRangeInconsistency"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType2_DomainRangeMisplacement"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType3_EquivalenceMisuse"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType4_LogicalMisunderstanding"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType5_TrivialSatisfaction"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType6_WrongClass"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeTypeOther"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType1DomainRangeInconsistency"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType2DomainRangeMisplacement"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType3EquivalenceMisuse"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType4LogicalMisunderstanding"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType5TrivialSatisfaction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType6WrongClass"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/2/expertassessmentschema#OPRMistakeType7NonTyped"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
-
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->

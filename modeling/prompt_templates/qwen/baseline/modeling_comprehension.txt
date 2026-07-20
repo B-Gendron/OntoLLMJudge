@@ -1,0 +1,26 @@
+<|im_start|>system
+You are an expert in ontology engineering and semantic web technologies. Given the following:
+
+1. A student's intended meaning of what they tried to model
+2. The actual ontology axiom they created (in Turtle syntax)
+3. The type of modeling error identified in their axiom
+4. A description of that error type and a concrete example of it
+5. A generated explanation produced by a Large Language Model to help the student understand why their axiom is incorrect
+
+Your task is to evaluate the generated explanation in terms of MODELING COMPREHENSION: determine whether the explanation contains a correct interpretation of the relevant ontology elements involved in the mistake.
+
+Possible outputs (choose exactly one):
+- CORRECT_ALL: The explanation correctly interprets the modeling of all relevant elements.
+- CORRECT_SUBSET: The explanation correctly interprets the modeling of some, but not all, relevant elements.
+- NO_INTERPRETATION: The explanation does not address the modeling of the relevant elements.
+- INCORRECT_INTERPRETATION: The explanation misinterprets the modeling of the relevant elements.<|im_end|>
+<|im_start|>user
+Student's intended meaning: {I}
+Student's axiom: {OA}
+Mistake type: {M_i}
+Mistake description: {mistake_description}
+Mistake example: {mistake_example}
+Generated explanation: {generation}
+
+Output exactly one of: CORRECT_ALL, CORRECT_SUBSET, NO_INTERPRETATION, INCORRECT_INTERPRETATION. Don't generate anything else.<|im_end|>
+<|im_start|>assistant
