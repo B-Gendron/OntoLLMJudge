@@ -1,6 +1,6 @@
 # OntoLLMJudge
 
-This repository provides the code for the paper **"OntoLLMJudge: A Framework for Neurosymbolic Evaluation of LLM Generations"**, submitted to EKAW 2026.
+This repository provides the code for the paper **"OntoLLMJudge: A Framework for Neurosymbolic Evaluation of LLM Generations"**, submitted to the 4th ELMKE workshop @ ISWC 2026 (Bari, Italy).
 
 OntoLLMJudge is a neurosymbolic framework that combines an OWL ontology formalising expert assessment criteria with fine-tuned neural predictors to automatically score LLM-generated outputs. This repository contains the full pipeline: ontology artefacts, relevant-element extraction, predictor training and evaluation, and the explanation-generation experiments.
 
@@ -35,15 +35,17 @@ OntoLLMJudge/
     ├── prediction_outputs/             # Scored explanations
     ├── config.py
     ├── build_prompts.py
+    ├── train_baseline.py
     ├── train_predictors.py
     ├── train_predictors_5cv.py
     ├── pretrained_predictors.py
     ├── predict.py
     ├── process_data_sample.py
-    ├── run_training.sh                 Train on a dataset split
-    ├── run_training_5cv.sh             Train with 5-fold CV
-    ├── run_pretrained.sh               Evaluate pre-trained model
-    └── run_predict_example.sh          Score a single explanation
+    ├── run_train_baseline.sh           # Train on the first 2 QDs without the ontology knowledge enrichment
+    ├── run_training.sh                 # Train on a dataset split
+    ├── run_training_5cv.sh             # Train with 5-fold CV
+    ├── run_pretrained.sh               # Evaluate pre-trained model
+    └── run_predict_example.sh          # Score a single explanation
 ```
 
 ---
@@ -173,11 +175,13 @@ To score your own input, edit the variables `I`, `OA`, `M_I`, and `GENERATION` a
 
 ## Ontology Artefacts
 
-The `modeling/ontologies/` folder contains successive versions of the Expert Assessment Schema ontology:
+The `modeling/ontologies/` folder contains successive versions of the Expert Assessment Schema ontology.
+
+All ontologies were validated with [OOPS! (OntOlogy Pitfall Scanner)](https://oops.linkeddata.es/). We addressed the pitfalls flagged by OOPS! and ensure that none of our ontologies presented in the table below have any remaining critical or important issues.
 
 | File | Contents |
 |---|---|
-| `ExpertAssessmentSchema.rdf` | Core Expert-Assessment Schema formalization|
+| `ExpertAssessmentSchema.rdf` | Core Expert-Assessment Schema formalization |
 | `ExpertAssessmentSchema_UO.rdf` | + Unintended Outcomes (used for inference capability) |
 | `ExpertAssessmentSchema_UO_RE.rdf` | + Relevant Elements (used for modeling comprehension) |
 | `ExpertAssessmentSchema_withDemoIndivs.rdf` | Annotated sample individuals for illustration |
